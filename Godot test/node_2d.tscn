@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://csnl4vav7ejei"]
+
+[ext_resource type="PackedScene" uid="uid://bkhe3m1kioii0" path="res://token.tscn" id="1_alkcs"]
+[ext_resource type="Script" path="res://node_2d.gd" id="1_mbw2d"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_mbw2d")
+
+[node name="Token" parent="." instance=ExtResource("1_alkcs")]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

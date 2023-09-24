@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkhe3m1kioii0"]
+
+[ext_resource type="Script" path="res://token.gd" id="1_vwlta"]
+[ext_resource type="Texture2D" uid="uid://b72ai5d8vcaia" path="res://Fairy Pics/gold.png" id="4_dmohf"]
+
+[node name="Token" type="Node2D"]
+script = ExtResource("1_vwlta")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(355, 289)
+texture = ExtResource("4_dmohf")
