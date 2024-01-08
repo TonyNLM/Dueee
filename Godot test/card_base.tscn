@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bq035c7yp46bb" path="res://Fairy Pics/1crown.png" id="6_lqff8"]
 
 [node name="Card_Base" type="Node2D"]
-position = Vector2(55, 159)
+position = Vector2(-2, 120)
 scale = Vector2(0.5, 0.5)
 
 [node name="CardBase" type="Sprite2D" parent="."]
@@ -21,7 +21,7 @@ position = Vector2(418, 263)
 texture = ExtResource("2_outm8")
 
 [node name="CardBaseUp" type="Sprite2D" parent="."]
-position = Vector2(421, 261)
+position = Vector2(420, 262)
 texture = ExtResource("3_l4bgm")
 
 [node name="CardScore" type="Sprite2D" parent="."]
@@ -29,7 +29,7 @@ position = Vector2(413, 266)
 texture = ExtResource("4_0etek")
 
 [node name="CardSkill" type="Sprite2D" parent="."]
-position = Vector2(413, 266)
+position = Vector2(414, 262)
 texture = ExtResource("5_q2by4")
 
 [node name="Crown_Base" type="Node2D" parent="."]
@@ -40,7 +40,7 @@ position = Vector2(2390, 650)
 script = ExtResource("6_7wlgo")
 
 [node name="Crown" type="Sprite2D" parent="Crown_Base/Crown_Image_Holder"]
-position = Vector2(-1020, -846.667)
+position = Vector2(-996.667, -843.333)
 texture = ExtResource("6_lqff8")
 
 [node name="Timer" type="Timer" parent="Crown_Base"]

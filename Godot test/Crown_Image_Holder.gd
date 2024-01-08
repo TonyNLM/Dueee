@@ -13,12 +13,22 @@ func _process(delta):
 	pass
 
 func setCrownImage(num):
-	crownstring = "crown" + str(crownCount)
+	if num>3:
+		num=3
+	if num<1:
+		num=1
+	crownCount = num
+	crownstring = "crown" + str(num)
 	$Crown.texture = crownIcons[crownstring]
+	print("Crown set"+str(crownCount))
+	
+func getCrownNum():
+	return crownCount
+		
 
 func _on_timer_timeout():
-	if crownCount==3:
-		crownCount=0
-	crownCount+=1
-	setCrownImage(crownCount)
+#	if crownCount==3:
+#		crownCount=0
+#	crownCount+=1
+#	setCrownImage(crownCount)
 	pass # Replace with function body.
