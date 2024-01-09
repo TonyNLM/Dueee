@@ -7,5 +7,5 @@
 script = ExtResource("1_vwlta")
 
 [node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(355, 289)
+position = Vector2(199, 202)
 texture = ExtResource("4_dmohf")

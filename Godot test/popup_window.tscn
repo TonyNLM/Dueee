@@ -74,15 +74,5 @@ theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 20
 text = "Default"
 
-[node name="Card_Points" type="RichTextLabel" parent="."]
-offset_left = 272.5
-offset_top = 128.75
-offset_right = 334.5
-offset_bottom = 212.75
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 60
-text = "1
-"
-
 [editable path="PurchaseButton"]
 [editable path="ReserveButton"]

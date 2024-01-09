@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://qcu4dl5dyvtr"]
+
+[ext_resource type="Script" path="res://TestScene.gd" id="1_l3dbt"]
+[ext_resource type="PackedScene" uid="uid://drtpxaydwef5n" path="res://card_base.tscn" id="2_cs4ad"]
+[ext_resource type="PackedScene" uid="uid://0ux41700ls1o" path="res://ButtonText.tscn" id="3_t8ftu"]
+
+[node name="TestScene" type="Node2D"]
+script = ExtResource("1_l3dbt")
+
+[node name="Card_Base" parent="." instance=ExtResource("2_cs4ad")]
+
+[node name="ButtonText" parent="." instance=ExtResource("3_t8ftu")]
+position = Vector2(390, -17)
+scale = Vector2(0.55, 0.55)
+
+[node name="ButtonText2" parent="." instance=ExtResource("3_t8ftu")]
+position = Vector2(392, 105)
+scale = Vector2(0.55, 0.55)
+
+[node name="ButtonText3" parent="." instance=ExtResource("3_t8ftu")]
+position = Vector2(767, 225)
+scale = Vector2(0.55, 0.55)
+
+[node name="ButtonText4" parent="." instance=ExtResource("3_t8ftu")]
+position = Vector2(766, 341)
+scale = Vector2(0.55, 0.55)

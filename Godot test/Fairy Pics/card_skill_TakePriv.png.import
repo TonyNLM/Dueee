@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8lsnrjrphon5"
-path="res://.godot/imported/baclk.png-17e18395c7955bbbe73e9739768c928f.ctex"
+uid="uid://cgr8mh1nk4i7f"
+path="res://.godot/imported/card_skill_TakePriv.png-db319f2f351a819e38cdbf6ca884fe67.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fairy Pics/baclk.png"
-dest_files=["res://.godot/imported/baclk.png-17e18395c7955bbbe73e9739768c928f.ctex"]
+source_file="res://Fairy Pics/card_skill_TakePriv.png"
+dest_files=["res://.godot/imported/card_skill_TakePriv.png-db319f2f351a819e38cdbf6ca884fe67.ctex"]
 
 [params]
 
