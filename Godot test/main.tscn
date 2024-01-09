@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3cyyo2gkhaqq"]
+
+[ext_resource type="PackedScene" uid="uid://dudph7sk1dggs" path="res://board.tscn" id="1_xmi4d"]
+[ext_resource type="Texture2D" uid="uid://dq5vkhkwd8em5" path="res://Fairy Pics/banner.png" id="2_fuy8n"]
+[ext_resource type="Texture2D" uid="uid://d13d4qti5bgvo" path="res://Fairy Pics/bag2.png" id="3_5wan4"]
+[ext_resource type="Texture2D" uid="uid://bocoi7cjvev3l" path="res://Fairy Pics/Decree.png" id="4_7iqku"]
+[ext_resource type="PackedScene" uid="uid://dkxiywhpo54ww" path="res://CardList.tscn" id="5_ao4k1"]
+[ext_resource type="PackedScene" uid="uid://0ux41700ls1o" path="res://ButtonText.tscn" id="6_b04lu"]
+[ext_resource type="Texture2D" uid="uid://dc13766imjok1" path="res://Fairy Pics/info.png" id="7_rnxi8"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Board" parent="." instance=ExtResource("1_xmi4d")]
+position = Vector2(649, 147)
+scale = Vector2(0.245, 0.245)
+
+[node name="Banner" type="Sprite2D" parent="."]
+position = Vector2(893, 81)
+scale = Vector2(0.434375, 0.378333)
+texture = ExtResource("2_fuy8n")
+
+[node name="Bag" type="Sprite2D" parent="Banner"]
+position = Vector2(234.82, -5.28637)
+scale = Vector2(0.661151, 0.640969)
+texture = ExtResource("3_5wan4")
+
+[node name="BagCount" type="RichTextLabel" parent="Banner/Bag"]
+offset_left = -31.3384
+offset_top = -20.6186
+offset_right = 90.6616
+offset_bottom = 107.381
+theme_override_font_sizes/normal_font_size = 80
+text = "3"
+
+[node name="Priv" type="Sprite2D" parent="Banner"]
+position = Vector2(465.036, -2.64319)
+scale = Vector2(1.23013, 1.40379)
+texture = ExtResource("4_7iqku")
+
+[node name="PrivCount" type="RichTextLabel" parent="Banner/Priv"]
+offset_left = -11.2289
+offset_top = -26.3604
+offset_right = 79.7711
+offset_bottom = 101.64
+theme_override_font_sizes/normal_font_size = 40
+text = "3"
+
+[node name="VBoxContainer" parent="." instance=ExtResource("5_ao4k1")]
+
+[node name="ButtonText" parent="." instance=ExtResource("6_b04lu")]
+position = Vector2(468, 175)
+scale = Vector2(0.27, 0.27)
+
+[node name="ButtonText2" parent="." instance=ExtResource("6_b04lu")]
+position = Vector2(307, 175)
+scale = Vector2(0.27, 0.27)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(178, 217)
+scale = Vector2(0.205, 0.145)
+texture = ExtResource("7_rnxi8")

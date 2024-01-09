@@ -12,7 +12,9 @@ func _ready():
 	$ButtonText2/Button_Icon.pressed.connect(self.decreaseSkill)
 	$ButtonText3/Button_Icon.pressed.connect(self.increaseToken)
 	$ButtonText4/Button_Icon.pressed.connect(self.decreaseToken)
-	
+	$Card_Base.changeCardCost([[1,5],[2,0],[3,3],[0,2]])
+	$Card_Base.changeCardCrown(2)
+	$Card_Base.changeCardScore(4)
 	
 	
 	pass # Replace with function body.
@@ -45,4 +47,4 @@ func decreaseToken():
 	if tokenCount<0:
 		tokenCount=7
 	$Card_Base.changeCardTokenColour(tokenCount)
-	
+

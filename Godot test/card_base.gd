@@ -82,15 +82,25 @@ func changeCardCost(costArray: Array):
 	var Cost_Parent_In_Use = 1
 	var i = 0
 	var max_array_index = costArray.size()-1
+	
 	while (i<=max_array_index and i<4):
 		var costInfo = costArray[i]
 		#costInfo[0] indicates token cost colour, [1] indicating token cost amount
 		#the token cost colour follows the same Enum as token colour
 		if costInfo[0]>=1 and costInfo[0]<=6 and costInfo[1]>0:
+			CostItems[Cost_Parent_In_Use-1].visible = true
 			CostItems[Cost_Parent_In_Use-1].changeCostColour(costInfo[0])
 			CostItems[Cost_Parent_In_Use-1].changeCostText(costInfo[1])
 			Cost_Parent_In_Use+=1
+			
+
+			
 		i+=1
+	if Cost_Parent_In_Use!=4:
+		while Cost_Parent_In_Use<=4:
+			CostItems[Cost_Parent_In_Use-1].visible = false
+			Cost_Parent_In_Use+=1
+			
 	
 		
 	

@@ -1,0 +1,112 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkxiywhpo54ww"]
+
+[ext_resource type="PackedScene" uid="uid://drtpxaydwef5n" path="res://card_base.tscn" id="1_0o4n2"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+offset_left = 21.0
+offset_top = 259.0
+offset_right = 2441.0
+offset_bottom = 2002.0
+scale = Vector2(0.26, 0.26)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Card_Base" parent="HBoxContainer/CenterContainer" instance=ExtResource("1_0o4n2")]
+
+[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Card_Base" parent="HBoxContainer/CenterContainer2" instance=ExtResource("1_0o4n2")]
+
+[node name="CenterContainer3" type="CenterContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Card_Base" parent="HBoxContainer/CenterContainer3" instance=ExtResource("1_0o4n2")]
+
+[node name="CenterContainer4" type="CenterContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Card_Base" parent="HBoxContainer/CenterContainer4" instance=ExtResource("1_0o4n2")]
+
+[node name="CenterContainer5" type="CenterContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Card_Base" parent="HBoxContainer/CenterContainer5" instance=ExtResource("1_0o4n2")]
+
+[node name="CenterContainer6" type="CenterContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Card_Base" parent="HBoxContainer/CenterContainer6" instance=ExtResource("1_0o4n2")]
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Card_Base" parent="HBoxContainer2/CenterContainer" instance=ExtResource("1_0o4n2")]
+
+[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Card_Base" parent="HBoxContainer2/CenterContainer2" instance=ExtResource("1_0o4n2")]
+
+[node name="CenterContainer3" type="CenterContainer" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Card_Base" parent="HBoxContainer2/CenterContainer3" instance=ExtResource("1_0o4n2")]
+
+[node name="CenterContainer4" type="CenterContainer" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Card_Base" parent="HBoxContainer2/CenterContainer4" instance=ExtResource("1_0o4n2")]
+
+[node name="CenterContainer5" type="CenterContainer" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Card_Base" parent="HBoxContainer2/CenterContainer5" instance=ExtResource("1_0o4n2")]
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer3"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Card_Base" parent="HBoxContainer3/CenterContainer" instance=ExtResource("1_0o4n2")]
+
+[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer3"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Card_Base" parent="HBoxContainer3/CenterContainer2" instance=ExtResource("1_0o4n2")]
+
+[node name="CenterContainer3" type="CenterContainer" parent="HBoxContainer3"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Card_Base" parent="HBoxContainer3/CenterContainer3" instance=ExtResource("1_0o4n2")]
+
+[node name="CenterContainer4" type="CenterContainer" parent="HBoxContainer3"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Card_Base" parent="HBoxContainer3/CenterContainer4" instance=ExtResource("1_0o4n2")]
