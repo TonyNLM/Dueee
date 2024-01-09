@@ -1,0 +1,167 @@
+[gd_scene load_steps=4 format=3 uid="uid://dudph7sk1dggs"]
+
+[ext_resource type="Texture2D" uid="uid://cltc8c8pypoch" path="res://Fairy Pics/GridFull.png" id="1_pnb7c"]
+[ext_resource type="Script" path="res://board.gd" id="1_wclkc"]
+[ext_resource type="PackedScene" uid="uid://bj4l5bjol8nbc" path="res://board_token.tscn" id="2_swkts"]
+
+[node name="Board" type="Node2D"]
+script = ExtResource("1_wclkc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1001, 1002)
+texture = ExtResource("1_pnb7c")
+
+[node name="Board_Parent" type="GridContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+columns = 5
+
+[node name="Board_position1" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position1" instance=ExtResource("2_swkts")]
+
+[node name="Board_position2" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position2" instance=ExtResource("2_swkts")]
+
+[node name="Board_position3" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position3" instance=ExtResource("2_swkts")]
+
+[node name="Board_position4" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position4" instance=ExtResource("2_swkts")]
+
+[node name="Board_position5" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position5" instance=ExtResource("2_swkts")]
+
+[node name="Board_position6" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position6" instance=ExtResource("2_swkts")]
+
+[node name="Board_position7" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position7" instance=ExtResource("2_swkts")]
+
+[node name="Board_position8" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position8" instance=ExtResource("2_swkts")]
+
+[node name="Board_position9" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position9" instance=ExtResource("2_swkts")]
+
+[node name="Board_position10" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position10" instance=ExtResource("2_swkts")]
+
+[node name="Board_position11" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position11" instance=ExtResource("2_swkts")]
+
+[node name="Board_position12" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position12" instance=ExtResource("2_swkts")]
+
+[node name="Board_position13" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position13" instance=ExtResource("2_swkts")]
+
+[node name="Board_position14" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position14" instance=ExtResource("2_swkts")]
+
+[node name="Board_position15" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position15" instance=ExtResource("2_swkts")]
+
+[node name="Board_position16" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position16" instance=ExtResource("2_swkts")]
+
+[node name="Board_position17" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position17" instance=ExtResource("2_swkts")]
+
+[node name="Board_position18" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position18" instance=ExtResource("2_swkts")]
+
+[node name="Board_position19" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position19" instance=ExtResource("2_swkts")]
+
+[node name="Board_position20" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position20" instance=ExtResource("2_swkts")]
+
+[node name="Board_position21" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position21" instance=ExtResource("2_swkts")]
+
+[node name="Board_position22" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position22" instance=ExtResource("2_swkts")]
+
+[node name="Board_position23" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position23" instance=ExtResource("2_swkts")]
+
+[node name="Board_position24" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position24" instance=ExtResource("2_swkts")]
+
+[node name="Board_position25" type="CenterContainer" parent="Board_Parent"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="BoardToken" parent="Board_Parent/Board_position25" instance=ExtResource("2_swkts")]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://p623nwbfa560"]
+
+[ext_resource type="Script" path="res://Cost_Parent.gd" id="1_yvkm7"]
+[ext_resource type="Texture2D" uid="uid://fhk721x7ck1p" path="res://Fairy Pics/cost_black.png" id="2_m2eaq"]
+
+[node name="Cost_Parent" type="Node2D"]
+script = ExtResource("1_yvkm7")
+
+[node name="CostIcon" type="Sprite2D" parent="."]
+position = Vector2(72, 67)
+texture = ExtResource("2_m2eaq")
+
+[node name="CostText" type="RichTextLabel" parent="."]
+offset_left = 47.0
+offset_top = 16.0
+offset_right = 110.0
+offset_bottom = 104.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 63
+text = "4"

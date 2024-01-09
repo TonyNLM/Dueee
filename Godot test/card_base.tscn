@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://drtpxaydwef5n"]
+[gd_scene load_steps=11 format=3 uid="uid://drtpxaydwef5n"]
 
 [ext_resource type="Texture2D" uid="uid://b7cevabntfmi4" path="res://Fairy Pics/card_base.png" id="1_gj2hu"]
 [ext_resource type="Script" path="res://card_base.gd" id="1_qkqrb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bq035c7yp46bb" path="res://Fairy Pics/1crown.png" id="6_lqff8"]
 [ext_resource type="Texture2D" uid="uid://davou58y3oqtt" path="res://Fairy Pics/card_skill_TakeToken.png" id="6_x2nnc"]
 [ext_resource type="PackedScene" uid="uid://bkhe3m1kioii0" path="res://token.tscn" id="7_hip5k"]
+[ext_resource type="PackedScene" uid="uid://p623nwbfa560" path="res://cost_parent.tscn" id="10_ur8u3"]
 
 [node name="Card_Base" type="Node2D"]
 position = Vector2(-2, 120)
@@ -32,18 +33,19 @@ position = Vector2(413, 266)
 texture = ExtResource("4_0etek")
 
 [node name="CardPoints" type="RichTextLabel" parent="CardScore"]
-offset_left = -253.0
-offset_top = -366.0
-offset_right = -191.0
-offset_bottom = -282.0
+offset_left = -261.0
+offset_top = -392.0
+offset_right = -199.0
+offset_bottom = -308.0
+scale = Vector2(1.71, 1.71)
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 60
 text = "1
 "
 
 [node name="CardSkill" type="Sprite2D" parent="."]
-position = Vector2(594, 356)
-scale = Vector2(1.45, 1.45)
+position = Vector2(486, 306)
+scale = Vector2(1.185, 1.219)
 texture = ExtResource("6_x2nnc")
 
 [node name="TokenSkill" parent="CardSkill" instance=ExtResource("7_hip5k")]
@@ -69,5 +71,36 @@ autostart = true
 [node name="CardToken" parent="." instance=ExtResource("7_hip5k")]
 position = Vector2(540, -160)
 scale = Vector2(0.51, 0.51)
+
+[node name="CostContainer" type="GridContainer" parent="."]
+offset_left = 450.0
+offset_top = 394.0
+offset_right = 808.0
+offset_bottom = 742.0
+columns = 2
+
+[node name="CostItem4" type="CenterContainer" parent="CostContainer"]
+custom_minimum_size = Vector2(150, 140)
+layout_mode = 2
+
+[node name="Cost_Parent" parent="CostContainer/CostItem4" instance=ExtResource("10_ur8u3")]
+
+[node name="CostItem2" type="CenterContainer" parent="CostContainer"]
+custom_minimum_size = Vector2(150, 140)
+layout_mode = 2
+
+[node name="Cost_Parent" parent="CostContainer/CostItem2" instance=ExtResource("10_ur8u3")]
+
+[node name="CostItem3" type="CenterContainer" parent="CostContainer"]
+custom_minimum_size = Vector2(150, 140)
+layout_mode = 2
+
+[node name="Cost_Parent" parent="CostContainer/CostItem3" instance=ExtResource("10_ur8u3")]
+
+[node name="CostItem1" type="CenterContainer" parent="CostContainer"]
+custom_minimum_size = Vector2(150, 140)
+layout_mode = 2
+
+[node name="Cost_Parent" parent="CostContainer/CostItem1" instance=ExtResource("10_ur8u3")]
 
 [connection signal="timeout" from="Crown_Base/Timer" to="Crown_Base/Crown_Image_Holder" method="_on_timer_timeout"]

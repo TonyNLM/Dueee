@@ -18,5 +18,7 @@ enum TokenColour {
 	Green,
 	Black,
 	Pink,
-	Wild
+	Wild,
+	None
 }
+

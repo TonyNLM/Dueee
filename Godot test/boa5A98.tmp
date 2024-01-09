@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bj4l5bjol8nbc"]
+
+[ext_resource type="Script" path="res://board_token.gd" id="1_bec62"]
+[ext_resource type="PackedScene" uid="uid://bkhe3m1kioii0" path="res://token.tscn" id="1_nru06"]
+[ext_resource type="Texture2D" uid="uid://cigiew6i3jrbn" path="res://Fairy Pics/highlight.png" id="2_8bg07"]
+
+[node name="BoardToken" type="Node2D"]
+script = ExtResource("1_bec62")
+
+[node name="WhiteHighlight" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(195, 206)
+texture = ExtResource("2_8bg07")
+
+[node name="YellowHighlight" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 0.992157, 1)
+position = Vector2(195, 206)
+texture = ExtResource("2_8bg07")
+
+[node name="Board_Button" type="Button" parent="."]
+visible = false
+custom_minimum_size = Vector2(400, 400)
+
+[node name="Token" parent="." instance=ExtResource("1_nru06")]
