@@ -1,14 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://drtpxaydwef5n"]
+[gd_scene load_steps=10 format=3 uid="uid://drtpxaydwef5n"]
 
 [ext_resource type="Texture2D" uid="uid://b7cevabntfmi4" path="res://Fairy Pics/card_base.png" id="1_gj2hu"]
 [ext_resource type="Script" path="res://card_base.gd" id="1_qkqrb"]
 [ext_resource type="Texture2D" uid="uid://condjgrx55kpw" path="res://Fairy Pics/card_base_down.png" id="2_outm8"]
 [ext_resource type="Texture2D" uid="uid://bktiyb52f0swo" path="res://Fairy Pics/card_base_up.png" id="3_l4bgm"]
 [ext_resource type="Texture2D" uid="uid://ddbj6cbwvq2k7" path="res://Fairy Pics/card_score.png" id="4_0etek"]
-[ext_resource type="Script" path="res://Crown_Image_Holder.gd" id="6_7wlgo"]
-[ext_resource type="Texture2D" uid="uid://bq035c7yp46bb" path="res://Fairy Pics/1crown.png" id="6_lqff8"]
-[ext_resource type="Texture2D" uid="uid://davou58y3oqtt" path="res://Fairy Pics/card_skill_TakeToken.png" id="6_x2nnc"]
+[ext_resource type="Texture2D" uid="uid://cir405ghunchi" path="res://Fairy Pics/card_skill_ExtraTurn.png" id="6_emfdp"]
 [ext_resource type="PackedScene" uid="uid://bkhe3m1kioii0" path="res://token.tscn" id="7_hip5k"]
+[ext_resource type="PackedScene" uid="uid://isve7fjjr7cm" path="res://crown_base.tscn" id="8_x602n"]
 [ext_resource type="PackedScene" uid="uid://p623nwbfa560" path="res://cost_parent.tscn" id="10_ur8u3"]
 
 [node name="Card_Base" type="Node2D"]
@@ -46,27 +45,14 @@ text = "1
 [node name="CardSkill" type="Sprite2D" parent="."]
 position = Vector2(504, 332)
 scale = Vector2(1.335, 1.373)
-texture = ExtResource("6_x2nnc")
+texture = ExtResource("6_emfdp")
 
 [node name="TokenSkill" parent="CardSkill" instance=ExtResource("7_hip5k")]
 visible = false
 position = Vector2(-249.655, -126.897)
 scale = Vector2(0.1, 0.1)
 
-[node name="Crown_Base" type="Node2D" parent="."]
-scale = Vector2(0.3, 0.3)
-
-[node name="Crown_Image_Holder" type="Node2D" parent="Crown_Base"]
-position = Vector2(2390, 650)
-script = ExtResource("6_7wlgo")
-
-[node name="Crown" type="Sprite2D" parent="Crown_Base/Crown_Image_Holder"]
-position = Vector2(-996.667, -843.333)
-texture = ExtResource("6_lqff8")
-
-[node name="Timer" type="Timer" parent="Crown_Base"]
-wait_time = 3.0
-autostart = true
+[node name="Crown_Base" parent="." instance=ExtResource("8_x602n")]
 
 [node name="CardToken" parent="." instance=ExtResource("7_hip5k")]
 position = Vector2(540, -160)
@@ -103,5 +89,3 @@ custom_minimum_size = Vector2(150, 140)
 layout_mode = 2
 
 [node name="Cost_Parent" parent="CostContainer/CostItem1" instance=ExtResource("10_ur8u3")]
-
-[connection signal="timeout" from="Crown_Base/Timer" to="Crown_Base/Crown_Image_Holder" method="_on_timer_timeout"]

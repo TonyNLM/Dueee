@@ -1,0 +1,225 @@
+[gd_scene load_steps=8 format=3 uid="uid://c63li1egl8ecb"]
+
+[ext_resource type="Texture2D" uid="uid://gf1sehhh3ygi" path="res://Fairy Pics/PlayerTrapeziumBoard1.png" id="1_2hapc"]
+[ext_resource type="Script" path="res://Token_and_Bonus.gd" id="2_xwt0r"]
+[ext_resource type="PackedScene" uid="uid://p623nwbfa560" path="res://cost_parent.tscn" id="3_ojrvx"]
+[ext_resource type="PackedScene" uid="uid://isve7fjjr7cm" path="res://crown_base.tscn" id="4_6qwlf"]
+[ext_resource type="Texture2D" uid="uid://bocoi7cjvev3l" path="res://Fairy Pics/Decree.png" id="5_jijjw"]
+[ext_resource type="Texture2D" uid="uid://ddbj6cbwvq2k7" path="res://Fairy Pics/card_score.png" id="6_lxnjm"]
+[ext_resource type="PackedScene" uid="uid://bs6wu36h0m2wv" path="res://tier_card_back.tscn" id="7_ekrsb"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Blue_Base" type="Sprite2D" parent="."]
+position = Vector2(335, 252)
+texture = ExtResource("1_2hapc")
+
+[node name="Token_and_Bonus" type="HBoxContainer" parent="."]
+offset_left = -25.0
+offset_top = 282.0
+offset_right = 208.0
+offset_bottom = 324.0
+rotation = -0.340339
+scale = Vector2(3.24, 3.264)
+script = ExtResource("2_xwt0r")
+
+[node name="PlayerTokenCount0" type="CenterContainer" parent="Token_and_Bonus"]
+custom_minimum_size = Vector2(29.06, 0)
+layout_mode = 2
+
+[node name="Cost_Parent" parent="Token_and_Bonus/PlayerTokenCount0" instance=ExtResource("3_ojrvx")]
+rotation = 0.340339
+scale = Vector2(0.255, 0.255)
+
+[node name="Cost_Bonus" type="RichTextLabel" parent="Token_and_Bonus/PlayerTokenCount0/Cost_Parent"]
+offset_left = 85.6916
+offset_top = 74.3532
+offset_right = 141.692
+offset_bottom = 124.353
+theme_override_font_sizes/normal_font_size = 34
+text = "+3"
+
+[node name="PlayerTokenCount1" type="CenterContainer" parent="Token_and_Bonus"]
+custom_minimum_size = Vector2(29.06, 0)
+layout_mode = 2
+
+[node name="Cost_Parent" parent="Token_and_Bonus/PlayerTokenCount1" instance=ExtResource("3_ojrvx")]
+rotation = 0.340339
+scale = Vector2(0.255, 0.255)
+
+[node name="Cost_Bonus" type="RichTextLabel" parent="Token_and_Bonus/PlayerTokenCount1/Cost_Parent"]
+offset_left = 85.6916
+offset_top = 74.3532
+offset_right = 141.692
+offset_bottom = 124.353
+theme_override_font_sizes/normal_font_size = 34
+text = "+3"
+
+[node name="PlayerTokenCount2" type="CenterContainer" parent="Token_and_Bonus"]
+custom_minimum_size = Vector2(29.06, 0)
+layout_mode = 2
+
+[node name="Cost_Parent" parent="Token_and_Bonus/PlayerTokenCount2" instance=ExtResource("3_ojrvx")]
+rotation = 0.340339
+scale = Vector2(0.255, 0.255)
+
+[node name="Cost_Bonus" type="RichTextLabel" parent="Token_and_Bonus/PlayerTokenCount2/Cost_Parent"]
+offset_left = 85.6916
+offset_top = 74.3532
+offset_right = 141.692
+offset_bottom = 124.353
+theme_override_font_sizes/normal_font_size = 34
+text = "+3"
+
+[node name="PlayerTokenCount3" type="CenterContainer" parent="Token_and_Bonus"]
+custom_minimum_size = Vector2(29.06, 0)
+layout_mode = 2
+
+[node name="Cost_Parent" parent="Token_and_Bonus/PlayerTokenCount3" instance=ExtResource("3_ojrvx")]
+rotation = 0.340339
+scale = Vector2(0.255, 0.255)
+
+[node name="Cost_Bonus" type="RichTextLabel" parent="Token_and_Bonus/PlayerTokenCount3/Cost_Parent"]
+offset_left = 85.6916
+offset_top = 74.3532
+offset_right = 141.692
+offset_bottom = 124.353
+theme_override_font_sizes/normal_font_size = 34
+text = "+3"
+
+[node name="PlayerTokenCount4" type="CenterContainer" parent="Token_and_Bonus"]
+custom_minimum_size = Vector2(29.06, 0)
+layout_mode = 2
+
+[node name="Cost_Parent" parent="Token_and_Bonus/PlayerTokenCount4" instance=ExtResource("3_ojrvx")]
+rotation = 0.340339
+scale = Vector2(0.255, 0.255)
+
+[node name="Cost_Bonus" type="RichTextLabel" parent="Token_and_Bonus/PlayerTokenCount4/Cost_Parent"]
+offset_left = 85.6916
+offset_top = 74.3532
+offset_right = 141.692
+offset_bottom = 124.353
+theme_override_font_sizes/normal_font_size = 34
+text = "+3"
+
+[node name="PlayerTokenCount5" type="CenterContainer" parent="Token_and_Bonus"]
+custom_minimum_size = Vector2(29.06, 0)
+layout_mode = 2
+
+[node name="Cost_Parent" parent="Token_and_Bonus/PlayerTokenCount5" instance=ExtResource("3_ojrvx")]
+rotation = 0.340339
+scale = Vector2(0.255, 0.255)
+
+[node name="Cost_Bonus" type="RichTextLabel" parent="Token_and_Bonus/PlayerTokenCount5/Cost_Parent"]
+offset_left = 85.6916
+offset_top = 74.3532
+offset_right = 141.692
+offset_bottom = 124.353
+theme_override_font_sizes/normal_font_size = 34
+text = "+3"
+
+[node name="PlayerTokenCount6" type="CenterContainer" parent="Token_and_Bonus"]
+custom_minimum_size = Vector2(29.06, 0)
+layout_mode = 2
+
+[node name="Cost_Parent" parent="Token_and_Bonus/PlayerTokenCount6" instance=ExtResource("3_ojrvx")]
+rotation = 0.340339
+scale = Vector2(0.255, 0.255)
+
+[node name="Cost_Bonus" type="RichTextLabel" parent="Token_and_Bonus/PlayerTokenCount6/Cost_Parent"]
+offset_left = 85.6916
+offset_top = 74.3532
+offset_right = 141.692
+offset_bottom = 124.353
+theme_override_font_sizes/normal_font_size = 34
+text = "+3"
+
+[node name="Crown_Base" parent="." instance=ExtResource("4_6qwlf")]
+position = Vector2(496, -15)
+scale = Vector2(0.235, 0.235)
+
+[node name="Priv_Stack" type="HBoxContainer" parent="."]
+offset_left = 246.0
+offset_top = 109.0
+offset_right = 345.0
+offset_bottom = 186.0
+
+[node name="CenterContainer" type="CenterContainer" parent="Priv_Stack"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Priv_Stack/CenterContainer"]
+position = Vector2(12, 35)
+scale = Vector2(0.381188, 0.389952)
+texture = ExtResource("5_jijjw")
+
+[node name="CenterContainer3" type="CenterContainer" parent="Priv_Stack"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Priv_Stack/CenterContainer3"]
+position = Vector2(12, 35)
+scale = Vector2(0.381188, 0.389952)
+texture = ExtResource("5_jijjw")
+
+[node name="CenterContainer2" type="CenterContainer" parent="Priv_Stack"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Priv_Stack/CenterContainer2"]
+position = Vector2(12, 35)
+scale = Vector2(0.381188, 0.389952)
+texture = ExtResource("5_jijjw")
+
+[node name="PlayerScore" type="Sprite2D" parent="."]
+position = Vector2(551, 220)
+scale = Vector2(0.495, 0.495)
+texture = ExtResource("6_lxnjm")
+
+[node name="CardPoints" type="RichTextLabel" parent="PlayerScore"]
+offset_left = -261.0
+offset_top = -392.0
+offset_right = -199.0
+offset_bottom = -308.0
+scale = Vector2(1.71, 1.71)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 60
+text = "1
+"
+
+[node name="PlayerName" type="RichTextLabel" parent="."]
+offset_left = 38.0
+offset_top = 20.0
+offset_right = 379.0
+offset_bottom = 100.0
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "PlayerName"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 31.0
+offset_top = 97.0
+offset_right = 267.0
+offset_bottom = 137.0
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="TierCardBack" parent="HBoxContainer/CenterContainer" instance=ExtResource("7_ekrsb")]
+scale = Vector2(0.1, 0.1)
+
+[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="TierCardBack" parent="HBoxContainer/CenterContainer2" instance=ExtResource("7_ekrsb")]
+scale = Vector2(0.1, 0.1)
+
+[node name="CenterContainer3" type="CenterContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="TierCardBack" parent="HBoxContainer/CenterContainer3" instance=ExtResource("7_ekrsb")]
+scale = Vector2(0.1, 0.1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c3cyyo2gkhaqq"]
+[gd_scene load_steps=14 format=3 uid="uid://c3cyyo2gkhaqq"]
 
 [ext_resource type="PackedScene" uid="uid://dudph7sk1dggs" path="res://board.tscn" id="1_xmi4d"]
 [ext_resource type="Texture2D" uid="uid://dq5vkhkwd8em5" path="res://Fairy Pics/banner.png" id="2_fuy8n"]
@@ -7,16 +7,23 @@
 [ext_resource type="PackedScene" uid="uid://dkxiywhpo54ww" path="res://CardList.tscn" id="5_ao4k1"]
 [ext_resource type="PackedScene" uid="uid://0ux41700ls1o" path="res://ButtonText.tscn" id="6_b04lu"]
 [ext_resource type="Texture2D" uid="uid://dc13766imjok1" path="res://Fairy Pics/info.png" id="7_rnxi8"]
+[ext_resource type="Texture2D" uid="uid://o8pfgrunda8u" path="res://Fairy Pics/hints.png" id="8_167hf"]
+[ext_resource type="Texture2D" uid="uid://m8qg12s2v7hg" path="res://Fairy Pics/hints_down.png" id="9_kij6r"]
+[ext_resource type="Texture2D" uid="uid://b6g1l3guhc6dp" path="res://Fairy Pics/logs.png" id="10_xrj55"]
+[ext_resource type="Texture2D" uid="uid://cy2gahi12th8c" path="res://Fairy Pics/logs_down.png" id="11_apprk"]
+[ext_resource type="Texture2D" uid="uid://bfaxcv4gfgoxr" path="res://Fairy Pics/settings.png" id="12_2prkk"]
+[ext_resource type="Texture2D" uid="uid://x4fe2kgg2hx3" path="res://Fairy Pics/settings_down.png" id="13_5wkok"]
 
 [node name="Main" type="Node2D"]
+metadata/_edit_horizontal_guides_ = [-19.0]
 
 [node name="Board" parent="." instance=ExtResource("1_xmi4d")]
-position = Vector2(649, 147)
-scale = Vector2(0.245, 0.245)
+position = Vector2(726, 225)
+scale = Vector2(0.21, 0.21)
 
 [node name="Banner" type="Sprite2D" parent="."]
-position = Vector2(893, 81)
-scale = Vector2(0.434375, 0.378333)
+position = Vector2(957, 57)
+scale = Vector2(0.327833, 0.271667)
 texture = ExtResource("2_fuy8n")
 
 [node name="Bag" type="Sprite2D" parent="Banner"]
@@ -46,16 +53,43 @@ theme_override_font_sizes/normal_font_size = 40
 text = "3"
 
 [node name="VBoxContainer" parent="." instance=ExtResource("5_ao4k1")]
+offset_left = 3.99999
+offset_top = 211.0
+offset_right = 2424.0
+offset_bottom = 1954.0
+scale = Vector2(0.29, 0.29)
 
 [node name="ButtonText" parent="." instance=ExtResource("6_b04lu")]
-position = Vector2(468, 175)
+position = Vector2(773, 157)
 scale = Vector2(0.27, 0.27)
 
 [node name="ButtonText2" parent="." instance=ExtResource("6_b04lu")]
-position = Vector2(307, 175)
+position = Vector2(933, 156)
 scale = Vector2(0.27, 0.27)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(178, 217)
-scale = Vector2(0.205, 0.145)
+[node name="PhaseIndicator" type="Sprite2D" parent="."]
+position = Vector2(941, 138)
+scale = Vector2(0.292083, 0.1825)
 texture = ExtResource("7_rnxi8")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+offset_left = 1111.0
+offset_top = 104.0
+offset_right = 1324.0
+offset_bottom = 758.0
+scale = Vector2(0.195, 0.195)
+
+[node name="TextureButton3" type="TextureButton" parent="VBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("12_2prkk")
+texture_pressed = ExtResource("13_5wkok")
+
+[node name="TextureButton2" type="TextureButton" parent="VBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("10_xrj55")
+texture_pressed = ExtResource("11_apprk")
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer2"]
+layout_mode = 2
+texture_normal = ExtResource("8_167hf")
+texture_pressed = ExtResource("9_kij6r")

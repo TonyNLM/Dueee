@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://isve7fjjr7cm"]
+
+[ext_resource type="Script" path="res://Crown_Image_Holder.gd" id="1_rap4s"]
+[ext_resource type="Texture2D" uid="uid://bq035c7yp46bb" path="res://Fairy Pics/1crown.png" id="2_8th0x"]
+
+[node name="Crown_Base" type="Node2D"]
+scale = Vector2(0.3, 0.3)
+
+[node name="Crown_Image_Holder" type="Node2D" parent="."]
+position = Vector2(2390, 650)
+script = ExtResource("1_rap4s")
+
+[node name="Crown" type="Sprite2D" parent="Crown_Image_Holder"]
+position = Vector2(-2096.67, -346.667)
+texture = ExtResource("2_8th0x")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="Crown_Image_Holder" method="_on_timer_timeout"]

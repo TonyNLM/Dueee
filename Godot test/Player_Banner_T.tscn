@@ -1,0 +1,132 @@
+[gd_scene load_steps=4 format=3 uid="uid://5m57sheu2wrl"]
+
+[ext_resource type="Texture2D" uid="uid://gf1sehhh3ygi" path="res://Fairy Pics/PlayerTrapeziumBoard1.png" id="1_n0k3x"]
+[ext_resource type="PackedScene" uid="uid://bkhe3m1kioii0" path="res://token.tscn" id="2_lxho0"]
+[ext_resource type="PackedScene" uid="uid://p623nwbfa560" path="res://cost_parent.tscn" id="3_sx2qx"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Blue_Base" type="Sprite2D" parent="."]
+position = Vector2(335, 252)
+texture = ExtResource("1_n0k3x")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Blue_Base"]
+offset_left = -342.0
+offset_top = 107.0
+offset_right = 3762.0
+offset_bottom = 504.0
+rotation = -0.345575
+scale = Vector2(0.175, 0.175)
+
+[node name="CenterContainer" type="CenterContainer" parent="Blue_Base/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Token" parent="Blue_Base/HBoxContainer/CenterContainer" instance=ExtResource("2_lxho0")]
+
+[node name="CenterContainer10" type="CenterContainer" parent="Blue_Base/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Token" parent="Blue_Base/HBoxContainer/CenterContainer10" instance=ExtResource("2_lxho0")]
+
+[node name="CenterContainer9" type="CenterContainer" parent="Blue_Base/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Token" parent="Blue_Base/HBoxContainer/CenterContainer9" instance=ExtResource("2_lxho0")]
+
+[node name="CenterContainer8" type="CenterContainer" parent="Blue_Base/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Token" parent="Blue_Base/HBoxContainer/CenterContainer8" instance=ExtResource("2_lxho0")]
+
+[node name="CenterContainer7" type="CenterContainer" parent="Blue_Base/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Token" parent="Blue_Base/HBoxContainer/CenterContainer7" instance=ExtResource("2_lxho0")]
+
+[node name="CenterContainer6" type="CenterContainer" parent="Blue_Base/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Token" parent="Blue_Base/HBoxContainer/CenterContainer6" instance=ExtResource("2_lxho0")]
+
+[node name="CenterContainer5" type="CenterContainer" parent="Blue_Base/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Token" parent="Blue_Base/HBoxContainer/CenterContainer5" instance=ExtResource("2_lxho0")]
+
+[node name="CenterContainer4" type="CenterContainer" parent="Blue_Base/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Token" parent="Blue_Base/HBoxContainer/CenterContainer4" instance=ExtResource("2_lxho0")]
+
+[node name="CenterContainer3" type="CenterContainer" parent="Blue_Base/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Token" parent="Blue_Base/HBoxContainer/CenterContainer3" instance=ExtResource("2_lxho0")]
+
+[node name="CenterContainer2" type="CenterContainer" parent="Blue_Base/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Token" parent="Blue_Base/HBoxContainer/CenterContainer2" instance=ExtResource("2_lxho0")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Blue_Base"]
+offset_left = 119.0
+offset_top = 168.0
+offset_right = 231.0
+offset_bottom = 496.0
+scale = Vector2(1.245, 1.245)
+
+[node name="CenterContainer" type="CenterContainer" parent="Blue_Base/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Cost_Parent" parent="Blue_Base/VBoxContainer/CenterContainer" instance=ExtResource("3_sx2qx")]
+position = Vector2(-412, -329)
+scale = Vector2(0.46, 0.46)
+
+[node name="CenterContainer2" type="CenterContainer" parent="Blue_Base/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Cost_Parent" parent="Blue_Base/VBoxContainer/CenterContainer2" instance=ExtResource("3_sx2qx")]
+position = Vector2(-412, -329)
+scale = Vector2(0.46, 0.46)
+
+[node name="CenterContainer3" type="CenterContainer" parent="Blue_Base/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Cost_Parent" parent="Blue_Base/VBoxContainer/CenterContainer3" instance=ExtResource("3_sx2qx")]
+position = Vector2(-412, -329)
+scale = Vector2(0.46, 0.46)
+
+[node name="CenterContainer4" type="CenterContainer" parent="Blue_Base/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Cost_Parent" parent="Blue_Base/VBoxContainer/CenterContainer4" instance=ExtResource("3_sx2qx")]
+position = Vector2(-412, -329)
+scale = Vector2(0.46, 0.46)
+
+[node name="CenterContainer5" type="CenterContainer" parent="Blue_Base/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="Cost_Parent" parent="Blue_Base/VBoxContainer/CenterContainer5" instance=ExtResource("3_sx2qx")]
+position = Vector2(-412, -329)
+scale = Vector2(0.46, 0.46)
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+offset_left = 323.0
+offset_top = 406.0
+offset_right = 651.0
+offset_bottom = 446.0

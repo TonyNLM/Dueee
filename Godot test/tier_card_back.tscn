@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bs6wu36h0m2wv"]
+
+[ext_resource type="Script" path="res://TierCardBack.gd" id="1_05oef"]
+[ext_resource type="Texture2D" uid="uid://cxldofsyrku4j" path="res://Fairy Pics/tier1CardBack.png" id="2_e3x54"]
+
+[node name="TierCardBack" type="Node2D"]
+script = ExtResource("1_05oef")
+
+[node name="TierCardBack_Icon" type="Sprite2D" parent="."]
+position = Vector2(398, 499)
+texture = ExtResource("2_e3x54")
