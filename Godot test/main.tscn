@@ -55,10 +55,10 @@ theme_override_font_sizes/normal_font_size = 40
 text = "3"
 
 [node name="VBoxContainer" parent="." instance=ExtResource("5_ao4k1")]
-offset_left = 3.99999
-offset_top = 211.0
-offset_right = 2424.0
-offset_bottom = 1954.0
+offset_left = -9.53674e-07
+offset_top = 216.0
+offset_right = 2420.0
+offset_bottom = 1959.0
 scale = Vector2(0.29, 0.29)
 
 [node name="ButtonText" parent="." instance=ExtResource("6_b04lu")]
@@ -101,5 +101,5 @@ position = Vector2(18, 1)
 scale = Vector2(0.545, 0.545)
 
 [node name="Player_Banner2" parent="." instance=ExtResource("15_amsr3")]
-position = Vector2(335, -49)
+position = Vector2(320, -43)
 scale = Vector2(0.545, 0.545)
