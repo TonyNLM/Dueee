@@ -1,14 +1,15 @@
 [gd_scene load_steps=8 format=3 uid="uid://c63li1egl8ecb"]
 
 [ext_resource type="Texture2D" uid="uid://gf1sehhh3ygi" path="res://Fairy Pics/PlayerTrapeziumBoard1.png" id="1_2hapc"]
-[ext_resource type="Script" path="res://Token_and_Bonus.gd" id="2_xwt0r"]
+[ext_resource type="Script" path="res://Player_Banner.gd" id="1_wf783"]
 [ext_resource type="PackedScene" uid="uid://p623nwbfa560" path="res://cost_parent.tscn" id="3_ojrvx"]
 [ext_resource type="PackedScene" uid="uid://isve7fjjr7cm" path="res://crown_base.tscn" id="4_6qwlf"]
 [ext_resource type="Texture2D" uid="uid://bocoi7cjvev3l" path="res://Fairy Pics/Decree.png" id="5_jijjw"]
 [ext_resource type="Texture2D" uid="uid://ddbj6cbwvq2k7" path="res://Fairy Pics/card_score.png" id="6_lxnjm"]
 [ext_resource type="PackedScene" uid="uid://bs6wu36h0m2wv" path="res://tier_card_back.tscn" id="7_ekrsb"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Player_Banner" type="Node2D"]
+script = ExtResource("1_wf783")
 
 [node name="Blue_Base" type="Sprite2D" parent="."]
 position = Vector2(335, 252)
@@ -21,7 +22,6 @@ offset_right = 208.0
 offset_bottom = 324.0
 rotation = -0.340339
 scale = Vector2(3.24, 3.264)
-script = ExtResource("2_xwt0r")
 
 [node name="PlayerTokenCount0" type="CenterContainer" parent="Token_and_Bonus"]
 custom_minimum_size = Vector2(29.06, 0)
@@ -139,35 +139,46 @@ text = "+3"
 position = Vector2(496, -15)
 scale = Vector2(0.235, 0.235)
 
+[node name="Crown_Count" type="RichTextLabel" parent="Crown_Base"]
+offset_left = 276.596
+offset_top = 272.34
+offset_right = 338.596
+offset_bottom = 356.34
+scale = Vector2(1.71, 1.71)
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 60
+text = "1
+"
+
 [node name="Priv_Stack" type="HBoxContainer" parent="."]
 offset_left = 246.0
 offset_top = 109.0
 offset_right = 345.0
 offset_bottom = 186.0
 
-[node name="CenterContainer" type="CenterContainer" parent="Priv_Stack"]
+[node name="Priv1" type="CenterContainer" parent="Priv_Stack"]
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Priv_Stack/CenterContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="Priv_Stack/Priv1"]
 position = Vector2(12, 35)
 scale = Vector2(0.381188, 0.389952)
 texture = ExtResource("5_jijjw")
 
-[node name="CenterContainer3" type="CenterContainer" parent="Priv_Stack"]
+[node name="Priv2" type="CenterContainer" parent="Priv_Stack"]
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Priv_Stack/CenterContainer3"]
+[node name="Sprite2D" type="Sprite2D" parent="Priv_Stack/Priv2"]
 position = Vector2(12, 35)
 scale = Vector2(0.381188, 0.389952)
 texture = ExtResource("5_jijjw")
 
-[node name="CenterContainer2" type="CenterContainer" parent="Priv_Stack"]
+[node name="Priv3" type="CenterContainer" parent="Priv_Stack"]
 custom_minimum_size = Vector2(25, 0)
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Priv_Stack/CenterContainer2"]
+[node name="Sprite2D" type="Sprite2D" parent="Priv_Stack/Priv3"]
 position = Vector2(12, 35)
 scale = Vector2(0.381188, 0.389952)
 texture = ExtResource("5_jijjw")
@@ -197,29 +208,29 @@ theme_override_colors/default_color = Color(1, 1, 0, 1)
 theme_override_font_sizes/normal_font_size = 40
 text = "PlayerName"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Reserve_Parent" type="HBoxContainer" parent="."]
 offset_left = 31.0
 offset_top = 97.0
 offset_right = 267.0
 offset_bottom = 137.0
 
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+[node name="ReserveSlot1" type="CenterContainer" parent="Reserve_Parent"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="TierCardBack" parent="HBoxContainer/CenterContainer" instance=ExtResource("7_ekrsb")]
+[node name="TierCardBack" parent="Reserve_Parent/ReserveSlot1" instance=ExtResource("7_ekrsb")]
 scale = Vector2(0.1, 0.1)
 
-[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer"]
+[node name="ReserveSlot2" type="CenterContainer" parent="Reserve_Parent"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="TierCardBack" parent="HBoxContainer/CenterContainer2" instance=ExtResource("7_ekrsb")]
+[node name="TierCardBack" parent="Reserve_Parent/ReserveSlot2" instance=ExtResource("7_ekrsb")]
 scale = Vector2(0.1, 0.1)
 
-[node name="CenterContainer3" type="CenterContainer" parent="HBoxContainer"]
+[node name="ReserveSlot3" type="CenterContainer" parent="Reserve_Parent"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
-[node name="TierCardBack" parent="HBoxContainer/CenterContainer3" instance=ExtResource("7_ekrsb")]
+[node name="TierCardBack" parent="Reserve_Parent/ReserveSlot3" instance=ExtResource("7_ekrsb")]
 scale = Vector2(0.1, 0.1)

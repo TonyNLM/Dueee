@@ -53,6 +53,7 @@ position = Vector2(-249.655, -126.897)
 scale = Vector2(0.1, 0.1)
 
 [node name="Crown_Base" parent="." instance=ExtResource("8_x602n")]
+position = Vector2(318, -154)
 
 [node name="CardToken" parent="." instance=ExtResource("7_hip5k")]
 position = Vector2(540, -160)
