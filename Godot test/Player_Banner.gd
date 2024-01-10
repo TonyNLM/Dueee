@@ -16,7 +16,7 @@ func _ready():
 	TokenCountItems = [$Token_and_Bonus/PlayerTokenCount0/Cost_Parent, $Token_and_Bonus/PlayerTokenCount1/Cost_Parent, $Token_and_Bonus/PlayerTokenCount2/Cost_Parent, $Token_and_Bonus/PlayerTokenCount3/Cost_Parent, $Token_and_Bonus/PlayerTokenCount4/Cost_Parent, $Token_and_Bonus/PlayerTokenCount5/Cost_Parent, $Token_and_Bonus/PlayerTokenCount6/Cost_Parent]
 	Priv_Stack_Elements = {1:$Priv_Stack/Priv1/Sprite2D,2:$Priv_Stack/Priv2/Sprite2D,3:$Priv_Stack/Priv3/Sprite2D}
 	Reserve_Stack_Elements = [$Reserve_Parent/ReserveSlot1/TierCardBack,$Reserve_Parent/ReserveSlot2/TierCardBack,$Reserve_Parent/ReserveSlot3/TierCardBack]
-	Reserve_Stack_Tier_List = [0,0,0]
+	Reserve_Stack_Tier_List = [[0,false],[0,false],[0,false]]
 	changeReserveCardTextureByArray(Reserve_Stack_Tier_List)
 	setPlayerScore(0)
 	setPlayerPrivCount(0)
@@ -29,10 +29,11 @@ func _ready():
 	#setPlayerBonusCount(Enums.TokenColour.Blue, 4)
 	#setPlayerTokenCount(Enums.TokenColour.Blue, 5)
 	
-#	pushTierCardList(1)
-#	pushTierCardList(2)
-#	pushTierCardList(3)
-#	popTierCardList(2)
+	pushTierCardList(1, true)
+	pushTierCardList(2, true)
+	pushTierCardList(3)
+	popTierCardList(2, true)
+	pushTierCardList(3, true)
 	pass # Replace with function body.
 
 
@@ -105,13 +106,13 @@ func setPlayerCrownCount(count:int):
 	
 #Function for reserve cards
 	
-func pushTierCardList(tier:int):
+func pushTierCardList(tier:int, visibility:bool=false):
 	var i=0
 	var found_position=false
 	print(Reserve_Stack_Tier_List)
 	while(i<3 and found_position == false):
 		print(Reserve_Stack_Tier_List[i])
-		if Reserve_Stack_Tier_List[i]==0:
+		if Reserve_Stack_Tier_List[i][0]==0:
 			found_position = true
 			
 		else:
@@ -120,16 +121,18 @@ func pushTierCardList(tier:int):
 	if found_position == false:
 		print("Failed To Reserve Card")
 		return
-	Reserve_Stack_Tier_List[i]=tier
-	changeReserveCardTexture(i, tier)
+	Reserve_Stack_Tier_List[i]=[tier, visibility]
+	changeReserveCardTexture(i, tier, visibility)
 		
-func popTierCardList(tier:int):
+		
+		
+func popTierCardList(tier:int, visibility:bool=false):
 	var i=0
 	var found_position=false
 	while(i<3):
 		if found_position == true:
 			Reserve_Stack_Tier_List[i-1] = Reserve_Stack_Tier_List[i]
-		if Reserve_Stack_Tier_List[i]==tier:
+		if Reserve_Stack_Tier_List[i][0]==tier and Reserve_Stack_Tier_List[i][1]==visibility:
 			found_position = true
 		
 		
@@ -140,7 +143,7 @@ func popTierCardList(tier:int):
 		print("Failed To Purchase Reserved Card")
 		return
 
-	Reserve_Stack_Tier_List[2]=0
+	Reserve_Stack_Tier_List[2]=[0,false]
 	changeReserveCardTextureByArray(Reserve_Stack_Tier_List)
 
 		
@@ -148,16 +151,21 @@ func popTierCardList(tier:int):
 
 func changeReserveCardTextureByArray(Tier_List:Array):
 	for i in range(3):
-		changeReserveCardTexture(i, Tier_List[i])
+		changeReserveCardTexture(i, Tier_List[i][0], Tier_List[i][1])
 	pass
 
-func changeReserveCardTexture(slot: int, tier:int):
+func changeReserveCardTexture(slot: int, tier:int, visibility:bool=false):
 	if tier<0 or tier>3:
 		return
+	if visibility==true:
+		Reserve_Stack_Elements[slot].get_node("EyeIcon").visible=true
+	else:
+		Reserve_Stack_Elements[slot].get_node("EyeIcon").visible=false
 	if tier==0:
 		Reserve_Stack_Elements[slot].visible = false
 		return
 	Reserve_Stack_Elements[slot].visible = true
+	#call on child
 	Reserve_Stack_Elements[slot].ChangeTierCardBack(tier)
 	
 

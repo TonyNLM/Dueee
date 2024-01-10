@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c3cyyo2gkhaqq"]
+[gd_scene load_steps=16 format=3 uid="uid://c3cyyo2gkhaqq"]
 
 [ext_resource type="PackedScene" uid="uid://dudph7sk1dggs" path="res://board.tscn" id="1_xmi4d"]
 [ext_resource type="Texture2D" uid="uid://dq5vkhkwd8em5" path="res://Fairy Pics/banner.png" id="2_fuy8n"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://cy2gahi12th8c" path="res://Fairy Pics/logs_down.png" id="11_apprk"]
 [ext_resource type="Texture2D" uid="uid://bfaxcv4gfgoxr" path="res://Fairy Pics/settings.png" id="12_2prkk"]
 [ext_resource type="Texture2D" uid="uid://x4fe2kgg2hx3" path="res://Fairy Pics/settings_down.png" id="13_5wkok"]
+[ext_resource type="PackedScene" uid="uid://c63li1egl8ecb" path="res://Player_Banner.tscn" id="14_2y4se"]
+[ext_resource type="PackedScene" uid="uid://dtnb2wl2t0pfa" path="res://player_banner_red.tscn" id="15_amsr3"]
 
 [node name="Main" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [-19.0]
@@ -72,24 +74,32 @@ position = Vector2(941, 138)
 scale = Vector2(0.292083, 0.1825)
 texture = ExtResource("7_rnxi8")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+[node name="Button_Bar" type="VBoxContainer" parent="."]
 offset_left = 1111.0
 offset_top = 104.0
 offset_right = 1324.0
 offset_bottom = 758.0
 scale = Vector2(0.195, 0.195)
 
-[node name="TextureButton3" type="TextureButton" parent="VBoxContainer2"]
+[node name="TextureButton3" type="TextureButton" parent="Button_Bar"]
 layout_mode = 2
 texture_normal = ExtResource("12_2prkk")
 texture_pressed = ExtResource("13_5wkok")
 
-[node name="TextureButton2" type="TextureButton" parent="VBoxContainer2"]
+[node name="TextureButton2" type="TextureButton" parent="Button_Bar"]
 layout_mode = 2
 texture_normal = ExtResource("10_xrj55")
 texture_pressed = ExtResource("11_apprk")
 
-[node name="TextureButton" type="TextureButton" parent="VBoxContainer2"]
+[node name="TextureButton" type="TextureButton" parent="Button_Bar"]
 layout_mode = 2
 texture_normal = ExtResource("8_167hf")
 texture_pressed = ExtResource("9_kij6r")
+
+[node name="Player_Banner" parent="." instance=ExtResource("14_2y4se")]
+position = Vector2(18, 1)
+scale = Vector2(0.545, 0.545)
+
+[node name="Player_Banner2" parent="." instance=ExtResource("15_amsr3")]
+position = Vector2(335, -49)
+scale = Vector2(0.545, 0.545)

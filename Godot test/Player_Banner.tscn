@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c63li1egl8ecb"]
+[gd_scene load_steps=9 format=3 uid="uid://c63li1egl8ecb"]
 
 [ext_resource type="Texture2D" uid="uid://gf1sehhh3ygi" path="res://Fairy Pics/PlayerTrapeziumBoard1.png" id="1_2hapc"]
 [ext_resource type="Script" path="res://Player_Banner.gd" id="1_wf783"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bocoi7cjvev3l" path="res://Fairy Pics/Decree.png" id="5_jijjw"]
 [ext_resource type="Texture2D" uid="uid://ddbj6cbwvq2k7" path="res://Fairy Pics/card_score.png" id="6_lxnjm"]
 [ext_resource type="PackedScene" uid="uid://bs6wu36h0m2wv" path="res://tier_card_back.tscn" id="7_ekrsb"]
+[ext_resource type="Texture2D" uid="uid://teb51lvr05km" path="res://Fairy Pics/eye.png" id="8_i41kd"]
 
 [node name="Player_Banner" type="Node2D"]
 script = ExtResource("1_wf783")
@@ -221,6 +222,10 @@ layout_mode = 2
 [node name="TierCardBack" parent="Reserve_Parent/ReserveSlot1" instance=ExtResource("7_ekrsb")]
 scale = Vector2(0.1, 0.1)
 
+[node name="EyeIcon" type="Sprite2D" parent="Reserve_Parent/ReserveSlot1/TierCardBack"]
+position = Vector2(390, 420)
+texture = ExtResource("8_i41kd")
+
 [node name="ReserveSlot2" type="CenterContainer" parent="Reserve_Parent"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
@@ -228,9 +233,17 @@ layout_mode = 2
 [node name="TierCardBack" parent="Reserve_Parent/ReserveSlot2" instance=ExtResource("7_ekrsb")]
 scale = Vector2(0.1, 0.1)
 
+[node name="EyeIcon" type="Sprite2D" parent="Reserve_Parent/ReserveSlot2/TierCardBack"]
+position = Vector2(390, 420)
+texture = ExtResource("8_i41kd")
+
 [node name="ReserveSlot3" type="CenterContainer" parent="Reserve_Parent"]
 custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 
 [node name="TierCardBack" parent="Reserve_Parent/ReserveSlot3" instance=ExtResource("7_ekrsb")]
 scale = Vector2(0.1, 0.1)
+
+[node name="EyeIcon" type="Sprite2D" parent="Reserve_Parent/ReserveSlot3/TierCardBack"]
+position = Vector2(390, 420)
+texture = ExtResource("8_i41kd")
