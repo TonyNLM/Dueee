@@ -21,4 +21,11 @@ enum TokenColour {
 	Wild,
 	None
 }
-
+enum CardDetail{
+	Tier,
+	Score,
+	Crown,
+	Bonus,
+	Skill,
+	Cost
+}

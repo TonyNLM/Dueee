@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://4hp0vfrqtidh"]
+
+[ext_resource type="Script" path="res://Test FadeOut.gd" id="1_1k5vb"]
+[ext_resource type="PackedScene" uid="uid://bj4l5bjol8nbc" path="res://board_token.tscn" id="2_peexs"]
+
+[node name="Test FadeOut" type="Node2D"]
+script = ExtResource("1_1k5vb")
+
+[node name="BoardToken" parent="." instance=ExtResource("2_peexs")]

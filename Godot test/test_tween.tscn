@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cd88wixc0veqp"]
+
+[ext_resource type="Script" path="res://Test Tween.gd" id="1_nhbts"]
+[ext_resource type="PackedScene" uid="uid://bj4l5bjol8nbc" path="res://board_token.tscn" id="2_xsu53"]
+[ext_resource type="PackedScene" uid="uid://drtpxaydwef5n" path="res://card_base.tscn" id="3_g80ha"]
+
+[node name="Test Tween" type="Node2D"]
+script = ExtResource("1_nhbts")
+
+[node name="BoardToken" parent="." instance=ExtResource("2_xsu53")]
+
+[node name="Card_Base" parent="." instance=ExtResource("3_g80ha")]
+position = Vector2(467, 113)

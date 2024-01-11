@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://djqrwm4txbxnh"]
+
+[ext_resource type="Script" path="res://Player2_Card_Interaction_Popup.gd" id="1_a4led"]
+[ext_resource type="Texture2D" uid="uid://3rqrahmvuwwx" path="res://Fairy Pics/Player2Acquire.png" id="2_k7n74"]
+[ext_resource type="PackedScene" uid="uid://drtpxaydwef5n" path="res://card_base.tscn" id="3_ngp3d"]
+
+[node name="Player2_Card_Interaction_Popup" type="Node2D"]
+script = ExtResource("1_a4led")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(190, 255)
+scale = Vector2(0.62, 0.6275)
+texture = ExtResource("2_k7n74")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 34.0
+offset_top = 34.0
+offset_right = 287.0
+offset_bottom = 73.0
+scale = Vector2(1.44, 1.44)
+text = "Player2 Has Reserved A card"
+
+[node name="Card_Base" parent="." instance=ExtResource("3_ngp3d")]
+position = Vector2(8, 169)
+scale = Vector2(0.435, 0.435)
