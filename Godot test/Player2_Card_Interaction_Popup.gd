@@ -23,5 +23,5 @@ func ShowPopup(card_num: int):
 	tweenMovement.tween_property(self, "position", finalPosition, 1.5)
 	tweenMovement.tween_callback(FadePopup)
 func FadePopup():
-	#object, delay, need to revert?
-	Utils.fadeOutObject(self,1, false)
+	#object, duraiton, delay, need to revert?
+	Utils.fadeOutObject(self, 2,1, false)

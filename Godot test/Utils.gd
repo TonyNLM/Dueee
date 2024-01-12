@@ -8,11 +8,11 @@ func _ready():
 func _process(delta):
 	pass
 	
-func fadeOutObject(obj, delay:float=0, revert:bool=false):
+func fadeOutObject(obj, duration:float=2, delay:float=0, revert:bool=false):
 	var fadeTween = create_tween()
 	var currentColor = obj.modulate
 	var targetColor = Color(currentColor.r, currentColor.g, currentColor.b, 0)
-	fadeTween.tween_property(obj, "modulate", targetColor, 2).set_delay(delay)
+	fadeTween.tween_property(obj, "modulate", targetColor, duration).set_delay(delay)
 	if revert:
 		var lambda = func():			
 			obj.modulate.a = 1	
