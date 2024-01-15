@@ -4,7 +4,8 @@ var startingPosition
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	startingPosition=self.position
-	Utils.cardLoader($Card_Base, 3)
+	
+	$Container/Card_Base._card_ins.cardLoader(3)
 	ShowPopup(1)
 	pass # Replace with function body.
 
@@ -16,7 +17,7 @@ func _process(delta):
 func ShowPopup(card_num: int):
 	self.position=startingPosition
 	var tweenMovement = create_tween()
-	var spriteWidth = $Sprite2D.get_texture().get_size().x * $Sprite2D.scale.x
+	var spriteWidth = $Container/Sprite2D.get_texture().get_size().x * $Container/Sprite2D.scale.x
 	print(spriteWidth)
 	var currentPosition = self.position
 	var finalPosition = Vector2(0, currentPosition.y)
@@ -24,4 +25,7 @@ func ShowPopup(card_num: int):
 	tweenMovement.tween_callback(FadePopup)
 func FadePopup():
 	#object, duraiton, delay, need to revert?
-	Utils.fadeOutObject(self, 2,1, false)
+	Utils.fadeOutObject(self, 2,1, false, RevertPosition)
+	
+func RevertPosition():
+	self.position=startingPosition

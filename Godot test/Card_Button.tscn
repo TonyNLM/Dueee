@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cionjq2bck6s0"]
+
+[ext_resource type="PackedScene" uid="uid://drtpxaydwef5n" path="res://card_base.tscn" id="1_k6vya"]
+[ext_resource type="Script" path="res://Card_List_Button.gd" id="2_wskt4"]
+
+[node name="CenterContainer2" type="CenterContainer"]
+custom_minimum_size = Vector2(400, 0)
+
+[node name="Card_Base" parent="." instance=ExtResource("1_k6vya")]
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(400, 500)
+layout_mode = 2
+script = ExtResource("2_wskt4")

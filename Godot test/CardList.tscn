@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkxiywhpo54ww"]
+[gd_scene load_steps=7 format=3 uid="uid://dkxiywhpo54ww"]
 
 [ext_resource type="PackedScene" uid="uid://drtpxaydwef5n" path="res://card_base.tscn" id="1_0o4n2"]
 [ext_resource type="Script" path="res://CardList.gd" id="1_mon3c"]
+[ext_resource type="Texture2D" uid="uid://cxldofsyrku4j" path="res://Fairy Pics/tier1CardBack.png" id="2_cj670"]
+[ext_resource type="PackedScene" uid="uid://cionjq2bck6s0" path="res://Card_Button.tscn" id="3_moseu"]
+[ext_resource type="Texture2D" uid="uid://bwqht75wqi8sl" path="res://Fairy Pics/tier2CardBack.png" id="4_g5ujn"]
+[ext_resource type="Texture2D" uid="uid://c3feee06a8gpk" path="res://Fairy Pics/tier3CardBack.png" id="5_u8lof"]
 
 [node name="Card_Pile" type="VBoxContainer"]
 offset_left = 21.0
@@ -19,37 +23,25 @@ layout_mode = 2
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="Card_Base" parent="HBoxContainer/CenterContainer" instance=ExtResource("1_0o4n2")]
+[node name="Tier_Card" type="Sprite2D" parent="HBoxContainer/CenterContainer"]
+position = Vector2(203.846, 250)
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("2_cj670")
 
-[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
+[node name="CenterContainer2" parent="HBoxContainer" instance=ExtResource("3_moseu")]
 layout_mode = 2
 
-[node name="Card_Base" parent="HBoxContainer/CenterContainer2" instance=ExtResource("1_0o4n2")]
-
-[node name="CenterContainer3" type="CenterContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
+[node name="CenterContainer3" parent="HBoxContainer" instance=ExtResource("3_moseu")]
 layout_mode = 2
 
-[node name="Card_Base" parent="HBoxContainer/CenterContainer3" instance=ExtResource("1_0o4n2")]
-
-[node name="CenterContainer4" type="CenterContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
+[node name="CenterContainer4" parent="HBoxContainer" instance=ExtResource("3_moseu")]
 layout_mode = 2
 
-[node name="Card_Base" parent="HBoxContainer/CenterContainer4" instance=ExtResource("1_0o4n2")]
-
-[node name="CenterContainer5" type="CenterContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
+[node name="CenterContainer5" parent="HBoxContainer" instance=ExtResource("3_moseu")]
 layout_mode = 2
 
-[node name="Card_Base" parent="HBoxContainer/CenterContainer5" instance=ExtResource("1_0o4n2")]
-
-[node name="CenterContainer6" type="CenterContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
+[node name="CenterContainer6" parent="HBoxContainer" instance=ExtResource("3_moseu")]
 layout_mode = 2
-
-[node name="Card_Base" parent="HBoxContainer/CenterContainer6" instance=ExtResource("1_0o4n2")]
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(500, 500)
@@ -59,31 +51,22 @@ layout_mode = 2
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="Card_Base" parent="HBoxContainer2/CenterContainer" instance=ExtResource("1_0o4n2")]
+[node name="Tier_Card" type="Sprite2D" parent="HBoxContainer2/CenterContainer"]
+position = Vector2(203.846, 250)
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("4_g5ujn")
 
-[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer2"]
-custom_minimum_size = Vector2(400, 0)
+[node name="CenterContainer2" parent="HBoxContainer2" instance=ExtResource("3_moseu")]
 layout_mode = 2
 
-[node name="Card_Base" parent="HBoxContainer2/CenterContainer2" instance=ExtResource("1_0o4n2")]
-
-[node name="CenterContainer3" type="CenterContainer" parent="HBoxContainer2"]
-custom_minimum_size = Vector2(400, 0)
+[node name="CenterContainer3" parent="HBoxContainer2" instance=ExtResource("3_moseu")]
 layout_mode = 2
 
-[node name="Card_Base" parent="HBoxContainer2/CenterContainer3" instance=ExtResource("1_0o4n2")]
-
-[node name="CenterContainer4" type="CenterContainer" parent="HBoxContainer2"]
-custom_minimum_size = Vector2(400, 0)
+[node name="CenterContainer4" parent="HBoxContainer2" instance=ExtResource("3_moseu")]
 layout_mode = 2
 
-[node name="Card_Base" parent="HBoxContainer2/CenterContainer4" instance=ExtResource("1_0o4n2")]
-
-[node name="CenterContainer5" type="CenterContainer" parent="HBoxContainer2"]
-custom_minimum_size = Vector2(400, 0)
+[node name="CenterContainer5" parent="HBoxContainer2" instance=ExtResource("3_moseu")]
 layout_mode = 2
-
-[node name="Card_Base" parent="HBoxContainer2/CenterContainer5" instance=ExtResource("1_0o4n2")]
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(500, 500)
@@ -93,26 +76,20 @@ layout_mode = 2
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
-[node name="Card_Base" parent="HBoxContainer3/CenterContainer" instance=ExtResource("1_0o4n2")]
+[node name="Tier_Card" type="Sprite2D" parent="HBoxContainer3/CenterContainer"]
+position = Vector2(203.846, 250)
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("5_u8lof")
 
-[node name="CenterContainer2" type="CenterContainer" parent="HBoxContainer3"]
-custom_minimum_size = Vector2(400, 0)
+[node name="CenterContainer2" parent="HBoxContainer3" instance=ExtResource("3_moseu")]
 layout_mode = 2
 
-[node name="Card_Base" parent="HBoxContainer3/CenterContainer2" instance=ExtResource("1_0o4n2")]
-
-[node name="CenterContainer3" type="CenterContainer" parent="HBoxContainer3"]
-custom_minimum_size = Vector2(400, 0)
+[node name="CenterContainer3" parent="HBoxContainer3" instance=ExtResource("3_moseu")]
 layout_mode = 2
 
-[node name="Card_Base" parent="HBoxContainer3/CenterContainer3" instance=ExtResource("1_0o4n2")]
-
-[node name="CenterContainer4" type="CenterContainer" parent="HBoxContainer3"]
-custom_minimum_size = Vector2(400, 0)
+[node name="CenterContainer4" parent="HBoxContainer3" instance=ExtResource("3_moseu")]
 layout_mode = 2
-
-[node name="Card_Base" parent="HBoxContainer3/CenterContainer4" instance=ExtResource("1_0o4n2")]
 
 [node name="Card_Enlarge" parent="." instance=ExtResource("1_0o4n2")]
-position = Vector2(296.154, 38.4615)
+position = Vector2(3223.08, -215.385)
 scale = Vector2(0.74, 0.74)

@@ -1,16 +1,35 @@
 extends VBoxContainer
 
+
+var FocusList:Array
+var Focus
+
 var CardList_CardValue
 var CardList
 var init
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	
+	init_self()
 	testing_self_setup()
-	pass # Replace with function body.
+	
+	
+func init_self():
+	if !init:
+		get_card_reference()
+	FocusList = []
+	
+	Focus=false
+	$Card_Enlarge.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Focus:
+		var mouse_position = get_local_mouse_position()
+		var offset_x
+		var offset_y
+		$Card_Enlarge.position = mouse_position
 	pass
 	
 	
@@ -42,6 +61,31 @@ func setup_card_pile(tier:int, position:int, card_num:int):
 		return
 	
 	CardList_CardValue[tier-1][position] = card_num
-	Utils.cardLoader(CardList[tier-1][position], card_num)
-
+	CardList[tier-1][position]._card_ins.cardLoader(card_num)
+	
 	pass
+
+
+func add_focus(num:int):
+	if !Focus:
+		Focus=true
+		$Card_Enlarge.visible=true
+		FocusList.append(num)
+	else:
+		FocusList.append(num)
+	$Card_Enlarge._card_ins.cardLoader(num)
+	
+func remove_focus(num:int):
+	if FocusList.size()>0 and FocusList[0]!=num:
+		return
+	Focus=false
+	$Card_Enlarge.visible=false
+	if FocusList.size()>0:
+		FocusList=[]
+	
+	
+func force_remove_focus():
+	Focus=false
+	$Card_Enlarge.visibile=false
+	if FocusList.size()>0:
+		FocusList=[]
