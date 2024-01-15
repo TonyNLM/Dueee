@@ -10,7 +10,7 @@ custom_minimum_size = Vector2(400, 0)
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(400, 500)
+custom_minimum_size = Vector2(410, 500)
 layout_mode = 2
 mouse_filter = 1
 script = ExtResource("2_wskt4")
