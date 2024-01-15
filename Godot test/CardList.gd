@@ -21,14 +21,17 @@ func init_self():
 	
 	Focus=false
 	$Card_Enlarge.visible = false
+	#$Card_Enlarge.MOUSE_FILTER_IGNORE = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Focus:
 		var mouse_position = get_local_mouse_position()
-		var offset_x
-		var offset_y
+		var offset_x = -300
+		var offset_y =-300
+		mouse_position.x+=offset_x
+		mouse_position.y+=offset_y
 		$Card_Enlarge.position = mouse_position
 	pass
 	

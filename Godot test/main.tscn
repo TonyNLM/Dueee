@@ -20,6 +20,14 @@
 [node name="Main" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [-19.0]
 
+[node name="Player_Banner" parent="." instance=ExtResource("14_2y4se")]
+position = Vector2(18, 1)
+scale = Vector2(0.545, 0.545)
+
+[node name="Player_Banner2" parent="." instance=ExtResource("15_amsr3")]
+position = Vector2(320, -43)
+scale = Vector2(0.545, 0.545)
+
 [node name="Board" parent="." instance=ExtResource("1_xmi4d")]
 position = Vector2(726, 225)
 scale = Vector2(0.21, 0.21)
@@ -96,14 +104,6 @@ texture_pressed = ExtResource("11_apprk")
 layout_mode = 2
 texture_normal = ExtResource("8_167hf")
 texture_pressed = ExtResource("9_kij6r")
-
-[node name="Player_Banner" parent="." instance=ExtResource("14_2y4se")]
-position = Vector2(18, 1)
-scale = Vector2(0.545, 0.545)
-
-[node name="Player_Banner2" parent="." instance=ExtResource("15_amsr3")]
-position = Vector2(320, -43)
-scale = Vector2(0.545, 0.545)
 
 [node name="Player2_Card_Interaction_Popup" parent="." instance=ExtResource("16_jxp60")]
 position = Vector2(-370, 101)
