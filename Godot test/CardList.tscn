@@ -1,13 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkxiywhpo54ww"]
+[gd_scene load_steps=3 format=3 uid="uid://dkxiywhpo54ww"]
 
 [ext_resource type="PackedScene" uid="uid://drtpxaydwef5n" path="res://card_base.tscn" id="1_0o4n2"]
+[ext_resource type="Script" path="res://CardList.gd" id="1_mon3c"]
 
-[node name="VBoxContainer" type="VBoxContainer"]
+[node name="Card_Pile" type="VBoxContainer"]
 offset_left = 21.0
 offset_top = 259.0
 offset_right = 2441.0
 offset_bottom = 2002.0
 scale = Vector2(0.26, 0.26)
+script = ExtResource("1_mon3c")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(500, 500)
@@ -110,3 +112,7 @@ custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 
 [node name="Card_Base" parent="HBoxContainer3/CenterContainer4" instance=ExtResource("1_0o4n2")]
+
+[node name="Card_Enlarge" parent="." instance=ExtResource("1_0o4n2")]
+position = Vector2(296.154, 38.4615)
+scale = Vector2(0.74, 0.74)

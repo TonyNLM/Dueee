@@ -55,7 +55,7 @@ offset_bottom = 101.64
 theme_override_font_sizes/normal_font_size = 40
 text = "3"
 
-[node name="VBoxContainer" parent="." instance=ExtResource("5_ao4k1")]
+[node name="Card_pile" parent="." instance=ExtResource("5_ao4k1")]
 offset_left = -9.53674e-07
 offset_top = 216.0
 offset_right = 2420.0

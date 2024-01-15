@@ -42,7 +42,11 @@ func cardLoader(card_obj:Node, card_num:int):
 	pass
 	#incomplete function
 func lookupCardData(card_num:int):
-	var lookupResult = [1,2,2,Enums.TokenColour.Pink, Enums.Skill.ExtraTurn, [[Enums.TokenColour.Red, 3],[Enums.TokenColour.White, 7]]]
+	var lookupResult
+	if card_num%2==0:
+		lookupResult = [1,2,2,Enums.TokenColour.Pink, Enums.Skill.ExtraTurn, [[Enums.TokenColour.Red, 3],[Enums.TokenColour.White, 7]]]
+	else:
+		lookupResult = [2,3,3,Enums.TokenColour.Blue, Enums.Skill.StealToken, [[Enums.TokenColour.Green, 4],[Enums.TokenColour.White, 1]]]
 	return lookupResult
 	
 

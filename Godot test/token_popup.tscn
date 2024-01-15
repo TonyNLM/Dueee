@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwx527g8684qd"]
+
+[ext_resource type="Script" path="res://TokenPopup.gd" id="1_6vcrk"]
+[ext_resource type="Texture2D" uid="uid://3rqrahmvuwwx" path="res://Fairy Pics/Player2Acquire.png" id="2_cpjkn"]
+[ext_resource type="PackedScene" uid="uid://bkhe3m1kioii0" path="res://token.tscn" id="3_07g3b"]
+
+[node name="TokenPopup(In development)" type="Node2D"]
+position = Vector2(-802, 4)
+script = ExtResource("1_6vcrk")
+
+[node name="Base" type="Sprite2D" parent="."]
+position = Vector2(537, 88)
+scale = Vector2(0.893, 0.22)
+texture = ExtResource("2_cpjkn")
+
+[node name="Token" parent="." instance=ExtResource("3_07g3b")]
+position = Vector2(288, 21)
+scale = Vector2(0.325, 0.325)
+
+[node name="Token2" parent="." instance=ExtResource("3_07g3b")]
+position = Vector2(474, 20)
+scale = Vector2(0.325, 0.325)
+
+[node name="Token3" parent="." instance=ExtResource("3_07g3b")]
+position = Vector2(651, 20)
+scale = Vector2(0.325, 0.325)
