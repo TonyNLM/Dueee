@@ -11,6 +11,11 @@
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_7uqpc")
 
+[node name="TouchBlocker" type="BoxContainer" parent="."]
+offset_right = 1414.0
+offset_bottom = 801.0
+mouse_filter = 0
+
 [node name="Popup" type="Sprite2D" parent="."]
 position = Vector2(743.125, 391.25)
 scale = Vector2(1.09271, 0.658333)
@@ -21,41 +26,43 @@ position = Vector2(165, 210)
 scale = Vector2(0.7, 0.7)
 
 [node name="Close_Button" type="TextureButton" parent="."]
-offset_left = 1265.0
-offset_top = -4.99998
-offset_right = 1565.0
-offset_bottom = 295.0
+offset_left = 1271.25
+offset_top = -32.5
+offset_right = 1571.25
+offset_bottom = 267.5
 scale = Vector2(0.475, 0.475)
 texture_normal = ExtResource("2_5htou")
 
 [node name="PurchaseButton" parent="." instance=ExtResource("5_suu6o")]
 
 [node name="Button_Icon" parent="PurchaseButton" index="0"]
-offset_left = 732.5
-offset_top = 80.0
-offset_right = 1932.5
-offset_bottom = 680.0
+offset_left = 751.0
+offset_top = 114.0
+offset_right = 1919.0
+offset_bottom = 511.0
 
 [node name="Button_Text" parent="PurchaseButton" index="1"]
-offset_left = 951.5
-offset_top = 188.0
-offset_right = 1175.5
-offset_bottom = 234.0
+offset_left = 967.5
+offset_top = 188.75
+offset_right = 1191.5
+offset_bottom = 234.75
+text = "Purchase"
 
 [node name="ReserveButton" parent="." instance=ExtResource("5_suu6o")]
 position = Vector2(2.5, 212.5)
 
 [node name="Button_Icon" parent="ReserveButton" index="0"]
-offset_left = 732.5
-offset_top = 54.9999
-offset_right = 1932.5
-offset_bottom = 655.0
+offset_left = 746.25
+offset_top = 102.5
+offset_right = 1946.25
+offset_bottom = 492.5
 
 [node name="Button_Text" parent="ReserveButton" index="1"]
-offset_left = 951.5
-offset_top = 163.0
-offset_right = 1175.5
-offset_bottom = 209.0
+offset_left = 963.75
+offset_top = 176.25
+offset_right = 1187.75
+offset_bottom = 222.25
+text = "Reserve"
 
 [node name="Infobox" type="Sprite2D" parent="."]
 position = Vector2(1033.13, 635.156)

@@ -29,3 +29,13 @@ enum CardDetail{
 	Skill,
 	Cost
 }
+
+
+enum CardPopupState{
+	CanReserveAndPurchase,
+	CanReserve,
+	CanPurchase,
+	CannotReserveAndPurchase,
+	NotPlayerTurn,
+	
+}

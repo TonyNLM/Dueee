@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://diygr5u4sxne3"]
+
+[ext_resource type="Script" path="res://message_controller.gd" id="1_e7wfs"]
+[ext_resource type="Texture2D" uid="uid://2d1q34pitnr" path="res://Fairy Pics/blackMessageBar.png" id="2_52uhi"]
+
+[node name="Message_Controller" type="Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1074.0
+offset_bottom = 69.0
+mouse_filter = 2
+script = ExtResource("1_e7wfs")
+
+[node name="blackMessageBar" type="Sprite2D" parent="."]
+position = Vector2(538.75, 35)
+scale = Vector2(0.89125, 0.29)
+texture = ExtResource("2_52uhi")
+
+[node name="Message" type="RichTextLabel" parent="."]
+offset_left = 23.5
+offset_top = 25.0
+offset_right = 1060.5
+offset_bottom = 57.0
+mouse_filter = 2
+bbcode_enabled = true
+text = "Hello"

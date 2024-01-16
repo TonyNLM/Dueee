@@ -1,6 +1,7 @@
 extends Node
 
 
+var fadeTweenArray:Dictionary
 
 func _ready():
 	pass
@@ -9,8 +10,17 @@ func _process(delta):
 	pass
 	
 func fadeOutObject(obj, duration:float=2, delay:float=0, revert:bool=false, callback:Callable=nullCallback):
-	var fadeTween = create_tween()
+	
+	var fadeTween = fadeTweenArray.get(obj, null)
+	
+	if fadeTween:
+		fadeTween.kill()
+	fadeTween = create_tween()
+	fadeTweenArray[obj] = fadeTween
+
+
 	var currentColor = obj.modulate
+
 	var targetColor = Color(currentColor.r, currentColor.g, currentColor.b, 0)
 	fadeTween.tween_property(obj, "modulate", targetColor, duration).set_delay(delay)
 	if revert:
