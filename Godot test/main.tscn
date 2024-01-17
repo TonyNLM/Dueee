@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c3cyyo2gkhaqq"]
+[gd_scene load_steps=22 format=3 uid="uid://c3cyyo2gkhaqq"]
 
 [ext_resource type="PackedScene" uid="uid://dudph7sk1dggs" path="res://board.tscn" id="1_xmi4d"]
 [ext_resource type="Texture2D" uid="uid://dq5vkhkwd8em5" path="res://Fairy Pics/banner.png" id="2_fuy8n"]
@@ -17,6 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://dtnb2wl2t0pfa" path="res://player_banner_red.tscn" id="15_amsr3"]
 [ext_resource type="PackedScene" uid="uid://djqrwm4txbxnh" path="res://player_2_card_interaction_popup.tscn" id="16_jxp60"]
 [ext_resource type="PackedScene" uid="uid://diygr5u4sxne3" path="res://message_controller.tscn" id="17_miahb"]
+[ext_resource type="Script" path="res://Card_Animation_Controller.gd" id="17_wowms"]
+[ext_resource type="PackedScene" uid="uid://bkhe3m1kioii0" path="res://token.tscn" id="18_d66wb"]
+[ext_resource type="Texture2D" uid="uid://cxldofsyrku4j" path="res://Fairy Pics/tier1CardBack.png" id="19_fcabm"]
+[ext_resource type="PackedScene" uid="uid://drtpxaydwef5n" path="res://card_base.tscn" id="20_ema58"]
 
 [node name="Main" type="Node2D"]
 metadata/_edit_horizontal_guides_ = [-19.0]
@@ -65,10 +69,10 @@ theme_override_font_sizes/normal_font_size = 40
 text = "3"
 
 [node name="Card_pile" parent="." instance=ExtResource("5_ao4k1")]
-offset_left = -9.53674e-07
+offset_left = 0.0
 offset_top = 216.0
-offset_right = 2420.0
-offset_bottom = 1959.0
+offset_right = 2470.0
+offset_bottom = 1724.0
 scale = Vector2(0.29, 0.29)
 
 [node name="ButtonText" parent="." instance=ExtResource("6_b04lu")]
@@ -112,11 +116,29 @@ position = Vector2(-370, 101)
 [node name="Card_Animation_Controller" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -9.0
+offset_top = -5.0
+offset_right = 1145.0
+offset_bottom = 646.0
+mouse_filter = 2
+script = ExtResource("17_wowms")
+
+[node name="Move_Token" parent="Card_Animation_Controller" instance=ExtResource("18_d66wb")]
+position = Vector2(583, 610)
+scale = Vector2(0.215, 0.215)
+
+[node name="Move_Tier" type="Sprite2D" parent="Card_Animation_Controller"]
+position = Vector2(549, 586)
+scale = Vector2(0.145, 0.145)
+texture = ExtResource("19_fcabm")
+centered = false
+
+[node name="Move_Card" parent="Card_Animation_Controller" instance=ExtResource("20_ema58")]
+position = Vector2(565, 502)
+scale = Vector2(0.145, 0.145)
 
 [node name="Message_Controller" parent="." instance=ExtResource("17_miahb")]
-offset_left = 28.0
-offset_top = 493.0
-offset_right = 68.0
-offset_bottom = 533.0
+offset_left = 41.0
+offset_top = 271.0
+offset_right = 81.0
+offset_bottom = 311.0

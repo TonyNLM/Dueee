@@ -57,7 +57,7 @@ class Card:
 
 		CardSkill.visible = true
 		CardSkill.texture = skillIcons[skillNum]
-		print("Skill Changed To" + str(skillNum))
+		#print("Skill Changed To" + str(skillNum))
 		return
 
 	func changeCardTokenColour(colour:Enums.TokenColour):

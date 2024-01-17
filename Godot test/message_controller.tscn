@@ -18,6 +18,7 @@ scale = Vector2(0.89125, 0.29)
 texture = ExtResource("2_52uhi")
 
 [node name="Message" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 23.5
 offset_top = 25.0
 offset_right = 1060.5

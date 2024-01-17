@@ -23,6 +23,7 @@ layout_mode = 2
 [node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+use_top_left = true
 
 [node name="Tier_Card" type="Sprite2D" parent="HBoxContainer/CenterContainer"]
 position = Vector2(203.846, 250)
@@ -59,6 +60,7 @@ texture = ExtResource("4_g5ujn")
 
 [node name="CenterContainer2" parent="HBoxContainer2" instance=ExtResource("3_moseu")]
 layout_mode = 2
+use_top_left = true
 
 [node name="CenterContainer3" parent="HBoxContainer2" instance=ExtResource("3_moseu")]
 layout_mode = 2
@@ -92,8 +94,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Card_Enlarge" parent="." instance=ExtResource("1_0o4n2")]
-visible = false
-position = Vector2(3223.08, -215.385)
+position = Vector2(2938.46, 50)
 scale = Vector2(0.74, 0.74)
 
 [node name="Card_Popup" parent="." instance=ExtResource("7_gjyh7")]

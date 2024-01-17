@@ -109,9 +109,9 @@ func setPlayerCrownCount(count:int):
 func pushTierCardList(tier:int, visibility:bool=false):
 	var i=0
 	var found_position=false
-	print(Reserve_Stack_Tier_List)
+	#print(Reserve_Stack_Tier_List)
 	while(i<3 and found_position == false):
-		print(Reserve_Stack_Tier_List[i])
+		#print(Reserve_Stack_Tier_List[i])
 		if Reserve_Stack_Tier_List[i][0]==0:
 			found_position = true
 			
@@ -119,7 +119,7 @@ func pushTierCardList(tier:int, visibility:bool=false):
 			i+=1
 		
 	if found_position == false:
-		print("Failed To Reserve Card")
+		#print("Failed To Reserve Card")
 		return
 	Reserve_Stack_Tier_List[i]=[tier, visibility]
 	changeReserveCardTexture(i, tier, visibility)
@@ -140,7 +140,7 @@ func popTierCardList(tier:int, visibility:bool=false):
 		i+=1
 		
 	if found_position == false:
-		print("Failed To Purchase Reserved Card")
+		#print("Failed To Purchase Reserved Card")
 		return
 
 	Reserve_Stack_Tier_List[2]=[0,false]

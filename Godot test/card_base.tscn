@@ -11,24 +11,24 @@
 [ext_resource type="PackedScene" uid="uid://p623nwbfa560" path="res://cost_parent.tscn" id="10_ur8u3"]
 
 [node name="Card_Base" type="Node2D"]
-position = Vector2(-2, 120)
+position = Vector2(2, 3)
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_qkqrb")
 
 [node name="CardBase" type="Sprite2D" parent="."]
-position = Vector2(419, 261)
+position = Vector2(413, 503.5)
 texture = ExtResource("1_gj2hu")
 
 [node name="CardBaseDown" type="Sprite2D" parent="."]
-position = Vector2(418, 263)
+position = Vector2(412, 505.5)
 texture = ExtResource("2_outm8")
 
 [node name="CardBaseUp" type="Sprite2D" parent="."]
-position = Vector2(420, 262)
+position = Vector2(414, 504.5)
 texture = ExtResource("3_l4bgm")
 
 [node name="CardScore" type="Sprite2D" parent="."]
-position = Vector2(413, 266)
+position = Vector2(407, 508.5)
 texture = ExtResource("4_0etek")
 
 [node name="CardPoints" type="RichTextLabel" parent="CardScore"]
@@ -44,7 +44,7 @@ text = "1
 "
 
 [node name="CardSkill" type="Sprite2D" parent="."]
-position = Vector2(504, 332)
+position = Vector2(498, 574.5)
 scale = Vector2(1.335, 1.373)
 texture = ExtResource("6_emfdp")
 
@@ -54,17 +54,17 @@ position = Vector2(-249.655, -126.897)
 scale = Vector2(0.1, 0.1)
 
 [node name="Crown_Base" parent="." instance=ExtResource("8_x602n")]
-position = Vector2(318, -154)
+position = Vector2(312, 88.5)
 
 [node name="CardToken" parent="." instance=ExtResource("7_hip5k")]
-position = Vector2(540, -160)
+position = Vector2(534, 82.5)
 scale = Vector2(0.51, 0.51)
 
 [node name="CostContainer" type="GridContainer" parent="."]
-offset_left = 274.0
-offset_top = 238.0
-offset_right = 626.0
-offset_bottom = 592.0
+offset_left = 268.0
+offset_top = 480.5
+offset_right = 620.0
+offset_bottom = 834.5
 scale = Vector2(1.66, 1.66)
 mouse_filter = 2
 columns = 2

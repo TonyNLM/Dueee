@@ -51,6 +51,10 @@ func testing_self_setup():
 	for i in range(1,4):
 		for k in range(0,6-i):
 			setup_card_pile(i,k,i+k)
+			print(CardList[i-1][k].global_position)
+			print(CardList[i-1][k])
+			#if i==2:
+				#CardList[i-1][k].global_position=Vector2(0,0)
 	
 func setup_card_pile(tier:int, position:int, card_num:int):
 	if !init:
@@ -65,6 +69,7 @@ func setup_card_pile(tier:int, position:int, card_num:int):
 	
 	CardList_CardValue[tier-1][position] = card_num
 	CardList[tier-1][position]._card_ins.cardLoader(card_num)
+	
 	
 	pass
 

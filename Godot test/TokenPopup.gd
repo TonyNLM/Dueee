@@ -17,7 +17,7 @@ func ShowPopup(rokenColours:Array):
 	self.position = startingPosition
 	var tweenMovement = create_tween()
 	var spriteWidth = $Base.get_texture().get_size().x * $Base.scale.x
-	print(spriteWidth)
+	#print(spriteWidth)
 	var currentPosition = self.position
 	var finalPosition = Vector2(get_viewport().get_size().x - spriteWidth, currentPosition.y)  
 	

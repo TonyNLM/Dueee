@@ -23,12 +23,13 @@ func _ready():
 	Purchase_Button.pressed.connect(self.Purchase_Button_Handler)
 	Reserve_Button.pressed.connect(self.Reserve_Button_Handler)
 	Close_Button.pressed.connect(self.Close_Button_Handler)
-	print("Finished Startup")
+	#print("Finished Startup")
 	pass # Replace with function body.
 
 func Purchase_Button_Handler():
 	if PopupState==Enums.CardPopupState.CanPurchase or PopupState==Enums.CardPopupState.CanReserveAndPurchase:
-		print("Purchase Successful")
+		#print("Purchase Successful")
+		pass
 	elif PopupState==Enums.CardPopupState.NotPlayerTurn:
 		Message_Controller.pushMessage("You cannot purchase in this phase")
 	elif PopupState==Enums.CardPopupState.CanReserve or PopupState==Enums.CardPopupState.CannotReserveAndPurchase:
@@ -39,7 +40,8 @@ func Purchase_Button_Handler():
 
 func Reserve_Button_Handler():
 	if PopupState == Enums.CardPopupState.CanReserve or PopupState == Enums.CardPopupState.CanReserveAndPurchase:
-		print("Card Reserved")
+		pass
+		#print("Card Reserved")
 	elif PopupState == Enums.CardPopupState.NotPlayerTurn:
 		Message_Controller.pushMessage("You cannot reserve in this phase")
 	elif PopupState == Enums.CardPopupState.CanPurchase or PopupState == Enums.CardPopupState.CannotReserveAndPurchase:
@@ -66,7 +68,7 @@ func SetupPopupWindow(cardNum:int):
 	
 	var NewPopupState=RequestPopupState(1, cardNum)
 	AlterPopupState(NewPopupState)
-	print("New Popup State is now"+str(NewPopupState))
+	#print("New Popup State is now"+str(NewPopupState))
 	pass
 	
 func AlterPopupState(popup_State:Enums.CardPopupState):
@@ -74,13 +76,13 @@ func AlterPopupState(popup_State:Enums.CardPopupState):
 		#print("Same"+str(popup_State)+str(PopupState))
 		return
 		
-	print("Popup State is altered to"+str(popup_State))
+	#print("Popup State is altered to"+str(popup_State))
 	PopupState=popup_State
 	match PopupState:
 		Enums.CardPopupState.NotPlayerTurn:
 			$PurchaseButton/Button_Icon.texture_normal = ButtonTexture[1]
 			$ReserveButton/Button_Icon.texture_normal= ButtonTexture[1]
-			print("per1")
+			#print("per1")
 		Enums.CardPopupState.CannotReserveAndPurchase:
 			$PurchaseButton/Button_Icon.texture_normal = ButtonTexture[1]
 			$ReserveButton/Button_Icon.texture_normal= ButtonTexture[1]
@@ -88,23 +90,23 @@ func AlterPopupState(popup_State:Enums.CardPopupState):
 		Enums.CardPopupState.CanPurchase:
 			$PurchaseButton/Button_Icon.texture_normal= ButtonTexture[0]
 			$ReserveButton/Button_Icon.texture_normal = ButtonTexture[1]
-			print("per2")
+			#print("per2")
 
 		Enums.CardPopupState.CanReserve:
 			$PurchaseButton/Button_Icon.texture_normal = ButtonTexture[1]
 			$ReserveButton/Button_Icon.texture_normal = ButtonTexture[0]
-			print("per3")
+			#print("per3")
 
 		Enums.CardPopupState.CanReserveAndPurchase:
 			$PurchaseButton/Button_Icon.texture_normal = ButtonTexture[0]
 			$ReserveButton/Button_Icon.texture_normal = ButtonTexture[0]
-			print("per4")
+			#print("per4")
 
 		
 		
 func RequestPopupState(playerNum:int, cardNum:int):
 	# Note! this external feature is not implemented.
 	var NewPopupState=cardNum%5
-	print(PopupState)
+	#print(PopupState)
 	return NewPopupState
 	pass
