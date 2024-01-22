@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dkxiywhpo54ww"]
+[gd_scene load_steps=7 format=3 uid="uid://dkxiywhpo54ww"]
 
 [ext_resource type="PackedScene" uid="uid://drtpxaydwef5n" path="res://card_base.tscn" id="1_0o4n2"]
 [ext_resource type="Script" path="res://CardList.gd" id="1_mon3c"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://cionjq2bck6s0" path="res://Card_Button.tscn" id="3_moseu"]
 [ext_resource type="Texture2D" uid="uid://bwqht75wqi8sl" path="res://Fairy Pics/tier2CardBack.png" id="4_g5ujn"]
 [ext_resource type="Texture2D" uid="uid://c3feee06a8gpk" path="res://Fairy Pics/tier3CardBack.png" id="5_u8lof"]
-[ext_resource type="PackedScene" uid="uid://bmutapjdu2e6u" path="res://popup_window.tscn" id="7_gjyh7"]
 
 [node name="Card_Pile" type="VBoxContainer"]
 offset_left = 21.0
@@ -96,8 +95,3 @@ layout_mode = 2
 [node name="Card_Enlarge" parent="." instance=ExtResource("1_0o4n2")]
 position = Vector2(2938.46, 50)
 scale = Vector2(0.74, 0.74)
-
-[node name="Card_Popup" parent="." instance=ExtResource("7_gjyh7")]
-visible = false
-position = Vector2(-253.846, -26.923)
-scale = Vector2(1.99, 1.99)

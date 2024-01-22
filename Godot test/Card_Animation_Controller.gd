@@ -16,6 +16,9 @@ var tempVal=0
 
 var timer := Timer.new()
 
+signal OnCardTakenComplete(tier, slot)
+signal OnCardRefillComplete(tier, slot)
+
 
 static var Tier_Icons ={1:preload("res://Fairy Pics/tier1CardBack.png"), 2:preload("res://Fairy Pics/tier2CardBack.png"),3:preload("res://Fairy Pics/tier3CardBack.png")} 
 
@@ -28,8 +31,18 @@ func _ready():
 	Move_Token=$Move_Token
 	Move_Card=$Move_Card
 	
-	cardList.get_card_reference()
-	card_element_array = cardList.CardList
+	
+	
+	#region for testing
+	OnCardTakenComplete.connect(MoveTierCardToPosition)
+	add_child(timer)
+	timer.wait_time = 6
+	timer.connect("timeout", _on_Timer_timeout)
+	timer.start()
+	#end
+	
+#	cardList.get_card_reference()
+#	card_element_array = cardList.CardList
 	print(tier_element_array)
 	parent.get_node("Card_pile/HBoxContainer2/CenterContainer2/Card_Base").global_position=Vector2(0,0)
 	var newpos = parent.get_node("Card_pile/HBoxContainer2/CenterContainer2/Card_Base").global_position
@@ -45,30 +58,59 @@ func _ready():
 	pass # Replace with function body.
 
 func MoveTierCardToPosition(tier:int, slot:int):
+<<<<<<< HEAD
 	tier=tier-1
 	Move_Tier.global_position = tier_element_array[tier].global_position
 #	var TierTween = create_tween()
 #	#print(tier_element_array[0].position)
 #	TierTween.tween_property(Move_Tier, "position", card_element_array[tier][slot].global_position, 4)
 #	print(card_element_array[tier][slot].global_position)
+=======
+	Move_Tier.texture = Tier_Icons[tier]
+	var index = tier-1
+	
+	Move_Tier.global_position = tier_element_array[index].global_position
+	if TierTween:
+		TierTween.kill()
+	TierTween = create_tween()
+	Move_Tier.modulate.a=1
+	var finish_callback = func MoveTierFinish():
+		card_element_array[index][slot].get_parent().visible=true
+	#print(tier_element_array[0].position)
+	#TierTween.tween_property(Move_Tier, "position", card_element_array[tier][slot].global_position, 4)
+	#print(Move_Tier.global_position, tier_element_array[tier].global_position)
+	TierTween.tween_property(Move_Tier, "position", card_element_array[index][slot].global_position, 1)
+	TierTween.tween_callback(finish_callback)
+	TierTween.tween_property(Move_Tier, "modulate", Color(1,1,1,0), 1)
+	
+	
+		
+	#print(card_element_array[tier][slot].global_position, tier_element_array[tier].global_position)
+>>>>>>> 5e89ca1 (card move, changed popup)
 	pass
 	
 	
 func MoveCardToPosition(tier:int, slot:int, player:int):
-	Move_Card._card_ins.cardLoader(card_element_array[tier-1][slot].get_parent()._card_ins.CardNum)
-	tier=tier-1
+	var index = tier-1
+	var card_element = card_element_array[index][slot].get_parent()
+	Move_Card._card_ins.cardLoader(card_element._card_ins.CardNum)
 	
-	Move_Card.global_position = card_element_array[tier][slot].global_position
+	
+	Move_Card.global_position = card_element.global_position
+	card_element.visible=false
 	if CardTween:
 		CardTween.kill()
 	CardTween = create_tween()
 	Move_Card.modulate.a=1
-	#print(tier_element_array[0].position)
-	#TierTween.tween_property(Move_Tier, "position", card_element_array[tier][slot].global_position, 4)
-	#print(Move_Tier.global_position, tier_element_array[tier].global_position)
-	CardTween.tween_property(Move_Card, "position", Vector2(0,0), 1)
+	
+	CardTween.tween_property(Move_Card, "position", Vector2(0,0), 2)
 	CardTween.tween_property(Move_Card, "modulate", Color(1,1,1,0), 1)
-		
+	var finish_callback = func MoveCardFinish():
+		OnCardTakenComplete.emit(tier, slot)
+	CardTween.tween_callback(finish_callback)
+	
+	
+
 	#print(card_element_array[tier][slot].global_position, tier_element_array[tier].global_position)
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -81,5 +123,5 @@ func _process(delta):
 func _on_Timer_timeout():
 	var firstParam = randf_range(1, 4)
 	var secondParam = randf_range(0, 3)
-	MoveTierCardToPosition(firstParam, secondParam)
+	#MoveTierCardToPosition(firstParam, secondParam)
 	MoveCardToPosition(firstParam, secondParam, 1)

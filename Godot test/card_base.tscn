@@ -97,3 +97,10 @@ custom_minimum_size = Vector2(150, 140)
 layout_mode = 2
 
 [node name="Cost_Parent" parent="CostContainer/CostItem1" instance=ExtResource("10_ur8u3")]
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+offset_right = 832.0
+offset_bottom = 996.0
+mouse_filter = 2
+border_width = 3.5
+editor_only = false

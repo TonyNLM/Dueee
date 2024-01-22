@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://c3cyyo2gkhaqq"]
+[gd_scene load_steps=24 format=3 uid="uid://c3cyyo2gkhaqq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ooqqt"]
 [ext_resource type="PackedScene" uid="uid://dudph7sk1dggs" path="res://board.tscn" id="1_xmi4d"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://bkhe3m1kioii0" path="res://token.tscn" id="18_d66wb"]
 [ext_resource type="Texture2D" uid="uid://cxldofsyrku4j" path="res://Fairy Pics/tier1CardBack.png" id="19_fcabm"]
 [ext_resource type="PackedScene" uid="uid://drtpxaydwef5n" path="res://card_base.tscn" id="20_ema58"]
+[ext_resource type="PackedScene" uid="uid://bmutapjdu2e6u" path="res://popup_window.tscn" id="23_lbcph"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_ooqqt")
@@ -136,6 +137,17 @@ centered = false
 [node name="Move_Card" parent="Card_Animation_Controller" instance=ExtResource("20_ema58")]
 position = Vector2(565, 502)
 scale = Vector2(0.145, 0.145)
+
+[node name="Popup_Controller" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Card_Popup" parent="Popup_Controller" instance=ExtResource("23_lbcph")]
+visible = false
+position = Vector2(-40, 229)
+scale = Vector2(0.535, 0.535)
 
 [node name="Message_Controller" parent="." instance=ExtResource("17_miahb")]
 offset_left = 41.0

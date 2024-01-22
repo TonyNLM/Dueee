@@ -11,7 +11,8 @@ func init_ref():
 	var P3 = P2.get_parent()
 	CardListController = P3
 	Card_Sibling = P1.get_node("Card_Base")
-	PopupWindow = CardListController.get_node("Card_Popup")
+	
+	PopupWindow = P3.get_parent().get_node("Popup_Controller").get_node("Card_Popup")
 	#print("Finish ref")
 	
 func _ready():
