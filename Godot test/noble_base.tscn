@@ -1,0 +1,99 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfxvsov77nl4j"]
+
+[ext_resource type="Script" path="res://noble_base.gd" id="1_w8xv5"]
+[ext_resource type="Texture2D" uid="uid://b7cevabntfmi4" path="res://Fairy Pics/card_base.png" id="2_mf8r1"]
+[ext_resource type="Texture2D" uid="uid://condjgrx55kpw" path="res://Fairy Pics/card_base_down.png" id="3_54ghh"]
+[ext_resource type="Texture2D" uid="uid://bktiyb52f0swo" path="res://Fairy Pics/card_base_up.png" id="4_n3sm5"]
+[ext_resource type="Texture2D" uid="uid://ddbj6cbwvq2k7" path="res://Fairy Pics/card_score.png" id="5_4wbej"]
+[ext_resource type="Texture2D" uid="uid://cir405ghunchi" path="res://Fairy Pics/card_skill_ExtraTurn.png" id="6_eshmt"]
+[ext_resource type="PackedScene" uid="uid://bkhe3m1kioii0" path="res://token.tscn" id="7_dfii6"]
+[ext_resource type="PackedScene" uid="uid://isve7fjjr7cm" path="res://crown_base.tscn" id="8_qjapi"]
+[ext_resource type="Texture2D" uid="uid://yoc451wr6yao" path="res://Fairy Pics/noble.png" id="9_ma0jw"]
+
+[node name="Noble_Base" type="Node2D"]
+position = Vector2(2, 3)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_w8xv5")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+offset_right = 832.0
+offset_bottom = 996.0
+mouse_filter = 2
+border_width = 3.5
+editor_only = false
+
+[node name="CardBase" type="Sprite2D" parent="."]
+position = Vector2(399, 497.5)
+texture = ExtResource("2_mf8r1")
+
+[node name="CardBaseDown" type="Sprite2D" parent="."]
+position = Vector2(398, 499.5)
+texture = ExtResource("3_54ghh")
+
+[node name="CardBaseUp" type="Sprite2D" parent="."]
+position = Vector2(400, 498.5)
+texture = ExtResource("4_n3sm5")
+
+[node name="CardScore" type="Sprite2D" parent="."]
+position = Vector2(450, 562)
+scale = Vector2(1.18, 1.18)
+texture = ExtResource("5_4wbej")
+
+[node name="CardPoints" type="RichTextLabel" parent="CardScore"]
+offset_left = -261.0
+offset_top = -392.0
+offset_right = -199.0
+offset_bottom = -308.0
+scale = Vector2(1.71, 1.71)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 60
+text = "1
+"
+
+[node name="CardSkill" type="Sprite2D" parent="."]
+position = Vector2(844, 778)
+scale = Vector2(2.355, 2.422)
+texture = ExtResource("6_eshmt")
+
+[node name="TokenSkill" parent="CardSkill" instance=ExtResource("7_dfii6")]
+visible = false
+position = Vector2(-249.655, -126.897)
+scale = Vector2(0.1, 0.1)
+
+[node name="Crown_Base" parent="." instance=ExtResource("8_qjapi")]
+position = Vector2(218, -2)
+scale = Vector2(0.59, 0.59)
+
+[node name="CardPoints" type="RichTextLabel" parent="Crown_Base"]
+offset_left = 271.186
+offset_top = 277.966
+offset_right = 333.186
+offset_bottom = 361.966
+scale = Vector2(1.71, 1.71)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 60
+text = "3
+"
+
+[node name="Crown_Base2" parent="." instance=ExtResource("8_qjapi")]
+position = Vector2(446, -2)
+scale = Vector2(0.59, 0.59)
+
+[node name="CardPoints" type="RichTextLabel" parent="Crown_Base2"]
+offset_left = 271.186
+offset_top = 277.966
+offset_right = 333.186
+offset_bottom = 361.966
+scale = Vector2(1.71, 1.71)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 60
+text = "6
+"
+
+[node name="Noble" type="Sprite2D" parent="."]
+position = Vector2(514, 770)
+scale = Vector2(0.657895, 0.657171)
+texture = ExtResource("9_ma0jw")

@@ -1,7 +1,7 @@
 extends Node2D
 
 
-
+var Card = preload("res://classes.gd").Card
 var _card_ins
 var init
 

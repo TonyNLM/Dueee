@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c3cyyo2gkhaqq"]
+[gd_scene load_steps=26 format=3 uid="uid://c3cyyo2gkhaqq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ooqqt"]
 [ext_resource type="PackedScene" uid="uid://dudph7sk1dggs" path="res://board.tscn" id="1_xmi4d"]
@@ -7,8 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bocoi7cjvev3l" path="res://Fairy Pics/Decree.png" id="4_7iqku"]
 [ext_resource type="PackedScene" uid="uid://dkxiywhpo54ww" path="res://CardList.tscn" id="5_ao4k1"]
 [ext_resource type="PackedScene" uid="uid://0ux41700ls1o" path="res://ButtonText.tscn" id="6_b04lu"]
+[ext_resource type="Script" path="res://Banner.gd" id="6_f42iq"]
 [ext_resource type="Texture2D" uid="uid://dc13766imjok1" path="res://Fairy Pics/info.png" id="7_rnxi8"]
 [ext_resource type="Texture2D" uid="uid://o8pfgrunda8u" path="res://Fairy Pics/hints.png" id="8_167hf"]
+[ext_resource type="PackedScene" uid="uid://cfxvsov77nl4j" path="res://noble_base.tscn" id="8_s5paw"]
 [ext_resource type="Texture2D" uid="uid://m8qg12s2v7hg" path="res://Fairy Pics/hints_down.png" id="9_kij6r"]
 [ext_resource type="Texture2D" uid="uid://b6g1l3guhc6dp" path="res://Fairy Pics/logs.png" id="10_xrj55"]
 [ext_resource type="Texture2D" uid="uid://cy2gahi12th8c" path="res://Fairy Pics/logs_down.png" id="11_apprk"]
@@ -44,9 +46,10 @@ scale = Vector2(0.21, 0.21)
 position = Vector2(957, 57)
 scale = Vector2(0.327833, 0.271667)
 texture = ExtResource("2_fuy8n")
+script = ExtResource("6_f42iq")
 
 [node name="Bag" type="Sprite2D" parent="Banner"]
-position = Vector2(234.82, -5.28637)
+position = Vector2(341.638, -1.52588e-05)
 scale = Vector2(0.661151, 0.640969)
 texture = ExtResource("3_5wan4")
 
@@ -70,6 +73,22 @@ offset_right = 79.7711
 offset_bottom = 101.64
 theme_override_font_sizes/normal_font_size = 40
 text = "3"
+
+[node name="Noble_Base" parent="Banner" instance=ExtResource("8_s5paw")]
+position = Vector2(-524.657, -147.239)
+scale = Vector2(0.245, 0.27)
+
+[node name="Noble_Base2" parent="Banner" instance=ExtResource("8_s5paw")]
+position = Vector2(-329.436, -147.239)
+scale = Vector2(0.245, 0.27)
+
+[node name="Noble_Base3" parent="Banner" instance=ExtResource("8_s5paw")]
+position = Vector2(-137.265, -147.239)
+scale = Vector2(0.245, 0.27)
+
+[node name="Noble_Base4" parent="Banner" instance=ExtResource("8_s5paw")]
+position = Vector2(54.9063, -147.239)
+scale = Vector2(0.245, 0.27)
 
 [node name="Card_pile" parent="." instance=ExtResource("5_ao4k1")]
 offset_left = 0.0

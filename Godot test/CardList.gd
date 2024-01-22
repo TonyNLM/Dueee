@@ -94,6 +94,6 @@ func remove_focus(num:int):
 	
 func force_remove_focus():
 	Focus=false
-	$Card_Enlarge.visibile=false
+	$Card_Enlarge.visible=false
 	if FocusList.size()>0:
 		FocusList=[]

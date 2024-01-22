@@ -9,6 +9,8 @@ var Move_Token
 var Move_Tier
 var Move_Card
 
+var cardList
+
 var TierTween
 var CardTween
 
@@ -25,7 +27,8 @@ static var Tier_Icons ={1:preload("res://Fairy Pics/tier1CardBack.png"), 2:prelo
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var parent = self.get_parent()
-	var cardList = parent.get_node("Card_pile")
+	cardList = parent.get_node("Card_pile")
+	print(cardList)
 	tier_element_array = [cardList.get_node("HBoxContainer/CenterContainer/Tier_Card"),cardList.get_node("HBoxContainer2/CenterContainer/Tier_Card"),cardList.get_node("HBoxContainer3/CenterContainer/Tier_Card")]
 	Move_Tier=$Move_Tier
 	Move_Token=$Move_Token
@@ -76,6 +79,7 @@ func MoveTierCardToPosition(tier:int, slot:int):
 	Move_Tier.modulate.a=1
 	var finish_callback = func MoveTierFinish():
 		card_element_array[index][slot].get_parent().visible=true
+		card_element_array[index][slot].get_parent().get_parent().get_node("Button").visible=true
 	#print(tier_element_array[0].position)
 	#TierTween.tween_property(Move_Tier, "position", card_element_array[tier][slot].global_position, 4)
 	#print(Move_Tier.global_position, tier_element_array[tier].global_position)
@@ -98,6 +102,8 @@ func MoveCardToPosition(tier:int, slot:int, player:int):
 	
 	Move_Card.global_position = card_element.global_position
 	card_element.visible=false
+	card_element.get_parent().get_node("Button").visible=false
+	cardList.force_remove_focus()
 	if CardTween:
 		CardTween.kill()
 	CardTween = create_tween()

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Enums="*res://Enums.gd"
 Utils="*res://Utils.gd"
+Classes="*res://classes.gd"
 
 [rendering]
 
