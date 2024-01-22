@@ -13,8 +13,12 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-	
-	
+
+signal push_message(message)
+
+func _on_Message(message:String):
+	self.pushMessage(message)
+
 	
 static func pushMessage(message):
 	Message_Controller_Instance.visible = true

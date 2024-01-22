@@ -29,6 +29,7 @@ func _ready():
 func Purchase_Button_Handler():
 	if PopupState==Enums.CardPopupState.CanPurchase or PopupState==Enums.CardPopupState.CanReserveAndPurchase:
 		#print("Purchase Successful")
+		get_tree().call_group("MessageController", "pushMessage", "Test")
 		pass
 	elif PopupState==Enums.CardPopupState.NotPlayerTurn:
 		Message_Controller.pushMessage("You cannot purchase in this phase")

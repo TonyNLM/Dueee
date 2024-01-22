@@ -26,6 +26,7 @@ enum CardDetail{
 	Score,
 	Crown,
 	Bonus,
+	BonusCount,
 	Skill,
 	Cost
 }

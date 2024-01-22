@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://message_controller.gd" id="1_e7wfs"]
 [ext_resource type="Texture2D" uid="uid://2d1q34pitnr" path="res://Fairy Pics/blackMessageBar.png" id="2_52uhi"]
 
-[node name="Message_Controller" type="Control"]
+[node name="Message_Controller" type="Control" groups=["MessageController"]]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 0

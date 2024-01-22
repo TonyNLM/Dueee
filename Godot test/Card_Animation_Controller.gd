@@ -9,6 +9,14 @@ var Move_Token
 var Move_Tier
 var Move_Card
 
+var TierTween
+var CardTween
+
+var tempVal=0
+
+var timer := Timer.new()
+
+
 static var Tier_Icons ={1:preload("res://Fairy Pics/tier1CardBack.png"), 2:preload("res://Fairy Pics/tier2CardBack.png"),3:preload("res://Fairy Pics/tier3CardBack.png")} 
 
 # Called when the node enters the scene tree for the first time.
@@ -45,6 +53,33 @@ func MoveTierCardToPosition(tier:int, slot:int):
 #	print(card_element_array[tier][slot].global_position)
 	pass
 	
+	
+func MoveCardToPosition(tier:int, slot:int, player:int):
+	Move_Card._card_ins.cardLoader(card_element_array[tier-1][slot].get_parent()._card_ins.CardNum)
+	tier=tier-1
+	
+	Move_Card.global_position = card_element_array[tier][slot].global_position
+	if CardTween:
+		CardTween.kill()
+	CardTween = create_tween()
+	Move_Card.modulate.a=1
+	#print(tier_element_array[0].position)
+	#TierTween.tween_property(Move_Tier, "position", card_element_array[tier][slot].global_position, 4)
+	#print(Move_Tier.global_position, tier_element_array[tier].global_position)
+	CardTween.tween_property(Move_Card, "position", Vector2(0,0), 1)
+	CardTween.tween_property(Move_Card, "modulate", Color(1,1,1,0), 1)
+		
+	#print(card_element_array[tier][slot].global_position, tier_element_array[tier].global_position)
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
+
+	
+
+func _on_Timer_timeout():
+	var firstParam = randf_range(1, 4)
+	var secondParam = randf_range(0, 3)
+	MoveTierCardToPosition(firstParam, secondParam)
+	MoveCardToPosition(firstParam, secondParam, 1)
