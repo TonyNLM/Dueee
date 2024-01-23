@@ -1,0 +1,80 @@
+[gd_scene load_steps=8 format=3 uid="uid://dw1i771sno11i"]
+
+[ext_resource type="Script" path="res://Banner_Controller.gd" id="1_wgpny"]
+[ext_resource type="Texture2D" uid="uid://dq5vkhkwd8em5" path="res://Fairy Pics/banner.png" id="2_2gqpt"]
+[ext_resource type="Script" path="res://Banner.gd" id="3_8j015"]
+[ext_resource type="Texture2D" uid="uid://d13d4qti5bgvo" path="res://Fairy Pics/bag2.png" id="4_hf4gb"]
+[ext_resource type="Texture2D" uid="uid://bocoi7cjvev3l" path="res://Fairy Pics/Decree.png" id="5_85g74"]
+[ext_resource type="PackedScene" uid="uid://cfxvsov77nl4j" path="res://noble_base.tscn" id="6_hsa6q"]
+[ext_resource type="Texture2D" uid="uid://bmibe8q40nnos" path="res://Fairy Pics/close.png" id="7_015dx"]
+
+[node name="Banner_Controller" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_wgpny")
+
+[node name="Banner" type="Sprite2D" parent="."]
+position = Vector2(957, 57)
+scale = Vector2(0.396, 0.328)
+texture = ExtResource("2_2gqpt")
+script = ExtResource("3_8j015")
+
+[node name="BannerZoomer" type="Button" parent="Banner"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -549.0
+offset_top = -177.0
+offset_right = 567.0
+offset_bottom = 162.0
+
+[node name="Bag" type="Sprite2D" parent="Banner"]
+position = Vector2(341.638, -1.52588e-05)
+scale = Vector2(0.661151, 0.640969)
+texture = ExtResource("4_hf4gb")
+
+[node name="BagCount" type="RichTextLabel" parent="Banner/Bag"]
+offset_left = -31.3384
+offset_top = -20.6186
+offset_right = 90.6616
+offset_bottom = 107.381
+theme_override_font_sizes/normal_font_size = 80
+text = "3"
+
+[node name="Priv" type="Sprite2D" parent="Banner"]
+position = Vector2(465.036, -2.64319)
+scale = Vector2(1.23013, 1.40379)
+texture = ExtResource("5_85g74")
+
+[node name="PrivCount" type="RichTextLabel" parent="Banner/Priv"]
+offset_left = -11.2289
+offset_top = -26.3604
+offset_right = 79.7711
+offset_bottom = 101.64
+theme_override_font_sizes/normal_font_size = 40
+text = "3"
+
+[node name="Noble_Base" parent="Banner" instance=ExtResource("6_hsa6q")]
+position = Vector2(-524.657, -147.239)
+scale = Vector2(0.245, 0.27)
+
+[node name="Noble_Base2" parent="Banner" instance=ExtResource("6_hsa6q")]
+position = Vector2(-329.436, -147.239)
+scale = Vector2(0.245, 0.27)
+
+[node name="Noble_Base3" parent="Banner" instance=ExtResource("6_hsa6q")]
+position = Vector2(-137.265, -147.239)
+scale = Vector2(0.245, 0.27)
+
+[node name="Noble_Base4" parent="Banner" instance=ExtResource("6_hsa6q")]
+position = Vector2(54.9063, -147.239)
+scale = Vector2(0.245, 0.27)
+
+[node name="Close_Button" type="TextureButton" parent="Banner"]
+visible = false
+offset_left = 487.374
+offset_top = -246.951
+offset_right = 787.374
+offset_bottom = 53.0487
+scale = Vector2(0.44, 0.44)
+texture_normal = ExtResource("7_015dx")
