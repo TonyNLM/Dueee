@@ -6,6 +6,7 @@ func _ready():
 	var BoardObj = self.get_parent().get_node("Board")
 	var takeAwayToken = BoardObj.takeAwaySelectedTokens.bind(1)
 	$Button_Icon.connect("pressed", takeAwayToken)
+	#print("Binding Complete")
 	
 	pass # Replace with function body.
 
