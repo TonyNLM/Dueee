@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c3cyyo2gkhaqq"]
+[gd_scene load_steps=25 format=3 uid="uid://c3cyyo2gkhaqq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ooqqt"]
 [ext_resource type="PackedScene" uid="uid://dudph7sk1dggs" path="res://board.tscn" id="1_xmi4d"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dc13766imjok1" path="res://Fairy Pics/info.png" id="7_rnxi8"]
 [ext_resource type="Script" path="res://ConfirmButton.gd" id="8_7wj3o"]
 [ext_resource type="Texture2D" uid="uid://o8pfgrunda8u" path="res://Fairy Pics/hints.png" id="8_167hf"]
+[ext_resource type="Script" path="res://CancelButton.gd" id="9_8ymja"]
 [ext_resource type="Texture2D" uid="uid://m8qg12s2v7hg" path="res://Fairy Pics/hints_down.png" id="9_kij6r"]
 [ext_resource type="Texture2D" uid="uid://b6g1l3guhc6dp" path="res://Fairy Pics/logs.png" id="10_xrj55"]
 [ext_resource type="Texture2D" uid="uid://cy2gahi12th8c" path="res://Fairy Pics/logs_down.png" id="11_apprk"]
@@ -63,6 +64,7 @@ text = "Confirm"
 [node name="CancelButton" parent="." instance=ExtResource("6_b04lu")]
 position = Vector2(933, 167)
 scale = Vector2(0.27, 0.27)
+script = ExtResource("9_8ymja")
 
 [node name="Button_Text" parent="CancelButton" index="1"]
 text = "Cancel"

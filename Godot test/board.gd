@@ -1,6 +1,7 @@
 extends Node2D
 
 var Board
+var newBoardColour
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Board = [[$Board_Parent/Board_position1/BoardToken, $Board_Parent/Board_position2/BoardToken, $Board_Parent/Board_position3/BoardToken, $Board_Parent/Board_position4/BoardToken, $Board_Parent/Board_position5/BoardToken],
@@ -12,7 +13,7 @@ func _ready():
 	#fillSingleSlot(0,1,Enums.TokenColour.Blue)
 	#fillSingleSlot(1,0,Enums.TokenColour.None)
 	
-	var newBoardColour = [[1,2,3,4,8],[1,2,8,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]]
+	newBoardColour = [[1,2,3,4,8],[1,2,8,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]]
 	fillAllSlot(newBoardColour)
 	pass # Replace with function body.
 
@@ -51,5 +52,7 @@ func takeAwaySelectedTokens(player:int):
 func sendTokenToPlayer(tokenObj, player:int):
 	tokenObj.takeAwayToken()
 	
+func Test_FillAllSlot():
+	fillAllSlot(newBoardColour)
 	
 
