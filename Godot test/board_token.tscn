@@ -9,12 +9,13 @@ script = ExtResource("1_bec62")
 
 [node name="WhiteHighlight" type="Sprite2D" parent="."]
 visible = false
+modulate = Color(1, 1, 1, 0)
 position = Vector2(195, 206)
 texture = ExtResource("2_8bg07")
 
 [node name="YellowHighlight" type="Sprite2D" parent="."]
 visible = false
-modulate = Color(1, 1, 0.992157, 1)
+modulate = Color(1, 1, 0.992157, 0)
 position = Vector2(195, 206)
 texture = ExtResource("2_8bg07")
 

@@ -1,5 +1,9 @@
 extends Node2D
 
+var TokenColour: Enums.TokenColour
+var BoardTokenState #0: Not available, #1: Available, #2 Highlighted
+
+
 var YellowHighlightState: bool
 var YellowHighlightIntensity: int
 var YellowHighlightIntensityModifier: int
@@ -22,6 +26,9 @@ func _ready():
 	$Board_Button.connect("mouse_entered",self._on_Board_Button_mouse_entered)
 	$Board_Button.connect("mouse_exited", self._on_Board_Button_mouse_exited)
 	$Board_Button.connect("pressed", self._on_Board_Button_pressed)
+	
+	
+	setTokenColour(Enums.TokenColour.Blue)
 	pass
 
 
@@ -49,18 +56,23 @@ func _process(delta):
 	
 	pass
 
+
+
+
 func YellowHighlightSwitch(switch: bool):
 	if switch and !YellowHighlightState:
 		YellowHighlightIntensity = 0
 		$YellowHighlight.visible = true
 		$YellowHighlight.modulate = Color(1, 1, 0, YellowHighlightIntensity / 255.0)
 		YellowHighlightState = true
+		BoardTokenState = 2
 		#print("Yellow highlight turned on")
 	if !switch and YellowHighlightState:
 		YellowHighlightIntensity = 0
 		$YellowHighlight.visible = false
 		$YellowHighlight.modulate = Color(1, 1, 0, YellowHighlightIntensity / 255.0)
 		YellowHighlightState = false
+		BoardTokenState = 1
 		#print("Yellow highlight turned off")
 
 func WhiteHighlightSwitch(switch: bool):
@@ -109,6 +121,30 @@ func turnOffAllLights():
 func EnableLights(switch:bool):
 	if switch:
 		$Board_Button.visible = true
+		$WhiteHighlight.visible = true
+		$YellowHighlight.visible = true
 	else:
 		$Board_Button.visible = false
 		turnOffAllLights()
+		
+func setTokenColour(colour:Enums.TokenColour):
+	if colour<0 or colour>Enums.TokenColour.None:
+		return
+	if colour==Enums.TokenColour.None:
+		EnableLights(false)
+		$Board_Button.visible=false
+		$Token.modulate.a=0
+		BoardTokenState=0
+		return
+		
+	$Token.changeColour(colour)
+	EnableLights(true)
+	$Board_Button.visible=true
+	$Token.modulate.a = 1
+	BoardTokenState=1
+		
+func takeAwayToken():
+	setTokenColour(Enums.TokenColour.None)
+	
+		
+	

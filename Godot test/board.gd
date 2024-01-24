@@ -12,8 +12,8 @@ func _ready():
 	#fillSingleSlot(0,1,Enums.TokenColour.Blue)
 	#fillSingleSlot(1,0,Enums.TokenColour.None)
 	
-	#var newBoardColour = [[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]]
-	#fillAllSlot(newBoardColour)
+	var newBoardColour = [[1,2,3,4,8],[1,2,8,4,5],[1,2,3,4,5],[1,2,3,4,5],[1,2,3,4,5]]
+	fillAllSlot(newBoardColour)
 	pass # Replace with function body.
 
 
@@ -23,14 +23,33 @@ func _process(delta):
 
 func fillSingleSlot(x:int,y:int,colour:Enums.TokenColour):
 	var BoardToken = Board[y][x]
-	var Token = BoardToken.get_node("Token")
-	Token.changeColour(colour)
-	if colour == Enums.TokenColour.None:
-		BoardToken.EnableLights(false)
-	else:
-		BoardToken.EnableLights(true)
+#	var Token = BoardToken.get_node("Token")
+#	Token.changeColour(colour)
+#	if colour == Enums.TokenColour.None:
+#		BoardToken.EnableLights(false)
+#	else:
+#		BoardToken.EnableLights(true)
+	BoardToken.setTokenColour(colour)
+	
 		
 func fillAllSlot(colour:Array):
 	for y in range(5):
 		for x in range(5):
 			fillSingleSlot(x, y, colour[y][x])
+			
+			
+func takeAwaySelectedTokens(player:int):
+	for y in range(5):
+		for x in range(5):
+			if Board[y][x].BoardTokenState==2:
+				sendTokenToPlayer(Board[y][x], player)
+				
+	print("Taken")
+				
+				
+				
+func sendTokenToPlayer(tokenObj, player:int):
+	tokenObj.takeAwayToken()
+	
+	
+
