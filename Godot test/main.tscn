@@ -95,7 +95,8 @@ texture_normal = ExtResource("8_167hf")
 texture_pressed = ExtResource("9_kij6r")
 
 [node name="Player2_Card_Interaction_Popup" parent="." instance=ExtResource("16_jxp60")]
-position = Vector2(-370, 101)
+visible = false
+position = Vector2(-352, 564)
 
 [node name="Banner_Controller" parent="." instance=ExtResource("15_twjjj")]
 offset_left = 104.0
@@ -113,17 +114,16 @@ mouse_filter = 2
 script = ExtResource("17_wowms")
 
 [node name="Move_Token" parent="Card_Animation_Controller" instance=ExtResource("18_d66wb")]
-position = Vector2(583, 610)
+position = Vector2(583, 680)
 scale = Vector2(0.215, 0.215)
 
 [node name="Move_Tier" type="Sprite2D" parent="Card_Animation_Controller"]
-position = Vector2(549, 586)
+position = Vector2(498, 712)
 scale = Vector2(0.145, 0.145)
 texture = ExtResource("19_fcabm")
-centered = false
 
 [node name="Move_Card" parent="Card_Animation_Controller" instance=ExtResource("20_ema58")]
-position = Vector2(565, 502)
+position = Vector2(685, 643)
 scale = Vector2(0.145, 0.145)
 
 [node name="Popup_Controller" type="Control" parent="."]

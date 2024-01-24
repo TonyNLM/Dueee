@@ -7,6 +7,7 @@
 custom_minimum_size = Vector2(400, 0)
 
 [node name="Card_Base" parent="." instance=ExtResource("1_k6vya")]
+position = Vector2(3, 2)
 
 [node name="Button" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)

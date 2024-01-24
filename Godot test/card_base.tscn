@@ -16,19 +16,19 @@ scale = Vector2(0.5, 0.5)
 script = ExtResource("1_qkqrb")
 
 [node name="CardBase" type="Sprite2D" parent="."]
-position = Vector2(413, 503.5)
+position = Vector2(399, 497.5)
 texture = ExtResource("1_gj2hu")
 
 [node name="CardBaseDown" type="Sprite2D" parent="."]
-position = Vector2(412, 505.5)
+position = Vector2(398, 499.5)
 texture = ExtResource("2_outm8")
 
 [node name="CardBaseUp" type="Sprite2D" parent="."]
-position = Vector2(414, 504.5)
+position = Vector2(400, 498.5)
 texture = ExtResource("3_l4bgm")
 
 [node name="CardScore" type="Sprite2D" parent="."]
-position = Vector2(407, 508.5)
+position = Vector2(393, 502.5)
 texture = ExtResource("4_0etek")
 
 [node name="CardPoints" type="RichTextLabel" parent="CardScore"]
@@ -44,7 +44,7 @@ text = "1
 "
 
 [node name="CardSkill" type="Sprite2D" parent="."]
-position = Vector2(498, 574.5)
+position = Vector2(484, 568.5)
 scale = Vector2(1.335, 1.373)
 texture = ExtResource("6_emfdp")
 
@@ -54,7 +54,7 @@ position = Vector2(-249.655, -126.897)
 scale = Vector2(0.1, 0.1)
 
 [node name="Crown_Base" parent="." instance=ExtResource("8_x602n")]
-position = Vector2(312, 88.5)
+position = Vector2(298, 82.5)
 
 [node name="CardToken" parent="." instance=ExtResource("7_hip5k")]
 position = Vector2(538, 74)
@@ -65,10 +65,10 @@ position = Vector2(462, 76)
 scale = Vector2(0.51, 0.51)
 
 [node name="CostContainer" type="GridContainer" parent="."]
-offset_left = 268.0
-offset_top = 480.5
-offset_right = 620.0
-offset_bottom = 834.5
+offset_left = 254.0
+offset_top = 474.5
+offset_right = 606.0
+offset_bottom = 828.5
 scale = Vector2(1.66, 1.66)
 mouse_filter = 2
 columns = 2

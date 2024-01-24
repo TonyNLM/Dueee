@@ -15,61 +15,6 @@ offset_bottom = 2002.0
 scale = Vector2(0.26, 0.26)
 script = ExtResource("1_mon3c")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(500, 500)
-layout_mode = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-use_top_left = true
-
-[node name="Tier_Card" type="Sprite2D" parent="HBoxContainer/CenterContainer"]
-position = Vector2(203.846, 250)
-scale = Vector2(0.505, 0.505)
-texture = ExtResource("2_cj670")
-
-[node name="CenterContainer2" parent="HBoxContainer" instance=ExtResource("3_moseu")]
-layout_mode = 2
-
-[node name="CenterContainer3" parent="HBoxContainer" instance=ExtResource("3_moseu")]
-layout_mode = 2
-
-[node name="CenterContainer4" parent="HBoxContainer" instance=ExtResource("3_moseu")]
-layout_mode = 2
-
-[node name="CenterContainer5" parent="HBoxContainer" instance=ExtResource("3_moseu")]
-layout_mode = 2
-
-[node name="CenterContainer6" parent="HBoxContainer" instance=ExtResource("3_moseu")]
-layout_mode = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="."]
-custom_minimum_size = Vector2(500, 500)
-layout_mode = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer2"]
-custom_minimum_size = Vector2(400, 0)
-layout_mode = 2
-
-[node name="Tier_Card" type="Sprite2D" parent="HBoxContainer2/CenterContainer"]
-position = Vector2(203.846, 250)
-scale = Vector2(0.505, 0.505)
-texture = ExtResource("4_g5ujn")
-
-[node name="CenterContainer2" parent="HBoxContainer2" instance=ExtResource("3_moseu")]
-layout_mode = 2
-use_top_left = true
-
-[node name="CenterContainer3" parent="HBoxContainer2" instance=ExtResource("3_moseu")]
-layout_mode = 2
-
-[node name="CenterContainer4" parent="HBoxContainer2" instance=ExtResource("3_moseu")]
-layout_mode = 2
-
-[node name="CenterContainer5" parent="HBoxContainer2" instance=ExtResource("3_moseu")]
-layout_mode = 2
-
 [node name="HBoxContainer3" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
@@ -92,6 +37,60 @@ layout_mode = 2
 [node name="CenterContainer4" parent="HBoxContainer3" instance=ExtResource("3_moseu")]
 layout_mode = 2
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer2"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Tier_Card" type="Sprite2D" parent="HBoxContainer2/CenterContainer"]
+position = Vector2(203.846, 250)
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("4_g5ujn")
+
+[node name="CenterContainer2" parent="HBoxContainer2" instance=ExtResource("3_moseu")]
+layout_mode = 2
+
+[node name="CenterContainer3" parent="HBoxContainer2" instance=ExtResource("3_moseu")]
+layout_mode = 2
+
+[node name="CenterContainer4" parent="HBoxContainer2" instance=ExtResource("3_moseu")]
+layout_mode = 2
+
+[node name="CenterContainer5" parent="HBoxContainer2" instance=ExtResource("3_moseu")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Tier_Card" type="Sprite2D" parent="HBoxContainer/CenterContainer"]
+position = Vector2(203.846, 250)
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("2_cj670")
+
+[node name="CenterContainer2" parent="HBoxContainer" instance=ExtResource("3_moseu")]
+layout_mode = 2
+
+[node name="CenterContainer3" parent="HBoxContainer" instance=ExtResource("3_moseu")]
+layout_mode = 2
+
+[node name="CenterContainer4" parent="HBoxContainer" instance=ExtResource("3_moseu")]
+layout_mode = 2
+
+[node name="CenterContainer5" parent="HBoxContainer" instance=ExtResource("3_moseu")]
+layout_mode = 2
+
+[node name="CenterContainer6" parent="HBoxContainer" instance=ExtResource("3_moseu")]
+layout_mode = 2
+
 [node name="Card_Enlarge" parent="." instance=ExtResource("1_0o4n2")]
+visible = false
 position = Vector2(2938.46, 50)
 scale = Vector2(0.74, 0.74)

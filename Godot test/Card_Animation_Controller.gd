@@ -30,6 +30,10 @@ func _ready():
 	cardList = parent.get_node("Card_pile")
 	print(cardList)
 	tier_element_array = [cardList.get_node("HBoxContainer/CenterContainer/Tier_Card"),cardList.get_node("HBoxContainer2/CenterContainer/Tier_Card"),cardList.get_node("HBoxContainer3/CenterContainer/Tier_Card")]
+	card_element_array = [[cardList.get_node("HBoxContainer/CenterContainer2/Card_Base/CardBase"),cardList.get_node("HBoxContainer/CenterContainer3/Card_Base/CardBase"),cardList.get_node("HBoxContainer/CenterContainer4/Card_Base/CardBase"),cardList.get_node("HBoxContainer/CenterContainer5/Card_Base/CardBase"),cardList.get_node("HBoxContainer/CenterContainer6/Card_Base/CardBase")],
+	[cardList.get_node("HBoxContainer2/CenterContainer2/Card_Base/CardBase"),cardList.get_node("HBoxContainer2/CenterContainer3/Card_Base/CardBase"),cardList.get_node("HBoxContainer2/CenterContainer4/Card_Base/CardBase"),cardList.get_node("HBoxContainer2/CenterContainer5/Card_Base/CardBase")],
+	[cardList.get_node("HBoxContainer3/CenterContainer2/Card_Base/CardBase"),cardList.get_node("HBoxContainer3/CenterContainer3/Card_Base/CardBase"),cardList.get_node("HBoxContainer3/CenterContainer4/Card_Base/CardBase")]
+	]
 	Move_Tier=$Move_Tier
 	Move_Token=$Move_Token
 	Move_Card=$Move_Card
@@ -47,10 +51,7 @@ func _ready():
 #	cardList.get_card_reference()
 #	card_element_array = cardList.CardList
 	print(tier_element_array)
-	parent.get_node("Card_pile/HBoxContainer2/CenterContainer2/Card_Base").global_position=Vector2(0,0)
-	var newpos = parent.get_node("Card_pile/HBoxContainer2/CenterContainer2/Card_Base").global_position
-	Move_Tier.global_position = newpos
-	print(newpos)
+	
 	#Move_Tier.global_position = tier_element_array[1].global_position
 	
 	#MoveTierCardToPosition(1,2)
@@ -61,14 +62,6 @@ func _ready():
 	pass # Replace with function body.
 
 func MoveTierCardToPosition(tier:int, slot:int):
-<<<<<<< HEAD
-	tier=tier-1
-	Move_Tier.global_position = tier_element_array[tier].global_position
-#	var TierTween = create_tween()
-#	#print(tier_element_array[0].position)
-#	TierTween.tween_property(Move_Tier, "position", card_element_array[tier][slot].global_position, 4)
-#	print(card_element_array[tier][slot].global_position)
-=======
 	Move_Tier.texture = Tier_Icons[tier]
 	var index = tier-1
 	
@@ -90,7 +83,6 @@ func MoveTierCardToPosition(tier:int, slot:int):
 	
 		
 	#print(card_element_array[tier][slot].global_position, tier_element_array[tier].global_position)
->>>>>>> 5e89ca1 (card move, changed popup)
 	pass
 	
 	
@@ -121,6 +113,7 @@ func MoveCardToPosition(tier:int, slot:int, player:int):
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+
 	pass
 	
 

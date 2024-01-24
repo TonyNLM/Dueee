@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b52dvm21hbxjg"]
+
+[ext_resource type="Script" path="res://Card_GridList.gd" id="1_ntpuh"]
+[ext_resource type="Texture2D" uid="uid://c3feee06a8gpk" path="res://Fairy Pics/tier3CardBack.png" id="2_eb2gi"]
+[ext_resource type="PackedScene" uid="uid://cionjq2bck6s0" path="res://Card_Button.tscn" id="3_y1gj8"]
+
+[node name="GridContainer" type="GridContainer"]
+columns = 3
+script = ExtResource("1_ntpuh")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+
+[node name="Tier_Card" type="Sprite2D" parent="CenterContainer"]
+position = Vector2(203.846, 250)
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("2_eb2gi")
+
+[node name="CenterContainer2" parent="." instance=ExtResource("3_y1gj8")]
+layout_mode = 2
+
+[node name="CenterContainer3" parent="." instance=ExtResource("3_y1gj8")]
+layout_mode = 2
+
+[node name="CenterContainer4" parent="." instance=ExtResource("3_y1gj8")]
+layout_mode = 2

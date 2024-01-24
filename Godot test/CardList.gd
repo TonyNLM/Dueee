@@ -9,16 +9,16 @@ var CardList
 var init
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+
 	init_self()
 	testing_self_setup()
-	
-	
+
+
 func init_self():
 	if !init:
 		get_card_reference()
 	FocusList = []
-	
+
 	Focus=false
 	$Card_Enlarge.visible = false
 	#$Card_Enlarge.MOUSE_FILTER_IGNORE = false
@@ -34,8 +34,8 @@ func _process(delta):
 		mouse_position.y+=offset_y
 		$Card_Enlarge.position = mouse_position
 	pass
-	
-	
+
+
 func get_card_reference():
 	var CardList1 = [$HBoxContainer/CenterContainer2/Card_Base, $HBoxContainer/CenterContainer3/Card_Base, $HBoxContainer/CenterContainer4/Card_Base,$HBoxContainer/CenterContainer5/Card_Base,$HBoxContainer/CenterContainer6/Card_Base]
 	var CardList2 = [$HBoxContainer2/CenterContainer2/Card_Base, $HBoxContainer2/CenterContainer3/Card_Base, $HBoxContainer2/CenterContainer4/Card_Base,$HBoxContainer2/CenterContainer5/Card_Base]
@@ -44,18 +44,18 @@ func get_card_reference():
 	CardList_CardValue=[[0,0,0,0,0],[0,0,0,0],[0,0,0]]
 	init=true
 	pass
-	
-	
-	
+
+
+
 func testing_self_setup():
 	for i in range(1,4):
 		for k in range(0,6-i):
 			setup_card_pile(i,k,i+k)
-			print(CardList[i-1][k].global_position)
-			print(CardList[i-1][k])
+			#print(CardList[i-1][k].global_position)
+			#print(CardList[i-1][k])
 			#if i==2:
 				#CardList[i-1][k].global_position=Vector2(0,0)
-	
+
 func setup_card_pile(tier:int, position:int, card_num:int):
 	if !init:
 		get_card_reference()
@@ -63,14 +63,14 @@ func setup_card_pile(tier:int, position:int, card_num:int):
 		return
 	if tier == 2 and (position>3 or position<0):
 		return
-		
+
 	if tier == 3 and (position>2 or position<0):
 		return
-	
+
 	CardList_CardValue[tier-1][position] = card_num
 	CardList[tier-1][position]._card_ins.cardLoader(card_num)
-	
-	
+
+
 	pass
 
 
@@ -79,7 +79,7 @@ func add_focus(num:int):
 		Focus=true
 		$Card_Enlarge.visible=true
 		FocusList.append(num)
-	else:
+
 		FocusList.append(num)
 	$Card_Enlarge._card_ins.cardLoader(num)
 	
