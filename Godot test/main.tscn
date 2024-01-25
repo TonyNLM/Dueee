@@ -101,13 +101,13 @@ visible = false
 position = Vector2(-352, 564)
 
 [node name="Banner_Controller" parent="." instance=ExtResource("15_twjjj")]
-offset_left = 104.0
-offset_top = 6.0
-offset_right = 144.0
-offset_bottom = 46.0
+offset_left = 747.0
+offset_top = -12.0
+offset_right = 833.0
+offset_bottom = 48.0
 scale = Vector2(0.885, 0.885)
 
-[node name="Card_Animation_Controller" type="Control" parent="."]
+[node name="Card_Animation_Controller" type="Control" parent="." groups=["AnimationController"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 101.0

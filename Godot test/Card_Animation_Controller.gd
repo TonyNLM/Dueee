@@ -18,6 +18,9 @@ var tempVal=0
 
 var timer := Timer.new()
 
+var player1_Banner
+var player2_Banner
+
 signal OnCardTakenComplete(tier, slot)
 signal OnCardRefillComplete(tier, slot)
 
@@ -106,6 +109,51 @@ func MoveCardToPosition(tier:int, slot:int, player:int):
 	var finish_callback = func MoveCardFinish():
 		OnCardTakenComplete.emit(tier, slot)
 	CardTween.tween_callback(finish_callback)
+	
+func SpawnTokenToPlayer(tokenObj, player:int):
+	var newMoveToken = $Move_Token.duplicate()
+	newMoveToken.changeColour(tokenObj.SelfColour)
+	self.add_child(newMoveToken)
+	newMoveToken.global_position = tokenObj.global_position
+	var TokenTween = create_tween()
+	
+	
+	var RemoveToken = func Remove_Token():
+		self.remove_child(newMoveToken)
+	
+	var finish_callback = func MoveTokenFinish():
+		var FadeoutTween = create_tween()
+		FadeoutTween.tween_property(newMoveToken, "modulate", Color(1,1,1,0), 0.5)
+		FadeoutTween.tween_callback(RemoveToken)
+		
+		
+		
+	TokenTween.tween_property(newMoveToken, "position", Vector2(0,0), 0.8).set_trans(Tween.TRANS_QUART)
+	TokenTween.tween_callback(finish_callback)
+	
+func SpawnTokenToBoard(tokenObj):
+	var newMoveToken = $Move_Token.duplicate()
+	newMoveToken.changeColour(tokenObj.SelfColour)
+	self.add_child(newMoveToken)
+	newMoveToken.global_position = self.get_parent().get_node("Banner_Controller").get_node("Banner").get_node("Bag").global_position
+	var TokenTween = create_tween()
+	
+	
+	var RemoveToken = func Remove_Token():
+		self.remove_child(newMoveToken)
+		tokenObj.visible=true
+		
+		
+		
+	TokenTween.tween_property(newMoveToken, "position", tokenObj.global_position, 0.8).set_trans(Tween.TRANS_QUART)
+	TokenTween.tween_callback(RemoveToken)
+	
+	
+		
+
+		
+		
+	print("done")
 	
 	
 
