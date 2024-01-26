@@ -141,6 +141,7 @@ func setTokenColour(colour:Enums.TokenColour):
 	EnableLights(true)
 	$Board_Button.visible=true
 	$Token.modulate.a = 1
+	turnOffAllLights()
 	BoardTokenState=1
 		
 func takeAwayToken():

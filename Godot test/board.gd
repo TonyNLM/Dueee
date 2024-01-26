@@ -24,6 +24,7 @@ func _process(delta):
 
 func fillSingleSlot(x:int,y:int,colour:Enums.TokenColour, animation:bool=false):
 	var BoardToken = Board[y][x]
+
 #	var Token = BoardToken.get_node("Token")
 #	Token.changeColour(colour)
 #	if colour == Enums.TokenColour.None:
