@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c3cyyo2gkhaqq"]
+[gd_scene load_steps=26 format=3 uid="uid://c3cyyo2gkhaqq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ooqqt"]
 [ext_resource type="PackedScene" uid="uid://dudph7sk1dggs" path="res://board.tscn" id="1_xmi4d"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bkhe3m1kioii0" path="res://token.tscn" id="18_d66wb"]
 [ext_resource type="Texture2D" uid="uid://cxldofsyrku4j" path="res://Fairy Pics/tier1CardBack.png" id="19_fcabm"]
 [ext_resource type="PackedScene" uid="uid://drtpxaydwef5n" path="res://card_base.tscn" id="20_ema58"]
+[ext_resource type="Texture2D" uid="uid://bda0w8fashmo5" path="res://Fairy Pics/BluePhasePopup.png" id="23_k33iy"]
 [ext_resource type="PackedScene" uid="uid://bmutapjdu2e6u" path="res://popup_window.tscn" id="23_lbcph"]
 
 [node name="Main" type="Node2D"]
@@ -43,8 +44,8 @@ position = Vector2(320, -43)
 scale = Vector2(0.545, 0.545)
 
 [node name="Board" parent="." instance=ExtResource("1_xmi4d")]
-position = Vector2(726, 225)
-scale = Vector2(0.21, 0.21)
+position = Vector2(700, 147)
+scale = Vector2(0.22, 0.22)
 
 [node name="Card_pile" parent="." instance=ExtResource("5_ao4k1")]
 offset_left = 0.0
@@ -54,7 +55,7 @@ offset_bottom = 1724.0
 scale = Vector2(0.29, 0.29)
 
 [node name="ConfirmButton" parent="." instance=ExtResource("6_b04lu")]
-position = Vector2(773, 168)
+position = Vector2(752, 587)
 scale = Vector2(0.27, 0.27)
 script = ExtResource("8_7wj3o")
 
@@ -62,23 +63,33 @@ script = ExtResource("8_7wj3o")
 text = "Confirm"
 
 [node name="CancelButton" parent="." instance=ExtResource("6_b04lu")]
-position = Vector2(933, 167)
+position = Vector2(1000, 587)
 scale = Vector2(0.27, 0.27)
 script = ExtResource("9_8ymja")
 
+[node name="Button_Icon" parent="CancelButton" index="0"]
+offset_left = -155.555
+offset_top = 0.0
+offset_right = 1044.44
+offset_bottom = 388.0
+
 [node name="Button_Text" parent="CancelButton" index="1"]
+offset_left = 55.4446
+offset_top = 74.0001
+offset_right = 279.445
+offset_bottom = 120.0
 text = "Cancel"
 
 [node name="PhaseIndicator" type="Sprite2D" parent="."]
-position = Vector2(941, 138)
+position = Vector2(1319, 328)
 scale = Vector2(0.292083, 0.1825)
 texture = ExtResource("7_rnxi8")
 
-[node name="Button_Bar" type="VBoxContainer" parent="."]
-offset_left = 1111.0
-offset_top = 104.0
-offset_right = 1324.0
-offset_bottom = 758.0
+[node name="Button_Bar" type="HBoxContainer" parent="."]
+offset_left = 1023.0
+offset_top = 3.0
+offset_right = 3154.0
+offset_bottom = 203.0
 scale = Vector2(0.195, 0.195)
 
 [node name="TextureButton3" type="TextureButton" parent="Button_Bar"]
@@ -101,11 +112,11 @@ visible = false
 position = Vector2(-352, 564)
 
 [node name="Banner_Controller" parent="." instance=ExtResource("15_twjjj")]
-offset_left = 747.0
-offset_top = -12.0
-offset_right = 833.0
-offset_bottom = 48.0
-scale = Vector2(0.885, 0.885)
+offset_left = 694.0
+offset_top = 34.0
+offset_right = 780.0
+offset_bottom = 94.0
+scale = Vector2(0.925, 0.925)
 
 [node name="Card_Animation_Controller" type="Control" parent="." groups=["AnimationController"]]
 layout_mode = 3
@@ -127,6 +138,37 @@ texture = ExtResource("19_fcabm")
 [node name="Move_Card" parent="Card_Animation_Controller" instance=ExtResource("20_ema58")]
 position = Vector2(685, 643)
 scale = Vector2(0.145, 0.145)
+
+[node name="Move_PhaseIndicator" type="Sprite2D" parent="Card_Animation_Controller"]
+position = Vector2(1239, 89)
+scale = Vector2(0.395, 0.395)
+texture = ExtResource("23_k33iy")
+
+[node name="PhaseText" type="RichTextLabel" parent="Card_Animation_Controller/Move_PhaseIndicator"]
+offset_left = -210.126
+offset_top = -37.9747
+offset_right = 179.874
+offset_bottom = 63.0253
+theme_override_colors/default_color = Color(1, 1, 0, 1)
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
+text = "Phase Indicator"
+
+[node name="PhaseClickable" type="Button" parent="Card_Animation_Controller/Move_PhaseIndicator"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -324.0
+offset_top = -81.0
+offset_right = 337.0
+offset_bottom = 84.0
+
+[node name="TextureButton" type="TextureButton" parent="Card_Animation_Controller/Move_PhaseIndicator"]
+offset_left = 194.937
+offset_top = -53.1646
+offset_right = 394.937
+offset_bottom = 146.835
+scale = Vector2(0.545, 0.545)
+texture_normal = ExtResource("8_167hf")
+texture_pressed = ExtResource("9_kij6r")
 
 [node name="Popup_Controller" type="Control" parent="."]
 layout_mode = 3

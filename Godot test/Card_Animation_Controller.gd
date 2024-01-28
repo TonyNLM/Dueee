@@ -1,25 +1,41 @@
 extends Control
 
+#self items
 
-var tier_element_array
-var card_element_array
-var token_element_array
 
 var Move_Token
 var Move_Tier
 var Move_Card
 
-var cardList
+
 
 var TierTween
 var CardTween
+
+
 
 var tempVal=0
 
 var timer := Timer.new()
 
+#Phase indicator stuff
+var PhaseIndicatorObj
+var PhaseIndicatorTween
+var PhasePlayer
+var Phase#stores the phase of the game
+var PhaseIndicatorState:Enums.PhaseIndicatorState
+var PhaseTexture
+
+
+#external references
 var player1_Banner
 var player2_Banner
+var tier_element_array
+var card_element_array
+var token_element_array
+var cardList
+
+
 
 signal OnCardTakenComplete(tier, slot)
 signal OnCardRefillComplete(tier, slot)
@@ -40,13 +56,18 @@ func _ready():
 	Move_Tier=$Move_Tier
 	Move_Token=$Move_Token
 	Move_Card=$Move_Card
+	PhaseIndicatorObj=$Move_PhaseIndicator
+	PhaseIndicatorState=Enums.PhaseIndicatorState.Auto_In
+	ChangePhaseTo("Start of Phase")
+	PhaseIndicatorObj.get_node("PhaseClickable").connect("pressed", OnPhaseIndicatorClick)
+	
 	
 	
 	
 	#region for testing
 	OnCardTakenComplete.connect(MoveTierCardToPosition)
 	add_child(timer)
-	timer.wait_time = 6
+	timer.wait_time = 8
 	timer.connect("timeout", _on_Timer_timeout)
 	timer.start()
 	#end
@@ -110,6 +131,12 @@ func MoveCardToPosition(tier:int, slot:int, player:int):
 		OnCardTakenComplete.emit(tier, slot)
 	CardTween.tween_callback(finish_callback)
 	
+	
+	
+	
+	
+	
+	
 func SpawnTokenToPlayer(tokenObj, player:int):
 	var newMoveToken = $Move_Token.duplicate()
 	newMoveToken.changeColour(tokenObj.SelfColour)
@@ -159,6 +186,56 @@ func SpawnTokenToBoard(tokenObj):
 
 	#print(card_element_array[tier][slot].global_position, tier_element_array[tier].global_position)
 	pass
+	
+func OnPhaseIndicatorClick():
+	if PhaseIndicatorState!=Enums.PhaseIndicatorState.Toggle_Out:
+		PhaseIndicatorState=Enums.PhaseIndicatorState.Toggle_Out
+	else:
+		PhaseIndicatorState=Enums.PhaseIndicatorState.Auto_In
+	SetPhaseIndicatorToLocation(PhaseIndicatorState)
+	
+func ChangePhaseTo(phaseDesc:String):
+	PhaseIndicatorObj.get_node("PhaseText").text = phaseDesc
+	if PhaseIndicatorState==Enums.PhaseIndicatorState.Toggle_Out:
+		return
+	ChangePhaseIndicatorState(Enums.PhaseIndicatorState.Auto_Out)
+	
+func ChangePhaseIndicatorState(newState):
+
+	PhaseIndicatorState = newState
+	SetPhaseIndicatorToLocation(PhaseIndicatorState)
+
+
+		
+	
+func SetPhaseIndicatorToLocation(newPhaseIndicatorState, delay:bool=true):
+	if PhaseIndicatorTween:
+		PhaseIndicatorTween.kill()
+	PhaseIndicatorTween=create_tween()
+	print("tweenExecuted")
+	print(newPhaseIndicatorState)
+	if newPhaseIndicatorState==Enums.PhaseIndicatorState.Toggle_Out:
+		PhaseIndicatorTween.tween_property($Move_PhaseIndicator, "position", Vector2(1017,96),1)
+	if newPhaseIndicatorState==Enums.PhaseIndicatorState.Auto_In:
+		PhaseIndicatorTween.tween_property($Move_PhaseIndicator, "position", Vector2(1239,96),1)
+	if newPhaseIndicatorState==Enums.PhaseIndicatorState.Auto_Out:
+		print("Out")
+	#	
+		PhaseIndicatorTween.tween_property($Move_PhaseIndicator, "position", Vector2(1082,96),1)
+		if delay:
+			PhaseIndicatorTween.tween_callback(ChangePhaseIndicatorState.bind(Enums.PhaseIndicatorState.Auto_In)).set_delay(2)
+
+
+		
+	
+	
+	
+	
+	
+	
+	
+	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
@@ -172,3 +249,5 @@ func _on_Timer_timeout():
 	var secondParam = randf_range(0, 3)
 	#MoveTierCardToPosition(firstParam, secondParam)
 	MoveCardToPosition(firstParam, secondParam, 1)
+
+	ChangePhaseTo(str(firstParam))

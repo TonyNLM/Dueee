@@ -40,3 +40,11 @@ enum CardPopupState{
 	NotPlayerTurn,
 	
 }
+
+enum PhaseIndicatorState{
+	Toggle_Out,
+	Auto_Out,
+	Auto_In
+}
+
+

@@ -21,7 +21,7 @@ func EnlargeBanner():
 	if SizeChangeTween:
 		SizeChangeTween.stop_all()
 	Banner.scale = Vector2(0.8, 0.8)
-	Banner.position = Vector2(600, 300)
+	Banner.global_position = Vector2(700, 300)
 	$Banner/Close_Button.visible=true
 
 func RevertBanner():
