@@ -64,7 +64,11 @@ func setPlayerTokenCount(colour:Enums.TokenColour, count:int):
 	
 func setPlayerBonusCount(colour:Enums.TokenColour, count:int):
 	var PlayerBonusCount = TokenCountItems[colourSequenceDict[colour]].get_node("Cost_Bonus")
-	PlayerBonusCount.text = "+"+str(count)
+	
+	if count != 0:
+		PlayerBonusCount.text = "+"+str(count)
+	else:
+		PlayerBonusCount.text = ""
 	
 func setPlayerPrivCount(count:int):
 	if count<0 or count>3:

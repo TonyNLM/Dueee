@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c3cyyo2gkhaqq"]
+[gd_scene load_steps=27 format=3 uid="uid://c3cyyo2gkhaqq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ooqqt"]
 [ext_resource type="PackedScene" uid="uid://dudph7sk1dggs" path="res://board.tscn" id="1_xmi4d"]
@@ -25,9 +25,22 @@
 [ext_resource type="PackedScene" uid="uid://drtpxaydwef5n" path="res://card_base.tscn" id="20_ema58"]
 [ext_resource type="Texture2D" uid="uid://bda0w8fashmo5" path="res://Fairy Pics/BluePhasePopup.png" id="23_k33iy"]
 [ext_resource type="PackedScene" uid="uid://bmutapjdu2e6u" path="res://popup_window.tscn" id="23_lbcph"]
+[ext_resource type="Script" path="res://CardDetailLookup.gd" id="26_tgy5j"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" node_paths=PackedStringArray("PlayerBanner1", "PlayerBanner2", "Board", "CardPile", "ConfirmButton", "CancelButton", "ButtonBar", "BannerController", "CardAnimationController", "PopupController", "MessageController", "CardLookup") groups=["GUIMasterController"]]
 script = ExtResource("1_ooqqt")
+PlayerBanner1 = NodePath("Player_Banner")
+PlayerBanner2 = NodePath("Player_Banner2")
+Board = NodePath("Board")
+CardPile = NodePath("Card_pile")
+ConfirmButton = NodePath("ConfirmButton")
+CancelButton = NodePath("CancelButton")
+ButtonBar = NodePath("Button_Bar")
+BannerController = NodePath("Banner_Controller")
+CardAnimationController = NodePath("Card_Animation_Controller")
+PopupController = NodePath("Popup_Controller")
+MessageController = NodePath("Message_Controller")
+CardLookup = NodePath("CardDetailLookup")
 metadata/_edit_horizontal_guides_ = [-19.0]
 
 [node name="Wallpaper" type="Sprite2D" parent="."]
@@ -186,6 +199,9 @@ offset_left = 41.0
 offset_top = 514.0
 offset_right = 824.0
 offset_bottom = 554.0
+
+[node name="CardDetailLookup" type="Node" parent="."]
+script = ExtResource("26_tgy5j")
 
 [editable path="ConfirmButton"]
 [editable path="CancelButton"]
