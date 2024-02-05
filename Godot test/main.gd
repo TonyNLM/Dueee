@@ -4,7 +4,7 @@ class_name GameController
 signal GUIMasterLoadComplete
 signal PhaseChangeRequest(Request_Current_Phase, Request_Next_Phase)
 signal CardPurchasableCheck(SelectedCard)
-signal SelectToken(Token_Position)
+signal ClickToken(Token_Position)
 signal PurchaseCard(SelectedCard, SelectedCardPosition)
 signal ReserveCard(SelectedCard, SelectedCardPostion)
 

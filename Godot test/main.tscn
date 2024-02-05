@@ -203,5 +203,7 @@ offset_bottom = 554.0
 [node name="CardDetailLookup" type="Node" parent="."]
 script = ExtResource("26_tgy5j")
 
+[node name="PlaceHolder_Dummy_Responder" type="Node" parent="."]
+
 [editable path="ConfirmButton"]
 [editable path="CancelButton"]
