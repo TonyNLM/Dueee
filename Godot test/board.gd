@@ -9,7 +9,9 @@ func _ready():
 	[$Board_Parent/Board_position11/BoardToken, $Board_Parent/Board_position12/BoardToken, $Board_Parent/Board_position13/BoardToken, $Board_Parent/Board_position14/BoardToken, $Board_Parent/Board_position15/BoardToken],
 	[$Board_Parent/Board_position16/BoardToken, $Board_Parent/Board_position17/BoardToken, $Board_Parent/Board_position18/BoardToken, $Board_Parent/Board_position19/BoardToken, $Board_Parent/Board_position20/BoardToken],
 	[$Board_Parent/Board_position21/BoardToken, $Board_Parent/Board_position22/BoardToken, $Board_Parent/Board_position23/BoardToken, $Board_Parent/Board_position24/BoardToken, $Board_Parent/Board_position25/BoardToken]]
-	
+	for row in len(Board):
+		for column in len(Board[row]):
+			Board[row][column].BoardTokenPosition = [column, row]
 	#fillSingleSlot(0,1,Enums.TokenColour.Blue)
 	#fillSingleSlot(1,0,Enums.TokenColour.None)
 	
@@ -60,7 +62,55 @@ func takeAwaySelectedTokens(player:int):
 func sendTokenToPlayer(tokenObj, player:int):
 	tokenObj.takeAwayToken()
 	
+	
+
+#this code should not be used in final product	
 func Test_FillAllSlot():
 	fillAllSlot(newBoardColour, true)
+	
+	
+func CheckIfTokenTakable(position):
+	var HighlightedTokenList=[]
+	for y in range(5):
+		for x in range(5):
+			if Board[y][x].BoardTokenState==2:
+				HighlightedTokenList.append(Board[y][x].BoardTokenPosition)
+				
+	if len(HighlightedTokenList)==0:
+		return(true)
+	elif len(HighlightedTokenList)==1:
+		for diffy in range(-1, 2):
+			for diffx in range(-1, 2):
+				var neighbor = [HighlightedTokenList[0][0]+diffx, HighlightedTokenList[0][1]+diffy]
+				if neighbor == position:
+					return true
+	elif len(HighlightedTokenList)==2:
+		var diffx = HighlightedTokenList[0][0]-HighlightedTokenList[1][0]
+		var diffy = HighlightedTokenList[0][1]-HighlightedTokenList[1][1]
+		
+		if position == [HighlightedTokenList[0][0]+diffx, HighlightedTokenList[0][1]+diffy] or position == [HighlightedTokenList[1][0]-diffx, HighlightedTokenList[1][1]-diffy]:
+			return(true)
+	return(false)
+	pass
+	
+	
+	
+	
+func PressTokenHandler(position:Array):
+	var row = position[1]
+	var column = position[0]
+	var BoardTokenItem = Board[row][column]
+	if BoardTokenItem.BoardTokenState == 2:
+		for y in range(5):
+			for x in range(5):
+				if Board[y][x].BoardTokenState==2:
+					Board[y][x].YellowHighlightSwitch(false)
+	elif BoardTokenItem.BoardTokenState == 1:
+		if(CheckIfTokenTakable(position)):
+			BoardTokenItem.YellowHighlightSwitch(true)
+	
+	
+	
+	
 	
 

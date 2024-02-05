@@ -1,5 +1,5 @@
 extends Node2D
-
+var BoardTokenPosition
 var TokenColour: Enums.TokenColour
 var BoardTokenState #0: Not available, #1: Available, #2 Highlighted
 
@@ -98,10 +98,11 @@ func _on_Board_Button_mouse_exited():
 	#print("White Light Off")
 
 func _on_Board_Button_pressed():
-	if YellowHighlightState:
-		YellowHighlightSwitch(false)
-	else:
-		YellowHighlightSwitch(true)
+	get_tree().call_group("BoardMasterController", "PressTokenHandler", BoardTokenPosition)
+	#if YellowHighlightState:
+	#	YellowHighlightSwitch(false)
+	#else:
+	#	YellowHighlightSwitch(true)
 	#print("Yellow light toggled")
 	
 	

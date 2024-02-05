@@ -26,7 +26,6 @@ offset_left = 430.0
 offset_top = 421.0
 offset_right = 688.0
 offset_bottom = 501.0
-bbcode_enabled = true
 
 [node name="Reserve_Parent" parent="." index="6"]
 offset_left = 498.0
