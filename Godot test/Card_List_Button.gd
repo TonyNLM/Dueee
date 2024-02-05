@@ -34,8 +34,8 @@ func onExit():
 	CardListController.remove_focus(Card_Sibling._card_ins.CardNum)
 	
 func onPress():
-	PopupWindow.SetupPopupWindow(Card_Sibling._card_ins.CardNum)
-	PopupWindow.ShowPopupWindow()
+	get_tree().call_group("GUIMasterController", "RequestCardPopup", Card_Sibling._card_ins.CardNum)
+	
 	
 	
 	

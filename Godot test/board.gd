@@ -2,7 +2,7 @@ extends Node2D
 
 var Board
 var newBoardColour
-@export var MasterController:Node
+@export var GUIMasterController:Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Board = [[$Board_Parent/Board_position1/BoardToken, $Board_Parent/Board_position2/BoardToken, $Board_Parent/Board_position3/BoardToken, $Board_Parent/Board_position4/BoardToken, $Board_Parent/Board_position5/BoardToken],
@@ -74,7 +74,7 @@ func RequestTakeAwayToken():
 				print(Board[y][x])
 				RequestTokenArray.AddNewTokenRecord(Board[y][x])
 				
-	MasterController.TakeTokenRequest.emit(RequestTokenArray)
+	GUIMasterController.TakeTokenRequest.emit(RequestTokenArray)
 
 #this code should not be used in final product	
 func Test_FillAllSlot():
@@ -122,7 +122,7 @@ func PressTokenHandler(position:Array):
 			BoardTokenItem.YellowHighlightSwitch(true)
 	var clickTokenObj = TokenArray.new()
 	clickTokenObj.AddNewTokenRecord(BoardTokenItem)
-	MasterController.ClickToken.emit(clickTokenObj)
+	GUIMasterController.ClickToken.emit(clickTokenObj)
 
 	
 	

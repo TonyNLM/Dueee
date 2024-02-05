@@ -126,7 +126,7 @@ class Card:
 	func lookupCardData(card_num: int):
 		var lookupResult
 		
-		#tier, card score, crown count, bonus colour, bonus colour count, 
+		#tier, card score, crown count, bonus colour, bonus colour count, skill, PurchaseCost 
 		if card_num % 2 == 0:
 			lookupResult = [1, card_num, 2, Enums.TokenColour.Pink, 2,Enums.Skill.ExtraTurn, [[Enums.TokenColour.Red, 3], [Enums.TokenColour.White, 7]]]
 		else:

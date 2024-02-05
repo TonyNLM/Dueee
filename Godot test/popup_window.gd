@@ -1,5 +1,6 @@
 extends Node2D
 
+
 var Card_Base: Node
 var Purchase_Button
 var Reserve_Button
@@ -29,7 +30,7 @@ func _ready():
 func Purchase_Button_Handler():
 	if PopupState==Enums.CardPopupState.CanPurchase or PopupState==Enums.CardPopupState.CanReserveAndPurchase:
 		##print("Purchase Successful")
-		get_tree().call_group("MessageController", "pushMessage", "Test")
+		get_tree().call_group("GUIMasterController", "RequestPurchaseCard", CardNum)
 		pass
 	elif PopupState==Enums.CardPopupState.NotPlayerTurn:
 		Message_Controller.pushMessage("You cannot purchase in this phase")
@@ -41,6 +42,7 @@ func Purchase_Button_Handler():
 
 func Reserve_Button_Handler():
 	if PopupState == Enums.CardPopupState.CanReserve or PopupState == Enums.CardPopupState.CanReserveAndPurchase:
+		get_tree().call_group("GUIMasterController", "RequestReserveCard", CardNum)
 		pass
 		##print("Card Reserved")
 	elif PopupState == Enums.CardPopupState.NotPlayerTurn:
@@ -64,11 +66,10 @@ func ShowPopupWindow():
 func HidePopupWindow():
 	self.visible=false
 
-func SetupPopupWindow(cardNum:int):
-	Card_Base._card_ins.cardLoader(cardNum)
+func SetupPopupWindow(card_No:int):
+	Card_Base._card_ins.cardLoader(card_No)
+	CardNum = card_No
 	
-	var NewPopupState=RequestPopupState(1, cardNum)
-	AlterPopupState(NewPopupState)
 	##print("New Popup State is now"+str(NewPopupState))
 	pass
 	

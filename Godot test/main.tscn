@@ -57,10 +57,10 @@ scale = Vector2(0.545, 0.545)
 position = Vector2(320, -43)
 scale = Vector2(0.545, 0.545)
 
-[node name="Board" parent="." node_paths=PackedStringArray("MasterController") groups=["BoardMasterController"] instance=ExtResource("1_xmi4d")]
+[node name="Board" parent="." node_paths=PackedStringArray("GUIMasterController") groups=["BoardMasterController"] instance=ExtResource("1_xmi4d")]
 position = Vector2(700, 147)
 scale = Vector2(0.22, 0.22)
-MasterController = NodePath("..")
+GUIMasterController = NodePath("..")
 
 [node name="Card_pile" parent="." instance=ExtResource("5_ao4k1")]
 offset_left = 0.0

@@ -37,8 +37,9 @@ var cardList
 
 
 
-signal OnCardTakenComplete(tier, slot)
-signal OnCardRefillComplete(tier, slot)
+
+#signal OnCardTakenComplete(tier, slot)
+#signal OnCardRefillComplete(tier, slot)
 
 
 static var Tier_Icons ={1:preload("res://Fairy Pics/tier1CardBack.png"), 2:preload("res://Fairy Pics/tier2CardBack.png"),3:preload("res://Fairy Pics/tier3CardBack.png")} 
@@ -65,11 +66,11 @@ func _ready():
 	
 	
 	#region for testing
-	OnCardTakenComplete.connect(MoveTierCardToPosition)
-	add_child(timer)
-	timer.wait_time = 8
-	timer.connect("timeout", _on_Timer_timeout)
-	timer.start()
+#	OnCardTakenComplete.connect(MoveTierCardToPosition)
+#	add_child(timer)
+#	timer.wait_time = 8
+#	timer.connect("timeout", _on_Timer_timeout)
+#	timer.start()
 	#end
 	
 #	cardList.get_card_reference()
@@ -97,6 +98,7 @@ func MoveTierCardToPosition(tier:int, slot:int):
 	var finish_callback = func MoveTierFinish():
 		card_element_array[index][slot].get_parent().visible=true
 		card_element_array[index][slot].get_parent().get_parent().get_node("Button").visible=true
+		get_tree().call_group("GUIMasterController", "FinishTierToSlotAnim", tier, slot)
 	##print(tier_element_array[0].position)
 	#TierTween.tween_property(Move_Tier, "position", card_element_array[tier][slot].global_position, 4)
 	##print(Move_Tier.global_position, tier_element_array[tier].global_position)
@@ -110,7 +112,7 @@ func MoveTierCardToPosition(tier:int, slot:int):
 	pass
 	
 	
-func MoveCardToPosition(tier:int, slot:int, player:int):
+func MoveCardToPosition(player:int, tier:int, slot:int):
 	var index = tier-1
 	var card_element = card_element_array[index][slot].get_parent()
 	Move_Card._card_ins.cardLoader(card_element._card_ins.CardNum)
@@ -128,7 +130,7 @@ func MoveCardToPosition(tier:int, slot:int, player:int):
 	CardTween.tween_property(Move_Card, "position", Vector2(0,0), 2)
 	CardTween.tween_property(Move_Card, "modulate", Color(1,1,1,0), 1)
 	var finish_callback = func MoveCardFinish():
-		OnCardTakenComplete.emit(tier, slot)
+		get_tree().call_group("GUIMasterController", "FinishCardToPlayerAnim", tier, slot)
 	CardTween.tween_callback(finish_callback)
 	
 	
