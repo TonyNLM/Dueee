@@ -7,13 +7,13 @@ var PopupWindow
 func init_ref():
 	var P1 = self.get_parent()
 	var P2 = P1.get_parent()
-	#print(P2)
+	##print(P2)
 	var P3 = P2.get_parent()
 	CardListController = P3
 	Card_Sibling = P1.get_node("Card_Base")
 	
 	PopupWindow = P3.get_parent().get_node("Popup_Controller").get_node("Card_Popup")
-	#print("Finish ref")
+	##print("Finish ref")
 	
 func _ready():
 	init_ref()
@@ -27,7 +27,7 @@ func _process(delta):
 	pass
 
 func onFocus():
-	#print(CardListController)
+	##print(CardListController)
 	CardListController.add_focus(Card_Sibling._card_ins.CardNum)
 	pass
 func onExit():

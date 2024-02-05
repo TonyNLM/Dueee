@@ -20,7 +20,7 @@ func setCrownImage(num):
 	crownCount = num
 	crownstring = "crown" + str(num)
 	$Crown.texture = crownIcons[crownstring]
-	#print("Crown set"+str(crownCount))
+	##print("Crown set"+str(crownCount))
 	
 func getCrownNum():
 	return crownCount

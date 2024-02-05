@@ -21,7 +21,7 @@ func changeCostColour(colour:Enums.TokenColour):
 		return
 	self.visible=true
 	$CostIcon.texture = colourCostIcons[colour]
-	#print("Colour change")
+	##print("Colour change")
 	
 func changeCostText(num:int):
 	if num==0:

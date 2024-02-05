@@ -4,6 +4,7 @@ var TokenColour: Enums.TokenColour
 var BoardTokenState #0: Not available, #1: Available, #2 Highlighted
 
 
+
 var YellowHighlightState: bool
 var YellowHighlightIntensity: int
 var YellowHighlightIntensityModifier: int
@@ -13,6 +14,7 @@ var WhiteHighlightIntensityModifier: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	YellowHighlightIntensity = 0
 	YellowHighlightState = false
 	WhiteHighlightIntensity = 0
@@ -66,14 +68,14 @@ func YellowHighlightSwitch(switch: bool):
 		$YellowHighlight.modulate = Color(1, 1, 0, YellowHighlightIntensity / 255.0)
 		YellowHighlightState = true
 		BoardTokenState = 2
-		#print("Yellow highlight turned on")
+		##print("Yellow highlight turned on")
 	if !switch and YellowHighlightState:
 		YellowHighlightIntensity = 0
 		$YellowHighlight.visible = false
 		$YellowHighlight.modulate = Color(1, 1, 0, YellowHighlightIntensity / 255.0)
 		YellowHighlightState = false
 		BoardTokenState = 1
-		#print("Yellow highlight turned off")
+		##print("Yellow highlight turned off")
 
 func WhiteHighlightSwitch(switch: bool):
 	if switch and !WhiteHighlightState:
@@ -81,21 +83,21 @@ func WhiteHighlightSwitch(switch: bool):
 		$WhiteHighlight.visible = true
 		$WhiteHighlight.modulate = Color(1, 1, 1, WhiteHighlightIntensity / 255.0)
 		WhiteHighlightState = true
-		#print("White highlight turned on")
+		##print("White highlight turned on")
 	if !switch and WhiteHighlightState:
 		WhiteHighlightIntensity = 0
 		$WhiteHighlight.visible = false
 		$WhiteHighlight.modulate = Color(1, 1, 1, WhiteHighlightIntensity / 255.0)
 		WhiteHighlightState = false
-		#print("White highlight turned off")
+		##print("White highlight turned off")
 
 func _on_Board_Button_mouse_entered():
 	WhiteHighlightSwitch(true)
-	#print("White light on")
+	##print("White light on")
 
 func _on_Board_Button_mouse_exited():
 	WhiteHighlightSwitch(false)
-	#print("White Light Off")
+	##print("White Light Off")
 
 func _on_Board_Button_pressed():
 	get_tree().call_group("BoardMasterController", "PressTokenHandler", BoardTokenPosition)
@@ -103,7 +105,7 @@ func _on_Board_Button_pressed():
 	#	YellowHighlightSwitch(false)
 	#else:
 	#	YellowHighlightSwitch(true)
-	#print("Yellow light toggled")
+	##print("Yellow light toggled")
 	
 	
 	
@@ -112,12 +114,12 @@ func turnOffAllLights():
 	$WhiteHighlight.visible = false
 	$WhiteHighlight.modulate = Color(1, 1, 1, WhiteHighlightIntensity / 255.0)
 	WhiteHighlightState = false
-	#print("White highlight turned off")
+	##print("White highlight turned off")
 	YellowHighlightIntensity = 0
 	$YellowHighlight.visible = false
 	$YellowHighlight.modulate = Color(1, 1, 0, YellowHighlightIntensity / 255.0)
 	YellowHighlightState = false
-	#print("Yellow highlight turned off")
+	##print("Yellow highlight turned off")
 	
 func EnableLights(switch:bool):
 	if switch:

@@ -47,7 +47,7 @@ static var Tier_Icons ={1:preload("res://Fairy Pics/tier1CardBack.png"), 2:prelo
 func _ready():
 	var parent = self.get_parent()
 	cardList = parent.get_node("Card_pile")
-	print(cardList)
+	#print(cardList)
 	tier_element_array = [cardList.get_node("HBoxContainer/CenterContainer/Tier_Card"),cardList.get_node("HBoxContainer2/CenterContainer/Tier_Card"),cardList.get_node("HBoxContainer3/CenterContainer/Tier_Card")]
 	card_element_array = [[cardList.get_node("HBoxContainer/CenterContainer2/Card_Base/CardBase"),cardList.get_node("HBoxContainer/CenterContainer3/Card_Base/CardBase"),cardList.get_node("HBoxContainer/CenterContainer4/Card_Base/CardBase"),cardList.get_node("HBoxContainer/CenterContainer5/Card_Base/CardBase"),cardList.get_node("HBoxContainer/CenterContainer6/Card_Base/CardBase")],
 	[cardList.get_node("HBoxContainer2/CenterContainer2/Card_Base/CardBase"),cardList.get_node("HBoxContainer2/CenterContainer3/Card_Base/CardBase"),cardList.get_node("HBoxContainer2/CenterContainer4/Card_Base/CardBase"),cardList.get_node("HBoxContainer2/CenterContainer5/Card_Base/CardBase")],
@@ -74,7 +74,7 @@ func _ready():
 	
 #	cardList.get_card_reference()
 #	card_element_array = cardList.CardList
-	print(tier_element_array)
+	#print(tier_element_array)
 	
 	#Move_Tier.global_position = tier_element_array[1].global_position
 	
@@ -97,16 +97,16 @@ func MoveTierCardToPosition(tier:int, slot:int):
 	var finish_callback = func MoveTierFinish():
 		card_element_array[index][slot].get_parent().visible=true
 		card_element_array[index][slot].get_parent().get_parent().get_node("Button").visible=true
-	#print(tier_element_array[0].position)
+	##print(tier_element_array[0].position)
 	#TierTween.tween_property(Move_Tier, "position", card_element_array[tier][slot].global_position, 4)
-	#print(Move_Tier.global_position, tier_element_array[tier].global_position)
+	##print(Move_Tier.global_position, tier_element_array[tier].global_position)
 	TierTween.tween_property(Move_Tier, "position", card_element_array[index][slot].global_position, 1)
 	TierTween.tween_callback(finish_callback)
 	TierTween.tween_property(Move_Tier, "modulate", Color(1,1,1,0), 1)
 	
 	
 		
-	#print(card_element_array[tier][slot].global_position, tier_element_array[tier].global_position)
+	##print(card_element_array[tier][slot].global_position, tier_element_array[tier].global_position)
 	pass
 	
 	
@@ -180,11 +180,11 @@ func SpawnTokenToBoard(tokenObj):
 
 		
 		
-	print("done")
+	#print("done")
 	
 	
 
-	#print(card_element_array[tier][slot].global_position, tier_element_array[tier].global_position)
+	##print(card_element_array[tier][slot].global_position, tier_element_array[tier].global_position)
 	pass
 	
 func OnPhaseIndicatorClick():
@@ -212,14 +212,14 @@ func SetPhaseIndicatorToLocation(newPhaseIndicatorState, delay:bool=true):
 	if PhaseIndicatorTween:
 		PhaseIndicatorTween.kill()
 	PhaseIndicatorTween=create_tween()
-	print("tweenExecuted")
-	print(newPhaseIndicatorState)
+	#print("tweenExecuted")
+	#print(newPhaseIndicatorState)
 	if newPhaseIndicatorState==Enums.PhaseIndicatorState.Toggle_Out:
 		PhaseIndicatorTween.tween_property($Move_PhaseIndicator, "position", Vector2(1017,96),1)
 	if newPhaseIndicatorState==Enums.PhaseIndicatorState.Auto_In:
 		PhaseIndicatorTween.tween_property($Move_PhaseIndicator, "position", Vector2(1239,96),1)
 	if newPhaseIndicatorState==Enums.PhaseIndicatorState.Auto_Out:
-		print("Out")
+		#print("Out")
 	#	
 		PhaseIndicatorTween.tween_property($Move_PhaseIndicator, "position", Vector2(1082,96),1)
 		if delay:

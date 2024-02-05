@@ -51,8 +51,8 @@ func testing_self_setup():
 	for i in range(1,4):
 		for k in range(0,6-i):
 			setup_card_pile(i,k,i+k)
-			#print(CardList[i-1][k].global_position)
-			#print(CardList[i-1][k])
+			##print(CardList[i-1][k].global_position)
+			##print(CardList[i-1][k])
 			#if i==2:
 				#CardList[i-1][k].global_position=Vector2(0,0)
 

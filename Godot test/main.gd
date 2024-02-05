@@ -3,8 +3,9 @@ class_name GameController
 
 signal GUIMasterLoadComplete
 signal PhaseChangeRequest(Request_Current_Phase, Request_Next_Phase)
-signal CardPurchasableCheck(SelectedCard)
-signal ClickToken(Token_Position)
+signal CardPurchasableCheckRequest(SelectedCard)
+signal ClickToken(Token_Position:TokenArray)
+signal TakeTokenRequest(Token_Position:TokenArray)
 signal PurchaseCard(SelectedCard, SelectedCardPosition)
 signal ReserveCard(SelectedCard, SelectedCardPostion)
 
@@ -21,11 +22,14 @@ signal ReserveCard(SelectedCard, SelectedCardPostion)
 @export var MessageController: Node
 @export var CardLookup: Node
 
-
+var CurrentPlayer
 
 
 
 #Region: Player Banner Calls---------------------------------------------------------------
+func SetCurrentPlayer(player:int):
+	CurrentPlayer=player
+
 func GetBannerToUse(player:int):
 	if player==0:
 		return PlayerBanner1
@@ -116,7 +120,16 @@ func RemoveReserveCard(player:int, Tier:int, visibility:bool):
 	PlayerBanner.popTierCardList(Tier)
 #End Region: Player Banner Calls---------------------------------------------------------------
 
+#Region: Token Board Calls-------------------------------------------
 
+func TakeThreeToken(TokenArrayElement):
+	if len(TokenArrayElement.TokenArray)!=3:
+		return
+	print(TokenArrayElement)
+	for i in range(3):
+		if Board:
+			Board.sendTokenToPlayer(TokenArrayElement.TokenArray[i].TokenObject, CurrentPlayer)
+	
 
 
 
@@ -124,7 +137,7 @@ func RemoveReserveCard(player:int, Tier:int, visibility:bool):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+	SetCurrentPlayer(1)
 	pass # Replace with function body.
 
 

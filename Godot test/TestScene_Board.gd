@@ -14,7 +14,7 @@ func _process(delta):
 func reshuffleArray():
 	var newArray = randomizeArray()
 	$Board.fillAllSlot(newArray)
-	print("Tried to reshuffle")
+	#print("Tried to reshuffle")
 
 
 func randomizeArray():

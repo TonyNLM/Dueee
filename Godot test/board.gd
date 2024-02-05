@@ -2,6 +2,7 @@ extends Node2D
 
 var Board
 var newBoardColour
+@export var MasterController:Node
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Board = [[$Board_Parent/Board_position1/BoardToken, $Board_Parent/Board_position2/BoardToken, $Board_Parent/Board_position3/BoardToken, $Board_Parent/Board_position4/BoardToken, $Board_Parent/Board_position5/BoardToken],
@@ -48,21 +49,32 @@ func fillAllSlot(colour:Array, animation:bool=false):
 				fillSingleSlot(x, y, colour[y][x], false)
 			
 			
+			
+#This function should no longer be used because this has no external control
 func takeAwaySelectedTokens(player:int):
 	for y in range(5):
 		for x in range(5):
 			if Board[y][x].BoardTokenState==2:
-				get_tree().call_group("AnimationController", "SpawnTokenToPlayer", Board[y][x].get_node("Token"), 1)
+				#get_tree().call_group("AnimationController", "SpawnTokenToPlayer", Board[y][x].get_node("Token"), 1)
 				sendTokenToPlayer(Board[y][x], player)
 				
-	print("Taken")
+	#print("Taken")
 				
 				
 				
 func sendTokenToPlayer(tokenObj, player:int):
+	get_tree().call_group("AnimationController", "SpawnTokenToPlayer", tokenObj.get_node("Token"), 1)
 	tokenObj.takeAwayToken()
 	
-	
+func RequestTakeAwayToken():
+	var RequestTokenArray = TokenArray.new()
+	for y in range(5):
+		for x in range(5):
+			if Board[y][x].BoardTokenState==2:
+				print(Board[y][x])
+				RequestTokenArray.AddNewTokenRecord(Board[y][x])
+				
+	MasterController.TakeTokenRequest.emit(RequestTokenArray)
 
 #this code should not be used in final product	
 func Test_FillAllSlot():
@@ -108,8 +120,10 @@ func PressTokenHandler(position:Array):
 	elif BoardTokenItem.BoardTokenState == 1:
 		if(CheckIfTokenTakable(position)):
 			BoardTokenItem.YellowHighlightSwitch(true)
-	
-	
+	var clickTokenObj = TokenArray.new()
+	clickTokenObj.AddNewTokenRecord(BoardTokenItem)
+	MasterController.ClickToken.emit(clickTokenObj)
+
 	
 	
 	

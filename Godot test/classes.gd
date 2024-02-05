@@ -61,7 +61,7 @@ class Card:
 
 		CardSkill.visible = true
 		CardSkill.texture = skillIcons[skillNum]
-		#print("Skill Changed To" + str(skillNum))
+		##print("Skill Changed To" + str(skillNum))
 		return
 
 	func changeCardTokenColour(colour:Enums.TokenColour, count:int):
@@ -185,7 +185,7 @@ class Noble:
 
 		NobleSkill.visible = true
 		NobleSkill.texture = skillIcons[skillNum]
-		#print("Skill Changed To" + str(skillNum))
+		##print("Skill Changed To" + str(skillNum))
 		return
 
 
@@ -215,4 +215,3 @@ class Noble:
 		pass
 		
 			
-		

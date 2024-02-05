@@ -12,7 +12,7 @@ func _ready():
 func changeColour(colour:Enums.TokenColour):
 	SelfColour = colour
 	$Icon.texture = colourIcons[colour]
-	#print($Icon.texture)
+	##print($Icon.texture)
 	
 
 

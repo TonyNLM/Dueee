@@ -3,7 +3,7 @@ extends Sprite2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print($Noble_Base.noble)
+	#print($Noble_Base.noble)
 	$Noble_Base.noble.nobleLoader(0)
 	$Noble_Base2.noble.nobleLoader(1)
 	$Noble_Base3.noble.nobleLoader(2)

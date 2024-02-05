@@ -18,7 +18,7 @@ func ShowPopup(card_num: int):
 	self.position=startingPosition
 	var tweenMovement = create_tween()
 	var spriteWidth = $Container/Sprite2D.get_texture().get_size().x * $Container/Sprite2D.scale.x
-	#print(spriteWidth)
+	##print(spriteWidth)
 	var currentPosition = self.position
 	var finalPosition = Vector2(0, currentPosition.y)
 	tweenMovement.tween_property(self, "position", finalPosition, 1.5)
