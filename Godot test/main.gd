@@ -190,6 +190,8 @@ func TakeThreeToken(TokenArrayElement:TokenArray):
 	for i in range(3):
 		if Board:
 			Board.sendTokenToPlayer(TokenArrayElement.TokenArray[i].TokenObject, CurrentPlayer)
+			
+	CallNextPhaseAfterAction()
 	
 func TakeOneToken(TokenArrayElement):
 	if len(TokenArrayElement.TokenArray)!=1:
@@ -325,8 +327,11 @@ func FinishCardToPlayerAnim(tier, Pos):
 	CardTakenAnimationFinishCallback.emit(tier, Pos)
 func FinishTierToSlotAnim(tier, Pos):
 	CardRefillAnimationFinishCallback.emit(tier, Pos)
+	CallNextPhaseAfterAction()
 func FinishBlindReserveAnim(Tier):
 	BlindReserveFinishCallback.emit(Tier)
+	CallNextPhaseAfterAction()
+	
 #signal related
 #Region: End of Card Pile Calls----------------------------
 
@@ -390,11 +395,12 @@ func RemoveNoble(nobleID:int):
 
 #Skill:Steal Token------------------------------------------
 func ShowStealTokenPopup(ColourArray):
-	PopupController.StealToken_Popup.ShowWindow(ColourArray)	
+	PopupController.get_node("StealToken_Popup").ShowWindow(ColourArray)	
 func HideStealTokenPopup():	
-	PopupController.StealToken_Popup.HideWindow()	
+	PopupController.get_node("StealToken_Popup").HideWindow()	
 func StealTokenSendSignal(Colour:Enums.TokenColour):
 	StealTokenRequest.emit(Colour)
+	CallNextPhaseAfterAction()
 #SKill Steal Token----------------------------------------------
 
 
@@ -415,7 +421,9 @@ func RequestNextPhase(CurrentState:Enums.PlayerPhase):
 func NextPhaseResponse(Response: Classes.FSM_Phase_Response_Object):
 	PhaseMasterFSM.ChangeState(Response)
 
-
+func CallNextPhaseAfterAction():
+	if Self_Player == CurrentPlayer:
+		RequestNextPhase(PhaseMasterFSM.CurrentPhase)
 
 
 

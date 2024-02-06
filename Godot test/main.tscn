@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://c3cyyo2gkhaqq"]
+[gd_scene load_steps=37 format=3 uid="uid://c3cyyo2gkhaqq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ooqqt"]
 [ext_resource type="PackedScene" uid="uid://dudph7sk1dggs" path="res://board.tscn" id="1_xmi4d"]
@@ -32,6 +32,10 @@
 [ext_resource type="Script" path="res://StartPhase.gd" id="28_n4hw6"]
 [ext_resource type="Script" path="res://PrivPhase.gd" id="29_ggjra"]
 [ext_resource type="Script" path="res://RefillPhase.gd" id="30_6rh34"]
+[ext_resource type="Script" path="res://MainPhase.gd" id="31_cx1jf"]
+[ext_resource type="Script" path="res://SkillPhase.gd" id="32_h65md"]
+[ext_resource type="Script" path="res://NoblePhase.gd" id="33_xhxwi"]
+[ext_resource type="Script" path="res://EndPhase.gd" id="34_lp487"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("PlayerBanner1", "PlayerBanner2", "Board", "CardPile", "ConfirmButton", "CancelButton", "ButtonBar", "BannerController", "CardAnimationController", "PopupController", "MessageController", "CardLookup", "InstructionIndicator", "PhaseMasterFSM") groups=["GUIMasterController"]]
 script = ExtResource("1_ooqqt")
@@ -246,12 +250,16 @@ script = ExtResource("29_ggjra")
 script = ExtResource("30_6rh34")
 
 [node name="MainPhase" type="Node" parent="PhaseMaster_Finite_State_Machine"]
+script = ExtResource("31_cx1jf")
 
 [node name="SkillPhase" type="Node" parent="PhaseMaster_Finite_State_Machine"]
+script = ExtResource("32_h65md")
 
 [node name="NoblePhase" type="Node" parent="PhaseMaster_Finite_State_Machine"]
+script = ExtResource("33_xhxwi")
 
 [node name="EndPhase" type="Node" parent="PhaseMaster_Finite_State_Machine"]
+script = ExtResource("34_lp487")
 
 [node name="CardDetailLookup" type="Node" parent="."]
 script = ExtResource("26_tgy5j")

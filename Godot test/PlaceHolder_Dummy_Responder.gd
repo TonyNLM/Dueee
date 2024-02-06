@@ -14,6 +14,7 @@ func _ready():
 	GUIMasterController.BlindReserveCheckRequest.connect(ListenToBlindReservePopupRequest)
 	GUIMasterController.BlindReserveTakeRequest.connect(ListenToBlindReserveRequest)
 	
+	GUIMasterController.StealTokenRequest.connect(ListenToStealFinish)
 	
 	GUIMasterController.PhaseChangeRequest.connect(PhaseChangeListener)
 	pass # Replace with function body.
@@ -56,11 +57,18 @@ func ListenToTakeCardAnimComplete(tier, pos):
 	GUIMasterController.SetCardNum(tier, pos, randi() % 20)
 	GUIMasterController.PushNewCard(tier, pos)
 
-
+func ListenToStealFinish(colour: Enums.TokenColour):
+	GUIMasterController.HideStealTokenPopup()
 
 func PhaseChangeListener(Phase: Enums.PlayerPhase):
 	var Response = Classes.FSM_Phase_Response_Object.new()
-	Response.ChangePhaseTo = Phase+1
+	if Phase+1>Enums.PlayerPhase.End:
+		Response.ChangePhaseTo = 0
+	else:
+		Response.ChangePhaseTo = Phase+1
+	
+	
 	Response.TurnIsSkippable = false
 	Response.IsPlayerTurn =true
+	Response.PlayerAction = "StealToken"
 	GUIMasterController.NextPhaseResponse(Response)

@@ -30,5 +30,5 @@ func ChangeState(Response: Classes.FSM_Phase_Response_Object):
 	
 	PhaseStateChild[CurrentPhase].exit()
 	PhaseStateChild[Response.ChangePhaseTo].enter(Response)
-	CurrentPhase == Response.ChangePhaseTo
+	CurrentPhase = Response.ChangePhaseTo
 	pass	

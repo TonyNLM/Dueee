@@ -1,7 +1,7 @@
 extends Node
 
 var PhaseMaster
-const State = Enums.PlayerPhase.Start
+const State = Enums.PlayerPhase.Noble
 var LatestResponse
 
 func _ready():
@@ -11,8 +11,8 @@ func enter(Response: Classes.FSM_Phase_Response_Object):
 	PhaseMaster.GUIMasterController.AlterSelectionMode(Enums.SelectionMode.SelectZero)
 	LatestResponse=Response
 	if Response.IsPlayerTurn == true:
-		PhaseMaster.AnimationController.ChangePhaseTextTo("Your Turn")
-		PhaseMaster.InstructionIndicator.text = "It's Your Turn"
+		PhaseMaster.AnimationController.ChangePhaseTextTo("Noble Phase")
+		PhaseMaster.InstructionIndicator.text = "Not Yet Implemented"
 		PhaseMaster.ConfirmButton.get_node("Button_Text").text = "[center]Proceed[center]"
 		PhaseMaster.CancelButton.get_node("Button_Text").text = "[center]---[center]"
 		PhaseMaster.ConfirmButton.get_node("Button_Icon").connect("pressed", ConfirmButtonHandler)

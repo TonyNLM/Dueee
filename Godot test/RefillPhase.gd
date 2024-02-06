@@ -1,7 +1,7 @@
 extends Node
 
 var PhaseMaster
-const State = Enums.PlayerPhase.Priv
+const State = Enums.PlayerPhase.Refill
 var LatestResponse
 
 func _ready():
@@ -10,19 +10,20 @@ func _ready():
 func enter(Response: Classes.FSM_Phase_Response_Object):
 	LatestResponse=Response
 	if Response.IsPlayerTurn == true:
-		PhaseMaster.AnimationController.ChangePhaseTextTo("Privelege")
-		PhaseMaster.GUIMasterController.AlterSelectionMode(Enums.SelectionMode.SelectOne)
+		PhaseMaster.AnimationController.ChangePhaseTextTo("Refill")
+		PhaseMaster.GUIMasterController.AlterSelectionMode(Enums.SelectionMode.SelectZero)
 		
 		if Response.TurnIsSkippable == true:
 			
-			PhaseMaster.InstructionIndicator.text = "You have no Privelege to Spend"
-			PhaseMaster.ConfirmButton.get_node("Button_Text").text = "[center]---[center]"
-			PhaseMaster.CancelButton.get_node("Button_Text").text = "[center]Skip[center]"
-			PhaseMaster.CancelButton.get_node("Button_Icon").connect("pressed", SkipCancelButtonHandler)
+			PhaseMaster.InstructionIndicator.text = "You Must Refill The Board"
+			PhaseMaster.ConfirmButton.get_node("Button_Text").text = "[center]Refill[center]"
+			PhaseMaster.CancelButton.get_node("Button_Text").text = "[center]---[center]"
+			PhaseMaster.ConfirmButton.get_node("Button_Icon").connect("pressed", ConfirmButtonHandler)
+			#PhaseMaster.CancelButton.get_node("Button_Icon").connect("pressed", SkipCancelButtonHandler)
 		else:
 			
-			PhaseMaster.InstructionIndicator.text = "Spend Privelege and take token?"
-			PhaseMaster.ConfirmButton.get_node("Button_Text").text = "[center]Take[center]"
+			PhaseMaster.InstructionIndicator.text = "Refill The Board?"
+			PhaseMaster.ConfirmButton.get_node("Button_Text").text = "[center]Refill[center]"
 			PhaseMaster.CancelButton.get_node("Button_Text").text = "[center]Skip[center]"
 			PhaseMaster.ConfirmButton.get_node("Button_Icon").connect("pressed", ConfirmButtonHandler)
 			PhaseMaster.CancelButton.get_node("Button_Icon").connect("pressed", SkipCancelButtonHandler)
@@ -36,7 +37,8 @@ func exit():
 	
 	
 func ConfirmButtonHandler():
-	PhaseMaster.GUIMasterController.Board.RequestTakeAwayToken()
+	PhaseMaster.GUIMasterController.Board.Test_FillAllSlot()
+	PhaseMaster.GUIMasterController.RequestNextPhase(State)
 	pass
 	
 func SkipCancelButtonHandler():

@@ -31,6 +31,7 @@ func ShowWindow(AvailableColours):
 		else:
 			TokenElement.get_parent().visible = true
 	self.visible = true	
+	UnfoldWindow()
 	
 	pass # Replace with function body.
 func HideWindow():

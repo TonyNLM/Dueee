@@ -10,8 +10,8 @@ func _ready():
 func enter(Response: Classes.FSM_Phase_Response_Object):
 	LatestResponse=Response
 	if Response.IsPlayerTurn == true:
-		PhaseMaster.AnimationController.ChangePhaseTextTo("Refill")
-		PhaseMaster.GUIMasterController.AlterSelectionMode(Enums.SelectionMode.SelectOne)
+		PhaseMaster.AnimationController.ChangePhaseTextTo("Privelege")
+		PhaseMaster.GUIMasterController.AlterSelectionMode(Enums.SelectionMode.SelectZero)
 		
 		if Response.TurnIsSkippable == true:
 			
@@ -20,7 +20,7 @@ func enter(Response: Classes.FSM_Phase_Response_Object):
 			PhaseMaster.CancelButton.get_node("Button_Text").text = "[center]Skip[center]"
 			PhaseMaster.CancelButton.get_node("Button_Icon").connect("pressed", SkipCancelButtonHandler)
 		else:
-			
+			PhaseMaster.GUIMasterController.AlterSelectionMode(Enums.SelectionMode.SelectOne)
 			PhaseMaster.InstructionIndicator.text = "Spend Privelege and take token?"
 			PhaseMaster.ConfirmButton.get_node("Button_Text").text = "[center]Take[center]"
 			PhaseMaster.CancelButton.get_node("Button_Text").text = "[center]Skip[center]"
