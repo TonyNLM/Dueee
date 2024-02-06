@@ -37,6 +37,8 @@ var CurrentPlayer
 
 
 
+
+
 #Region: Player Banner Calls---------------------------------------------------------------
 func SetCurrentPlayer(player:int):
 	CurrentPlayer=player
@@ -158,11 +160,23 @@ func TakeThreeToken(TokenArrayElement:TokenArray):
 			Board.sendTokenToPlayer(TokenArrayElement.TokenArray[i].TokenObject, CurrentPlayer)
 	
 func TakeOneToken(TokenArrayElement):
+	if len(TokenArrayElement.TokenArray)!=1:
+		return
 	Board.sendTokenToPlayer(TokenArrayElement.TokenArray[0].TokenObject, CurrentPlayer)
 	
 func RefillTokenBoardByArray(TokenArrayElement:TokenArray, animation: bool=false):
 	for element in TokenArrayElement.TokenArray:
 		Board.fillSingleSlot(element.Position[1], element.Position[0], element.Colour, animation)
+		
+
+
+func AlterSelectionMode(Mode:Enums.SelectionMode):
+	Board.AlterSelectionMode(Mode)
+	Board.ClearAllSelectedToken()
+	
+func ClearAllSelectedToken():
+	Board.ClearAllSelectedToken()
+	
 #endRegion of Token board-----------------------------------------------------------------
 
 
@@ -266,12 +280,56 @@ func FinishTierToSlotAnim(tier, Pos):
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Region: Banner Function Calls--------------------------------------
+func ChangePrivCount(count):
+	BannerController.ChangePrivCount(count)
+
+func ChangeBagCount(count):
+	BannerController.ChangeBagCount(count)
+	
+func RemoveNoble(nobleID:int):
+	BannerController.Remove_Noble(nobleID)
+#Region: BannerFunctionCalls----------------------------------------
+
+
+
+
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SetCurrentPlayer(1)
 	
 	SetCardNumByArray([[1, 0, 1],[1, 1, 2],[1, 2, 3],[1,3,4],[1,4,5], [2,0,10], [2,1,11], [2,2,12], [2,3,13], [3,0,21], [3,1,22], [3,2,23]])
 	
+	AlterSelectionMode(Enums.SelectionMode.SelectOne)
 	
 	pass # Replace with function body.
 

@@ -4,6 +4,7 @@ var SizeChangeTween:Tween
 var Banner
 var init_Banner_size
 var init_Banner_position
+var NobleArray
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Banner = $Banner
@@ -11,6 +12,8 @@ func _ready():
 	init_Banner_position = Banner.position
 	$Banner/BannerZoomer.connect("button_down", EnlargeBanner)
 	$Banner/Close_Button.connect("button_down", RevertBanner)
+	NobleArray = [0,1,2,3]
+	
 	pass # Replace with function body.
 
 
@@ -30,3 +33,15 @@ func RevertBanner():
 	Banner.scale = init_Banner_size
 	Banner.position = init_Banner_position
 	$Banner/Close_Button.visible=false
+
+func ChangePrivCount(count):
+	$Banner/Priv/PrivCount.text = str(count)
+
+func ChangeBagCount(count):
+	$Banner/Bag/BagCount.text = str(count)
+	
+func RemoveNoble(nobleID:int):
+	if nobleID<0 or nobleID>3:
+		return
+	if nobleID in NobleArray:
+		self.get_node("Noble_Base"+str(NobleArray)).visible=false

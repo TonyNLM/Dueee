@@ -147,7 +147,7 @@ class Noble:
 		
 	var init
 	var NobleObject	
-	var NobleNum
+	var NobleID
 
 
 
@@ -197,7 +197,7 @@ class Noble:
 
 		
 	func nobleLoader(noble_num: int):
-		NobleNum=noble_num
+		NobleID=noble_num
 		var noble_details = lookupNobleData(noble_num)
 		changeNobleScore(noble_details[0])
 		changeNobleSkill(noble_details[1])

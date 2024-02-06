@@ -60,14 +60,17 @@ metadata/_edit_use_anchors_ = true
 [node name="Noble_Base" parent="Banner" instance=ExtResource("6_hsa6q")]
 position = Vector2(-524.657, -147.239)
 scale = Vector2(0.245, 0.27)
+NobleID = 0
 
 [node name="Noble_Base2" parent="Banner" instance=ExtResource("6_hsa6q")]
 position = Vector2(-329.436, -147.239)
 scale = Vector2(0.245, 0.27)
+NobleID = 1
 
 [node name="Noble_Base3" parent="Banner" instance=ExtResource("6_hsa6q")]
 position = Vector2(-137.265, -147.239)
 scale = Vector2(0.245, 0.27)
+NobleID = 2
 
 [node name="Noble_Base4" parent="Banner" instance=ExtResource("6_hsa6q")]
 position = Vector2(54.9063, -147.239)

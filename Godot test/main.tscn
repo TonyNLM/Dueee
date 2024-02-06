@@ -96,8 +96,8 @@ offset_bottom = 120.0
 text = "Cancel"
 
 [node name="PhaseIndicator" type="Sprite2D" parent="."]
-position = Vector2(1319, 328)
-scale = Vector2(0.292083, 0.1825)
+position = Vector2(864.688, 20.8125)
+scale = Vector2(0.270521, 0.117292)
 texture = ExtResource("7_rnxi8")
 
 [node name="Button_Bar" type="HBoxContainer" parent="."]
@@ -196,11 +196,17 @@ visible = false
 position = Vector2(-40, 229)
 scale = Vector2(0.535, 0.535)
 
+[node name="Noble_Popup" type="Node2D" parent="Popup_Controller"]
+
 [node name="Message_Controller" parent="." instance=ExtResource("17_miahb")]
 offset_left = 41.0
 offset_top = 514.0
 offset_right = 824.0
 offset_bottom = 554.0
+
+[node name="PhaseMaster_Finite_State_Machine" type="Node" parent="."]
+
+[node name="Node" type="Node" parent="PhaseMaster_Finite_State_Machine"]
 
 [node name="CardDetailLookup" type="Node" parent="."]
 script = ExtResource("26_tgy5j")

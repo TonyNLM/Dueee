@@ -3,6 +3,7 @@ extends Node2D
 var Board
 var newBoardColour
 @export var GUIMasterController:Node
+var SelectionMode:Enums.SelectionMode
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	Board = [[$Board_Parent/Board_position1/BoardToken, $Board_Parent/Board_position2/BoardToken, $Board_Parent/Board_position3/BoardToken, $Board_Parent/Board_position4/BoardToken, $Board_Parent/Board_position5/BoardToken],
@@ -90,6 +91,8 @@ func CheckIfTokenTakable(position):
 				
 	if len(HighlightedTokenList)==0:
 		return(true)
+	elif SelectionMode == Enums.SelectionMode.SelectOne and len(HighlightedTokenList)==1:
+		return(false)
 	elif len(HighlightedTokenList)==1:
 		for diffy in range(-1, 2):
 			for diffx in range(-1, 2):
@@ -106,6 +109,15 @@ func CheckIfTokenTakable(position):
 	pass
 	
 	
+func AlterSelectionMode(Mode:Enums.SelectionMode):
+	SelectionMode = Mode
+	
+func ClearAllSelectedToken():
+	for y in range(5):
+			for x in range(5):
+				if Board[y][x].BoardTokenState==2:
+					Board[y][x].YellowHighlightSwitch(false)
+	
 	
 	
 func PressTokenHandler(position:Array):
@@ -113,10 +125,7 @@ func PressTokenHandler(position:Array):
 	var column = position[0]
 	var BoardTokenItem = Board[row][column]
 	if BoardTokenItem.BoardTokenState == 2:
-		for y in range(5):
-			for x in range(5):
-				if Board[y][x].BoardTokenState==2:
-					Board[y][x].YellowHighlightSwitch(false)
+		ClearAllSelectedToken()
 	elif BoardTokenItem.BoardTokenState == 1:
 		if(CheckIfTokenTakable(position)):
 			BoardTokenItem.YellowHighlightSwitch(true)

@@ -2,8 +2,10 @@ extends Node2D
 
 
 var Noble = preload("res://classes.gd").Noble
+var Skill
+@export var NobleID:int
 var noble
-var init
+
 
 
 func _ready():
@@ -12,5 +14,7 @@ func _ready():
 func init_self():
 	noble=Noble.new()
 	noble.NobleObject = self
+	noble.NobleID = NobleID
 	noble.Noble_init()
-	init = noble.init
+	noble.nobleLoader(NobleID)
+

@@ -48,3 +48,17 @@ enum PhaseIndicatorState{
 }
 
 
+enum PlayerPhase{
+	Start,
+	Priv,
+	Refill,
+	Main,
+	Skill,
+	Noble,
+	End
+}
+
+enum SelectionMode{
+	SelectOne,
+	SelectThree,
+}

@@ -18,7 +18,10 @@ func ListenToTokenClick(TokenClickEvent: TokenArray):
 func ListenToCollectToken(TokenRequestTakeEvent: TokenArray):
 	var logic = true
 	if logic:
-		GUIMasterController.TakeThreeToken(TokenRequestTakeEvent)
+		if GUIMasterController.Board.SelectionMode == Enums.SelectionMode.SelectThree:
+			GUIMasterController.TakeThreeToken(TokenRequestTakeEvent)
+		else:
+			GUIMasterController.TakeOneToken(TokenRequestTakeEvent)
 		
 func ListenToPopupRequest(card_Num):
 	var rand = randi() % 5
