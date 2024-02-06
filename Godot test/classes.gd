@@ -215,3 +215,27 @@ class Noble:
 		pass
 		
 			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+class FSM_Phase_Response_Object:
+	var ChangePhaseTo
+	var CurrentPlayer
+	var IsPlayerTurn:bool
+	var TurnIsSkippable:bool
+	var ForcePlayerAction:bool
+	var PlayerAction:String

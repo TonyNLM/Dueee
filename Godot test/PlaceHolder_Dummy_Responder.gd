@@ -13,6 +13,9 @@ func _ready():
 	
 	GUIMasterController.BlindReserveCheckRequest.connect(ListenToBlindReservePopupRequest)
 	GUIMasterController.BlindReserveTakeRequest.connect(ListenToBlindReserveRequest)
+	
+	
+	GUIMasterController.PhaseChangeRequest.connect(PhaseChangeListener)
 	pass # Replace with function body.
 
 func ListenToTokenClick(TokenClickEvent: TokenArray):
@@ -52,3 +55,12 @@ func ListenToTakeCardAnimComplete(tier, pos):
 	GUIMasterController.HideCardPopupWindow()
 	GUIMasterController.SetCardNum(tier, pos, randi() % 20)
 	GUIMasterController.PushNewCard(tier, pos)
+
+
+
+func PhaseChangeListener(Phase: Enums.PlayerPhase):
+	var Response = Classes.FSM_Phase_Response_Object.new()
+	Response.ChangePhaseTo = Phase+1
+	Response.TurnIsSkippable = false
+	Response.IsPlayerTurn =true
+	GUIMasterController.NextPhaseResponse(Response)

@@ -61,4 +61,5 @@ enum PlayerPhase{
 enum SelectionMode{
 	SelectOne,
 	SelectThree,
+	SelectZero
 }

@@ -1,28 +1,48 @@
 extends Node2D
 class_name GameController
 
-signal GUIMasterLoadComplete
-signal PhaseChangeRequest(Request_Current_Phase, Request_Next_Phase)
+var Self_Player
+var CurrentPlayer
 
+
+
+
+
+
+signal GUIMasterLoadComplete
+
+#PhaseMaster--------------------------
+signal PhaseChangeRequest(CurrentPhase:Enums.PlayerPhase)
+#PhaseMaster------------------------
+
+
+
+#token--------------------
 signal ClickToken(Token_Position:TokenArray)
 signal TakeTokenRequest(Token_Position:TokenArray)
+#token--------------------
 
+
+
+#Card-----------------
 signal CardPurchasableCheckRequest(SelectedCard)
 signal PurchaseCardRequest(SelectedCard)
 signal ReserveCardRequest(SelectedCard)
-
-signal BlindReserveCheckRequest(Tier)
-signal BlindReserveTakeRequest(SelectedCard)
-
-
-
 signal CardTakenAnimationFinishCallback(tier, Pos)
 signal CardRefillAnimationFinishCallback(tier, Pos)
+#Card-------------------------
 
+#Blind reserve--------------------
+signal BlindReserveCheckRequest(Tier)
+signal BlindReserveTakeRequest(SelectedCard)
 signal BlindReserveFinishCallback(Tier)
+#Blind reserve--------------------
 
-
+#Skill------------------------
 signal StealTokenRequest(Colour)
+#Skill------------------------
+
+
 
 @export var PlayerBanner1: Node 
 @export var PlayerBanner2: Node
@@ -38,7 +58,7 @@ signal StealTokenRequest(Colour)
 @export var CardLookup: Node
 @export var InstructionIndicator:Node
 @export var PhaseMasterFSM:Node
-var CurrentPlayer
+
 
 
 
@@ -314,7 +334,17 @@ func FinishBlindReserveAnim(Tier):
 
 
 
+#Region: MessageController Calls-------------------
 
+func MessageControllerPushMessage(message):
+	MessageController.pushMessage(message)
+
+
+
+
+
+
+#EndRegion:MessageControllerCalls
 
 
 
@@ -354,13 +384,50 @@ func RemoveNoble(nobleID:int):
 #Region: Skills
 
 
-#Skill:Steal Token
+
+
+
+
+#Skill:Steal Token------------------------------------------
 func ShowStealTokenPopup(ColourArray):
 	PopupController.StealToken_Popup.ShowWindow(ColourArray)	
 func HideStealTokenPopup():	
 	PopupController.StealToken_Popup.HideWindow()	
 func StealTokenSendSignal(Colour:Enums.TokenColour):
 	StealTokenRequest.emit(Colour)
+#SKill Steal Token----------------------------------------------
+
+
+
+
+
+
+#End Region of Skills---------------------------
+
+
+
+
+
+#Region: PhaseMasterCalls-----------------
+func RequestNextPhase(CurrentState:Enums.PlayerPhase):
+	PhaseChangeRequest.emit(CurrentState)
+
+func NextPhaseResponse(Response: Classes.FSM_Phase_Response_Object):
+	PhaseMasterFSM.ChangeState(Response)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -368,11 +435,12 @@ func StealTokenSendSignal(Colour:Enums.TokenColour):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	SetCurrentPlayer(1)
+	Self_Player = 0
+	SetCurrentPlayer(0)
 	
 	SetCardNumByArray([[1, 0, 1],[1, 1, 2],[1, 2, 3],[1,3,4],[1,4,5], [2,0,10], [2,1,11], [2,2,12], [2,3,13], [3,0,21], [3,1,22], [3,2,23]])
 	
-	AlterSelectionMode(Enums.SelectionMode.SelectOne)
+	AlterSelectionMode(Enums.SelectionMode.SelectZero)
 	
 	pass # Replace with function body.
 

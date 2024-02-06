@@ -83,6 +83,8 @@ func Test_FillAllSlot():
 	
 	
 func CheckIfTokenTakable(position):
+	if SelectionMode == Enums.SelectionMode.SelectZero:
+		return
 	var HighlightedTokenList=[]
 	for y in range(5):
 		for x in range(5):
@@ -111,6 +113,7 @@ func CheckIfTokenTakable(position):
 	
 func AlterSelectionMode(Mode:Enums.SelectionMode):
 	SelectionMode = Mode
+	ClearAllSelectedToken()
 	
 func ClearAllSelectedToken():
 	for y in range(5):

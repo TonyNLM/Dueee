@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c3cyyo2gkhaqq"]
+[gd_scene load_steps=33 format=3 uid="uid://c3cyyo2gkhaqq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ooqqt"]
 [ext_resource type="PackedScene" uid="uid://dudph7sk1dggs" path="res://board.tscn" id="1_xmi4d"]
@@ -30,6 +30,8 @@
 [ext_resource type="Script" path="res://PhaseMaster_Finite_State_Machine.gd" id="27_3bpma"]
 [ext_resource type="Script" path="res://PlaceHolder_Dummy_Responder.gd" id="27_c3tbu"]
 [ext_resource type="Script" path="res://StartPhase.gd" id="28_n4hw6"]
+[ext_resource type="Script" path="res://PrivPhase.gd" id="29_ggjra"]
+[ext_resource type="Script" path="res://RefillPhase.gd" id="30_6rh34"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("PlayerBanner1", "PlayerBanner2", "Board", "CardPile", "ConfirmButton", "CancelButton", "ButtonBar", "BannerController", "CardAnimationController", "PopupController", "MessageController", "CardLookup", "InstructionIndicator", "PhaseMasterFSM") groups=["GUIMasterController"]]
 script = ExtResource("1_ooqqt")
@@ -45,7 +47,7 @@ CardAnimationController = NodePath("Card_Animation_Controller")
 PopupController = NodePath("Popup_Controller")
 MessageController = NodePath("Message_Controller")
 CardLookup = NodePath("CardDetailLookup")
-InstructionIndicator = NodePath("InstructionIndicator/InstructionText")
+InstructionIndicator = NodePath("InstructionText")
 PhaseMasterFSM = NodePath("PhaseMaster_Finite_State_Machine")
 metadata/_edit_horizontal_guides_ = [-19.0]
 
@@ -80,6 +82,11 @@ scale = Vector2(0.27, 0.27)
 script = ExtResource("8_7wj3o")
 
 [node name="Button_Text" parent="ConfirmButton" index="1"]
+offset_left = 137.037
+offset_top = 70.3704
+offset_right = 361.037
+offset_bottom = 116.37
+bbcode_enabled = true
 text = "Confirm"
 
 [node name="CancelButton" parent="." instance=ExtResource("6_b04lu")]
@@ -94,10 +101,11 @@ offset_right = 1044.44
 offset_bottom = 388.0
 
 [node name="Button_Text" parent="CancelButton" index="1"]
-offset_left = 55.4446
-offset_top = 74.0001
-offset_right = 279.445
-offset_bottom = 120.0
+offset_left = -7.40747
+offset_top = 70.3705
+offset_right = 216.593
+offset_bottom = 116.37
+bbcode_enabled = true
 text = "Cancel"
 
 [node name="InstructionIndicator" type="Sprite2D" parent="."]
@@ -105,11 +113,13 @@ position = Vector2(864.688, 20.8125)
 scale = Vector2(0.270521, 0.117292)
 texture = ExtResource("7_rnxi8")
 
-[node name="InstructionText" type="Label" parent="InstructionIndicator"]
-offset_left = -502.0
-offset_top = -160.0
-offset_right = 533.0
-offset_bottom = 138.0
+[node name="InstructionText" type="Label" parent="."]
+offset_left = 725.0
+offset_top = 8.0
+offset_right = 998.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hello"
 
 [node name="Button_Bar" type="HBoxContainer" parent="."]
 offset_left = 1023.0
@@ -217,16 +227,31 @@ offset_top = 514.0
 offset_right = 824.0
 offset_bottom = 554.0
 
-[node name="PhaseMaster_Finite_State_Machine" type="Node" parent="." node_paths=PackedStringArray("PopupController", "GUIMasterController", "InstructionIndicator", "ConfirmButton", "CancelButton")]
+[node name="PhaseMaster_Finite_State_Machine" type="Node" parent="." node_paths=PackedStringArray("PopupController", "AnimationController", "GUIMasterController", "InstructionIndicator", "ConfirmButton", "CancelButton")]
 script = ExtResource("27_3bpma")
 PopupController = NodePath("../Popup_Controller")
+AnimationController = NodePath("../Card_Animation_Controller")
 GUIMasterController = NodePath("..")
-InstructionIndicator = NodePath("../InstructionIndicator/InstructionText")
+InstructionIndicator = NodePath("../InstructionText")
 ConfirmButton = NodePath("../ConfirmButton")
 CancelButton = NodePath("../CancelButton")
 
 [node name="StartPhase" type="Node" parent="PhaseMaster_Finite_State_Machine"]
 script = ExtResource("28_n4hw6")
+
+[node name="PrivPhase" type="Node" parent="PhaseMaster_Finite_State_Machine"]
+script = ExtResource("29_ggjra")
+
+[node name="RefillPhase" type="Node" parent="PhaseMaster_Finite_State_Machine"]
+script = ExtResource("30_6rh34")
+
+[node name="MainPhase" type="Node" parent="PhaseMaster_Finite_State_Machine"]
+
+[node name="SkillPhase" type="Node" parent="PhaseMaster_Finite_State_Machine"]
+
+[node name="NoblePhase" type="Node" parent="PhaseMaster_Finite_State_Machine"]
+
+[node name="EndPhase" type="Node" parent="PhaseMaster_Finite_State_Machine"]
 
 [node name="CardDetailLookup" type="Node" parent="."]
 script = ExtResource("26_tgy5j")
