@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://c3cyyo2gkhaqq"]
+[gd_scene load_steps=31 format=3 uid="uid://c3cyyo2gkhaqq"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ooqqt"]
 [ext_resource type="PackedScene" uid="uid://dudph7sk1dggs" path="res://board.tscn" id="1_xmi4d"]
@@ -17,7 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://c63li1egl8ecb" path="res://Player_Banner.tscn" id="14_2y4se"]
 [ext_resource type="PackedScene" uid="uid://dtnb2wl2t0pfa" path="res://player_banner_red.tscn" id="15_amsr3"]
 [ext_resource type="PackedScene" uid="uid://dw1i771sno11i" path="res://banner_controller.tscn" id="15_twjjj"]
-[ext_resource type="PackedScene" uid="uid://djqrwm4txbxnh" path="res://player_2_card_interaction_popup.tscn" id="16_jxp60"]
 [ext_resource type="PackedScene" uid="uid://diygr5u4sxne3" path="res://message_controller.tscn" id="17_miahb"]
 [ext_resource type="Script" path="res://Card_Animation_Controller.gd" id="17_wowms"]
 [ext_resource type="PackedScene" uid="uid://bkhe3m1kioii0" path="res://token.tscn" id="18_d66wb"]
@@ -26,8 +25,11 @@
 [ext_resource type="Texture2D" uid="uid://bda0w8fashmo5" path="res://Fairy Pics/BluePhasePopup.png" id="23_k33iy"]
 [ext_resource type="PackedScene" uid="uid://bmutapjdu2e6u" path="res://popup_window.tscn" id="23_lbcph"]
 [ext_resource type="PackedScene" uid="uid://dbe7jscrf203a" path="res://Blind_popup.tscn" id="25_vu2im"]
+[ext_resource type="PackedScene" uid="uid://dm1glmx00efrr" path="res://steal_token_popup.tscn" id="26_c0btu"]
 [ext_resource type="Script" path="res://CardDetailLookup.gd" id="26_tgy5j"]
+[ext_resource type="Script" path="res://PhaseMaster_Finite_State_Machine.gd" id="27_3bpma"]
 [ext_resource type="Script" path="res://PlaceHolder_Dummy_Responder.gd" id="27_c3tbu"]
+[ext_resource type="Script" path="res://StartPhase.gd" id="28_n4hw6"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("PlayerBanner1", "PlayerBanner2", "Board", "CardPile", "ConfirmButton", "CancelButton", "ButtonBar", "BannerController", "CardAnimationController", "PopupController", "MessageController", "CardLookup", "InstructionIndicator", "PhaseMasterFSM") groups=["GUIMasterController"]]
 script = ExtResource("1_ooqqt")
@@ -131,10 +133,6 @@ layout_mode = 2
 texture_normal = ExtResource("8_167hf")
 texture_pressed = ExtResource("9_kij6r")
 
-[node name="Player2_Card_Interaction_Popup" parent="." instance=ExtResource("16_jxp60")]
-visible = false
-position = Vector2(-352, 564)
-
 [node name="Banner_Controller" parent="." instance=ExtResource("15_twjjj")]
 offset_left = 694.0
 offset_top = 34.0
@@ -210,7 +208,7 @@ visible = false
 position = Vector2(-51, 230)
 scale = Vector2(0.53, 0.53)
 
-[node name="StealToken_Popup" type="Node2D" parent="Popup_Controller"]
+[node name="StealToken_Popup" parent="Popup_Controller" instance=ExtResource("26_c0btu")]
 visible = false
 
 [node name="Message_Controller" parent="." instance=ExtResource("17_miahb")]
@@ -219,9 +217,16 @@ offset_top = 514.0
 offset_right = 824.0
 offset_bottom = 554.0
 
-[node name="PhaseMaster_Finite_State_Machine" type="Node" parent="."]
+[node name="PhaseMaster_Finite_State_Machine" type="Node" parent="." node_paths=PackedStringArray("PopupController", "GUIMasterController", "InstructionIndicator", "ConfirmButton", "CancelButton")]
+script = ExtResource("27_3bpma")
+PopupController = NodePath("../Popup_Controller")
+GUIMasterController = NodePath("..")
+InstructionIndicator = NodePath("../InstructionIndicator/InstructionText")
+ConfirmButton = NodePath("../ConfirmButton")
+CancelButton = NodePath("../CancelButton")
 
-[node name="Node" type="Node" parent="PhaseMaster_Finite_State_Machine"]
+[node name="StartPhase" type="Node" parent="PhaseMaster_Finite_State_Machine"]
+script = ExtResource("28_n4hw6")
 
 [node name="CardDetailLookup" type="Node" parent="."]
 script = ExtResource("26_tgy5j")

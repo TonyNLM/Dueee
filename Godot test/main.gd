@@ -21,6 +21,9 @@ signal CardRefillAnimationFinishCallback(tier, Pos)
 
 signal BlindReserveFinishCallback(Tier)
 
+
+signal StealTokenRequest(Colour)
+
 @export var PlayerBanner1: Node 
 @export var PlayerBanner2: Node
 @export var Board: Node
@@ -347,6 +350,17 @@ func RemoveNoble(nobleID:int):
 #Region: BannerFunctionCalls----------------------------------------
 
 
+
+#Region: Skills
+
+
+#Skill:Steal Token
+func ShowStealTokenPopup(ColourArray):
+	PopupController.StealToken_Popup.ShowWindow(ColourArray)	
+func HideStealTokenPopup():	
+	PopupController.StealToken_Popup.HideWindow()	
+func StealTokenSendSignal(Colour:Enums.TokenColour):
+	StealTokenRequest.emit(Colour)
 
 
 

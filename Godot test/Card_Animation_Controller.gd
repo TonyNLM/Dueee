@@ -60,7 +60,7 @@ func _ready():
 	Move_Card=$Move_Card
 	PhaseIndicatorObj=$Move_PhaseIndicator
 	PhaseIndicatorState=Enums.PhaseIndicatorState.Auto_In
-	ChangePhaseTo("Start of Phase")
+	ChangePhaseTextTo("Start of Phase")
 	PhaseIndicatorObj.get_node("PhaseClickable").connect("pressed", OnPhaseIndicatorClick)
 	
 	
@@ -220,7 +220,7 @@ func OnPhaseIndicatorClick():
 		PhaseIndicatorState=Enums.PhaseIndicatorState.Auto_In
 	SetPhaseIndicatorToLocation(PhaseIndicatorState)
 	
-func ChangePhaseTo(phaseDesc:String):
+func ChangePhaseTextTo(phaseDesc:String):
 	PhaseIndicatorObj.get_node("PhaseText").text = phaseDesc
 	if PhaseIndicatorState==Enums.PhaseIndicatorState.Toggle_Out:
 		return
@@ -270,10 +270,4 @@ func _process(delta):
 
 	
 
-func _on_Timer_timeout():
-	var firstParam = randf_range(1, 4)
-	var secondParam = randf_range(0, 3)
-	#MoveTierCardToPosition(firstParam, secondParam)
-	MoveCardToPosition(firstParam, secondParam, 1)
 
-	ChangePhaseTo(str(firstParam))

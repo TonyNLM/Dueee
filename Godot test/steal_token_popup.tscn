@@ -1,0 +1,125 @@
+[gd_scene load_steps=5 format=3 uid="uid://dm1glmx00efrr"]
+
+[ext_resource type="Script" path="res://steal_token_popup.gd" id="1_5p1q4"]
+[ext_resource type="Texture2D" uid="uid://bn15ytn7353ei" path="res://Fairy Pics/popup.png" id="2_v6ne7"]
+[ext_resource type="PackedScene" uid="uid://bkhe3m1kioii0" path="res://token.tscn" id="3_lipee"]
+[ext_resource type="Texture2D" uid="uid://0yk615dirpwe" path="res://Fairy Pics/DirectionButton.png" id="4_xyevn"]
+
+[node name="StealToken_Popup" type="Node2D"]
+script = ExtResource("1_5p1q4")
+DescendDistance = 300
+
+[node name="InputBlocker" type="TextureRect" parent="."]
+offset_left = -916.0
+offset_top = -733.0
+offset_right = 1487.0
+offset_bottom = 997.0
+mouse_filter = 0
+
+[node name="Popup" type="Sprite2D" parent="."]
+position = Vector2(581, 518)
+scale = Vector2(0.953333, 0.286328)
+texture = ExtResource("2_v6ne7")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 279.0
+offset_top = 382.0
+offset_right = 915.0
+offset_bottom = 434.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Take One Token From Your Opponent"
+
+[node name="Tokens" type="HBoxContainer" parent="."]
+offset_left = 83.0
+offset_top = 456.0
+offset_right = 1210.0
+offset_bottom = 626.0
+
+[node name="CenterContainer0" type="CenterContainer" parent="Tokens"]
+custom_minimum_size = Vector2(165, 170)
+layout_mode = 2
+
+[node name="Token" parent="Tokens/CenterContainer0" instance=ExtResource("3_lipee")]
+scale = Vector2(0.415, 0.415)
+
+[node name="Button" type="Button" parent="Tokens/CenterContainer0/Token"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 398.0
+offset_bottom = 402.0
+
+[node name="CenterContainer1" type="CenterContainer" parent="Tokens"]
+custom_minimum_size = Vector2(165, 170)
+layout_mode = 2
+
+[node name="Token" parent="Tokens/CenterContainer1" instance=ExtResource("3_lipee")]
+scale = Vector2(0.415, 0.415)
+
+[node name="Button" type="Button" parent="Tokens/CenterContainer1/Token"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 398.0
+offset_bottom = 402.0
+
+[node name="CenterContainer2" type="CenterContainer" parent="Tokens"]
+custom_minimum_size = Vector2(165, 170)
+layout_mode = 2
+
+[node name="Token" parent="Tokens/CenterContainer2" instance=ExtResource("3_lipee")]
+scale = Vector2(0.415, 0.415)
+
+[node name="Button" type="Button" parent="Tokens/CenterContainer2/Token"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 398.0
+offset_bottom = 402.0
+
+[node name="CenterContainer3" type="CenterContainer" parent="Tokens"]
+custom_minimum_size = Vector2(165, 170)
+layout_mode = 2
+
+[node name="Token" parent="Tokens/CenterContainer3" instance=ExtResource("3_lipee")]
+scale = Vector2(0.415, 0.415)
+
+[node name="Button" type="Button" parent="Tokens/CenterContainer3/Token"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 398.0
+offset_bottom = 402.0
+
+[node name="CenterContainer4" type="CenterContainer" parent="Tokens"]
+custom_minimum_size = Vector2(165, 170)
+layout_mode = 2
+
+[node name="Token" parent="Tokens/CenterContainer4" instance=ExtResource("3_lipee")]
+scale = Vector2(0.415, 0.415)
+
+[node name="Button" type="Button" parent="Tokens/CenterContainer4/Token"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 398.0
+offset_bottom = 402.0
+
+[node name="CenterContainer5" type="CenterContainer" parent="Tokens"]
+custom_minimum_size = Vector2(165, 170)
+layout_mode = 2
+
+[node name="Token" parent="Tokens/CenterContainer5" instance=ExtResource("3_lipee")]
+scale = Vector2(0.415, 0.415)
+
+[node name="Button" type="Button" parent="Tokens/CenterContainer5/Token"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 398.0
+offset_bottom = 402.0
+
+[node name="FoldButton" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 962.0
+offset_top = 287.0
+offset_right = 1362.0
+offset_bottom = 687.0
+scale = Vector2(0.31, 0.31)
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="ButtonSprite" type="Sprite2D" parent="FoldButton"]
+position = Vector2(196.774, 203.226)
+rotation = -3.14159
+scale = Vector2(1, 1)
+texture = ExtResource("4_xyevn")
