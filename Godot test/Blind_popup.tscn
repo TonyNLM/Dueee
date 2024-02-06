@@ -1,0 +1,74 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbe7jscrf203a"]
+
+[ext_resource type="Script" path="res://noble_popup.gd" id="1_kg2mu"]
+[ext_resource type="Texture2D" uid="uid://bn15ytn7353ei" path="res://Fairy Pics/popup.png" id="1_ygfmv"]
+[ext_resource type="Texture2D" uid="uid://bmibe8q40nnos" path="res://Fairy Pics/close.png" id="2_lh2pl"]
+[ext_resource type="PackedScene" uid="uid://0ux41700ls1o" path="res://ButtonText.tscn" id="3_gb6bv"]
+[ext_resource type="Texture2D" uid="uid://c3feee06a8gpk" path="res://Fairy Pics/tier3CardBack.png" id="4_wp4d4"]
+[ext_resource type="Texture2D" uid="uid://dc13766imjok1" path="res://Fairy Pics/info.png" id="6_eaylh"]
+
+[node name="Blind_Popup" type="Node2D"]
+script = ExtResource("1_kg2mu")
+
+[node name="TouchBlocker" type="BoxContainer" parent="."]
+offset_right = 1414.0
+offset_bottom = 801.0
+mouse_filter = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Popup" type="Sprite2D" parent="."]
+position = Vector2(743.125, 391.25)
+scale = Vector2(1.09271, 0.658333)
+texture = ExtResource("1_ygfmv")
+
+[node name="Close_Button" type="TextureButton" parent="."]
+offset_left = 1271.25
+offset_top = -32.5
+offset_right = 1571.25
+offset_bottom = 267.5
+scale = Vector2(0.475, 0.475)
+texture_normal = ExtResource("2_lh2pl")
+metadata/_edit_use_anchors_ = true
+
+[node name="ReserveButton" parent="." instance=ExtResource("3_gb6bv")]
+position = Vector2(32, -8)
+
+[node name="Button_Icon" parent="ReserveButton" index="0"]
+offset_left = 746.25
+offset_top = 102.5
+offset_right = 1946.25
+offset_bottom = 492.5
+metadata/_edit_use_anchors_ = true
+
+[node name="Button_Text" parent="ReserveButton" index="1"]
+offset_left = 881.0
+offset_top = 176.0
+offset_right = 1105.0
+offset_bottom = 222.0
+text = "Blind Reserve"
+metadata/_edit_use_anchors_ = true
+
+[node name="Tier_Card" type="Sprite2D" parent="."]
+position = Vector2(448, 397.25)
+scale = Vector2(0.71, 0.6975)
+texture = ExtResource("4_wp4d4")
+
+[node name="Infobox" type="Sprite2D" parent="."]
+position = Vector2(1033.13, 635.156)
+scale = Vector2(0.496875, 0.633854)
+texture = ExtResource("6_eaylh")
+
+[node name="InfoText" type="RichTextLabel" parent="."]
+offset_left = 774.0
+offset_top = 533.0
+offset_right = 1145.0
+offset_bottom = 670.0
+scale = Vector2(1.43, 1.43)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 20
+text = "Default"
+metadata/_edit_use_anchors_ = true
+
+[editable path="ReserveButton"]

@@ -10,8 +10,16 @@ signal TakeTokenRequest(Token_Position:TokenArray)
 signal CardPurchasableCheckRequest(SelectedCard)
 signal PurchaseCardRequest(SelectedCard)
 signal ReserveCardRequest(SelectedCard)
+
+signal BlindReserveCheckRequest(Tier)
+signal BlindReserveTakeRequest(SelectedCard)
+
+
+
 signal CardTakenAnimationFinishCallback(tier, Pos)
 signal CardRefillAnimationFinishCallback(tier, Pos)
+
+signal BlindReserveFinishCallback(Tier)
 
 @export var PlayerBanner1: Node 
 @export var PlayerBanner2: Node
@@ -25,7 +33,8 @@ signal CardRefillAnimationFinishCallback(tier, Pos)
 @export var PopupController: Node
 @export var MessageController: Node
 @export var CardLookup: Node
-
+@export var InstructionIndicator:Node
+@export var PhaseMasterFSM:Node
 var CurrentPlayer
 
 
@@ -251,17 +260,30 @@ func PushNewCard(tier:int=-1, pos:int = -1):
 	pass
 
 
-
-
-func ShowCardPopupWindow(card_no, popupState: Enums.CardPopupState):
+func SendBlindReserveToPlayer(player, tier):
+	CardAnimationController.MoveBlindReserveToPlayer(player, tier)
+	
+	
+func ShowCardPopupWindow(card_no, popupState: Enums.CardPopupState, additionalText):
 	var card_popup_window = PopupController.get_node("Card_Popup")
 	card_popup_window.AlterPopupState(popupState)
 	card_popup_window.SetupPopupWindow(card_no)
+	card_popup_window.AlterCardDescription(additionalText)
 	card_popup_window.ShowPopupWindow()
 func HideCardPopupWindow():
 	var card_popup_window = PopupController.get_node("Card_Popup")
 	card_popup_window.HidePopupWindow()
 	
+func ShowBlindReservePopupWindow(Tier, popupState: Enums.CardPopupState, remainingCount):
+	var blind_popup_window = PopupController.get_node("Blind_Popup")
+	blind_popup_window.AlterPopupState(popupState)
+	blind_popup_window.SetupPopupWindow(Tier)
+	blind_popup_window.AlterRemainingCardPileCount(remainingCount)
+	blind_popup_window.ShowPopupWindow()
+func HideBlindReservePopupWindow():
+	var blind_popup_window = PopupController.get_node("Blind_Popup")
+	blind_popup_window.HidePopupWindow()
+		
 	
 	
 #signal related
@@ -271,10 +293,17 @@ func RequestPurchaseCard(card_No):
 	PurchaseCardRequest.emit(card_No)
 func RequestReserveCard(card_No):
 	ReserveCardRequest.emit(card_No)
+func RequestBlindReservePopup(Tier):
+	BlindReserveCheckRequest.emit(Tier)
+func RequestBlindReserveTake(Tier):
+	BlindReserveTakeRequest.emit(Tier)
+	
 func FinishCardToPlayerAnim(tier, Pos):
 	CardTakenAnimationFinishCallback.emit(tier, Pos)
 func FinishTierToSlotAnim(tier, Pos):
 	CardRefillAnimationFinishCallback.emit(tier, Pos)
+func FinishBlindReserveAnim(Tier):
+	BlindReserveFinishCallback.emit(Tier)
 #signal related
 #Region: End of Card Pile Calls----------------------------
 

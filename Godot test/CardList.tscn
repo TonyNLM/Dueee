@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dkxiywhpo54ww"]
+[gd_scene load_steps=8 format=3 uid="uid://dkxiywhpo54ww"]
 
 [ext_resource type="PackedScene" uid="uid://drtpxaydwef5n" path="res://card_base.tscn" id="1_0o4n2"]
 [ext_resource type="Script" path="res://CardList.gd" id="1_mon3c"]
 [ext_resource type="Texture2D" uid="uid://cxldofsyrku4j" path="res://Fairy Pics/tier1CardBack.png" id="2_cj670"]
 [ext_resource type="PackedScene" uid="uid://cionjq2bck6s0" path="res://Card_Button.tscn" id="3_moseu"]
+[ext_resource type="Script" path="res://TierCard.gd" id="3_qivey"]
 [ext_resource type="Texture2D" uid="uid://bwqht75wqi8sl" path="res://Fairy Pics/tier2CardBack.png" id="4_g5ujn"]
 [ext_resource type="Texture2D" uid="uid://c3feee06a8gpk" path="res://Fairy Pics/tier3CardBack.png" id="5_u8lof"]
 
@@ -28,6 +29,17 @@ position = Vector2(203.846, 250)
 scale = Vector2(0.505, 0.505)
 texture = ExtResource("5_u8lof")
 
+[node name="TierButton" type="Button" parent="HBoxContainer3/CenterContainer/Tier_Card"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -388.0
+offset_top = -487.0
+offset_right = 396.0
+offset_bottom = 495.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_qivey")
+tier = 3
+
 [node name="CenterContainer2" parent="HBoxContainer3" instance=ExtResource("3_moseu")]
 layout_mode = 2
 
@@ -49,6 +61,17 @@ layout_mode = 2
 position = Vector2(203.846, 250)
 scale = Vector2(0.505, 0.505)
 texture = ExtResource("4_g5ujn")
+
+[node name="TierButton" type="Button" parent="HBoxContainer2/CenterContainer/Tier_Card"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -388.0
+offset_top = -487.0
+offset_right = 396.0
+offset_bottom = 495.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_qivey")
+tier = 2
 
 [node name="CenterContainer2" parent="HBoxContainer2" instance=ExtResource("3_moseu")]
 layout_mode = 2
@@ -74,6 +97,17 @@ layout_mode = 2
 position = Vector2(203.846, 250)
 scale = Vector2(0.505, 0.505)
 texture = ExtResource("2_cj670")
+
+[node name="TierButton" type="Button" parent="HBoxContainer/CenterContainer/Tier_Card"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -388.0
+offset_top = -487.0
+offset_right = 396.0
+offset_bottom = 495.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("3_qivey")
+tier = 1
 
 [node name="CenterContainer2" parent="HBoxContainer" instance=ExtResource("3_moseu")]
 layout_mode = 2

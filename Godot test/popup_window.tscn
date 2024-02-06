@@ -15,6 +15,7 @@ script = ExtResource("1_7uqpc")
 offset_right = 1414.0
 offset_bottom = 801.0
 mouse_filter = 0
+metadata/_edit_use_anchors_ = true
 
 [node name="Popup" type="Sprite2D" parent="."]
 position = Vector2(743.125, 391.25)
@@ -32,6 +33,7 @@ offset_right = 1571.25
 offset_bottom = 267.5
 scale = Vector2(0.475, 0.475)
 texture_normal = ExtResource("2_5htou")
+metadata/_edit_use_anchors_ = true
 
 [node name="PurchaseButton" parent="." instance=ExtResource("5_suu6o")]
 
@@ -40,6 +42,7 @@ offset_left = 751.0
 offset_top = 114.0
 offset_right = 1919.0
 offset_bottom = 511.0
+metadata/_edit_use_anchors_ = true
 
 [node name="Button_Text" parent="PurchaseButton" index="1"]
 offset_left = 967.5
@@ -47,6 +50,7 @@ offset_top = 188.75
 offset_right = 1191.5
 offset_bottom = 234.75
 text = "Purchase"
+metadata/_edit_use_anchors_ = true
 
 [node name="ReserveButton" parent="." instance=ExtResource("5_suu6o")]
 position = Vector2(2.5, 212.5)
@@ -56,6 +60,7 @@ offset_left = 746.25
 offset_top = 102.5
 offset_right = 1946.25
 offset_bottom = 492.5
+metadata/_edit_use_anchors_ = true
 
 [node name="Button_Text" parent="ReserveButton" index="1"]
 offset_left = 963.75
@@ -63,6 +68,7 @@ offset_top = 176.25
 offset_right = 1187.75
 offset_bottom = 222.25
 text = "Reserve"
+metadata/_edit_use_anchors_ = true
 
 [node name="Infobox" type="Sprite2D" parent="."]
 position = Vector2(1033.13, 635.156)
@@ -80,6 +86,7 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 20
 text = "Default"
+metadata/_edit_use_anchors_ = true
 
 [editable path="PurchaseButton"]
 [editable path="ReserveButton"]

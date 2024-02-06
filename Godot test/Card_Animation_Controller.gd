@@ -11,6 +11,7 @@ var Move_Card
 
 var TierTween
 var CardTween
+var BlindTierTween
 
 
 
@@ -135,6 +136,29 @@ func MoveCardToPosition(player:int, tier:int, slot:int):
 	
 	
 	
+	
+
+func MoveBlindReserveToPlayer(player, tier:int):
+	var MoveTierDupe = self.get_parent().get_node_or_null("Move_Tier")
+	if MoveTierDupe == null:
+		MoveTierDupe = Move_Tier.duplicate()
+		self.get_parent().add_child(MoveTierDupe)
+	MoveTierDupe.texture = Tier_Icons[tier]
+	var index = tier-1
+	
+	MoveTierDupe.global_position = tier_element_array[index].global_position
+	if BlindTierTween:
+		BlindTierTween.kill()
+	BlindTierTween = create_tween()
+	MoveTierDupe.modulate.a=1
+	var finish_callback = func MoveTierFinish():
+		get_tree().call_group("GUIMasterController", "FinishBlindReserveAnim", tier)
+	##print(tier_element_array[0].position)
+	#TierTween.tween_property(Move_Tier, "position", card_element_array[tier][slot].global_position, 4)
+	##print(Move_Tier.global_position, tier_element_array[tier].global_position)
+	BlindTierTween.tween_property(MoveTierDupe, "position", Vector2(0,0), 1)
+	BlindTierTween.tween_callback(finish_callback)
+	BlindTierTween.tween_property(MoveTierDupe, "modulate", Color(1,1,1,0), 1)	
 	
 	
 	
