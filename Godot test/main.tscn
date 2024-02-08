@@ -38,6 +38,7 @@
 [ext_resource type="Script" path="res://EndPhase.gd" id="34_lp487"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("PlayerBanner1", "PlayerBanner2", "Board", "CardPile", "ConfirmButton", "CancelButton", "ButtonBar", "BannerController", "CardAnimationController", "PopupController", "MessageController", "CardLookup", "InstructionIndicator", "PhaseMasterFSM") groups=["GUIMasterController"]]
+scale = Vector2(1.675, 1.675)
 script = ExtResource("1_ooqqt")
 PlayerBanner1 = NodePath("Player_Banner")
 PlayerBanner2 = NodePath("Player_Banner2")

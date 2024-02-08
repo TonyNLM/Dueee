@@ -121,5 +121,4 @@ size_flags_vertical = 8
 [node name="ButtonSprite" type="Sprite2D" parent="FoldButton"]
 position = Vector2(196.774, 203.226)
 rotation = -3.14159
-scale = Vector2(1, 1)
 texture = ExtResource("4_xyevn")
