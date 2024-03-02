@@ -103,7 +103,7 @@ func MoveTierCardToPosition(tier:int, slot:int):
 	##print(tier_element_array[0].position)
 	#TierTween.tween_property(Move_Tier, "position", card_element_array[tier][slot].global_position, 4)
 	##print(Move_Tier.global_position, tier_element_array[tier].global_position)
-	TierTween.tween_property(Move_Tier, "position", card_element_array[index][slot].global_position, 1)
+	TierTween.tween_property(Move_Tier, "global_position", card_element_array[index][slot].global_position, 1)
 	TierTween.tween_callback(finish_callback)
 	TierTween.tween_property(Move_Tier, "modulate", Color(1,1,1,0), 1)
 	
@@ -156,7 +156,7 @@ func MoveBlindReserveToPlayer(player, tier:int):
 	##print(tier_element_array[0].position)
 	#TierTween.tween_property(Move_Tier, "position", card_element_array[tier][slot].global_position, 4)
 	##print(Move_Tier.global_position, tier_element_array[tier].global_position)
-	BlindTierTween.tween_property(MoveTierDupe, "position", Vector2(0,0), 1)
+	BlindTierTween.tween_property(MoveTierDupe, "global_position", Vector2(0,0), 1)
 	BlindTierTween.tween_callback(finish_callback)
 	BlindTierTween.tween_property(MoveTierDupe, "modulate", Color(1,1,1,0), 1)	
 	
@@ -181,7 +181,7 @@ func SpawnTokenToPlayer(tokenObj, player:int):
 		
 		
 		
-	TokenTween.tween_property(newMoveToken, "position", Vector2(0,0), 0.8).set_trans(Tween.TRANS_QUART)
+	TokenTween.tween_property(newMoveToken, "global_position", Vector2(0,0), 0.8).set_trans(Tween.TRANS_QUART)
 	TokenTween.tween_callback(finish_callback)
 	
 func SpawnTokenToBoard(tokenObj):
@@ -198,7 +198,7 @@ func SpawnTokenToBoard(tokenObj):
 		
 		
 		
-	TokenTween.tween_property(newMoveToken, "position", tokenObj.global_position, 0.8).set_trans(Tween.TRANS_QUART)
+	TokenTween.tween_property(newMoveToken, "global_position", tokenObj.global_position, 0.8).set_trans(Tween.TRANS_QUART)
 	TokenTween.tween_callback(RemoveToken)
 	
 	
